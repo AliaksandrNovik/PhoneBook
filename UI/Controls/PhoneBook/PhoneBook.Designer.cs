@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.Controls
 {
     partial class PhoneBook
     {
@@ -37,7 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(13, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
@@ -48,9 +48,10 @@
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.Location = new System.Drawing.Point(58, 3);
+            this.searchBox.Location = new System.Drawing.Point(75, 16);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(0);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(308, 22);
+            this.searchBox.Size = new System.Drawing.Size(275, 22);
             this.searchBox.TabIndex = 1;
             // 
             // phonesTable
@@ -59,10 +60,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.phonesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.phonesTable.Location = new System.Drawing.Point(6, 31);
+            this.phonesTable.Location = new System.Drawing.Point(16, 41);
+            this.phonesTable.Margin = new System.Windows.Forms.Padding(0);
             this.phonesTable.Name = "phonesTable";
             this.phonesTable.RowTemplate.Height = 24;
-            this.phonesTable.Size = new System.Drawing.Size(360, 303);
+            this.phonesTable.Size = new System.Drawing.Size(334, 158);
             this.phonesTable.TabIndex = 2;
             // 
             // PhoneBook
@@ -72,8 +74,10 @@
             this.Controls.Add(this.phonesTable);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "PhoneBook";
-            this.Size = new System.Drawing.Size(369, 337);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(477, 244);
             ((System.ComponentModel.ISupportInitialize)(this.phonesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
