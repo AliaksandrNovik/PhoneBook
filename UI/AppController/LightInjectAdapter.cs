@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI.ApplicationController
+namespace UI.AppController
 {
     public class LightInjectAdapder : IContainer
     {

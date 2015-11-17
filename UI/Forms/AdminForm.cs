@@ -56,15 +56,5 @@ namespace UI.Forms
                 throw new NotImplementedException();
             }
         }
-
-        void IVew.Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IVew.Show()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

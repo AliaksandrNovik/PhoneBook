@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace UI.ApplicationController
+namespace UI.AppController
 {
     public interface IContainer
     {

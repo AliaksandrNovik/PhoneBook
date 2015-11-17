@@ -50,12 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationController\ApplicationController.cs" />
-    <Compile Include="ApplicationController\IApplicationController.cs" />
-    <Compile Include="ApplicationController\IContainer.cs" />
-    <Compile Include="ApplicationController\IPresenter.cs" />
-    <Compile Include="ApplicationController\IView.cs" />
-    <Compile Include="ApplicationController\LightInjectAdapter.cs" />
+    <Compile Include="AppController\ApplicationController.cs" />
+    <Compile Include="AppController\BasePresenter.cs" />
+    <Compile Include="AppController\IApplicationController.cs" />
+    <Compile Include="AppController\IContainer.cs" />
+    <Compile Include="AppController\IPresenter.cs" />
+    <Compile Include="AppController\IView.cs" />
+    <Compile Include="AppController\LightInjectAdapter.cs" />
+    <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Views\IManagerView.cs" />
     <Compile Include="Controls\PhoneBook\PhoneBook.cs">
       <SubType>UserControl</SubType>

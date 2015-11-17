@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{554F632B-8CFB-4D89-BAA8-C0DB22B02E5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E8A5D0F-E10A-47EC-8443-2929EE463F39} = {8E8A5D0F-E10A-47EC-8443-2929EE463F39}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{546C3B67-B789-4ECB-83AF-15751F0A2AF7}"
 EndProject
