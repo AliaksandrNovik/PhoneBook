@@ -56,5 +56,15 @@ namespace UI.Forms
                 throw new NotImplementedException();
             }
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
