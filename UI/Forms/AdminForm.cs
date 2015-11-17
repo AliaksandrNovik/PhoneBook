@@ -66,5 +66,10 @@ namespace UI.Forms
         {
 
         }
+
+        private void Find_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
