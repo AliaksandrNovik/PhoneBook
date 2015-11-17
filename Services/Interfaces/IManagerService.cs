@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    public interface IManagerView
+    public interface IManagerService
+    {
+    }
+
+    public class DummyManagerService : IManagerService
     {
     }
 }

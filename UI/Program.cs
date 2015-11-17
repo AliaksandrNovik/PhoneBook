@@ -31,7 +31,9 @@ namespace UI
                 .RegisterView<IEmployeeView, EmployeeForm>()
                 .RegisterService<IEmployeeService, DummyEmployeeService>()
                 .RegisterView<IAdminView, AdminForm>()
-                .RegisterService<IAdminService, DummyAdminService>();
+                .RegisterService<IAdminService, DummyAdminService>()
+                .RegisterView<IManagerView, ManagerForm>()
+                .RegisterService<IManagerService, DummyManagerService>();
 
             controller.Run<LoginPresenter>();
         }

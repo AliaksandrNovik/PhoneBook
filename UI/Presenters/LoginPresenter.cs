@@ -35,6 +35,9 @@ namespace UI.Presenters
                 case UserType.Employee:
                     Controller.Run<EmployeePresenter>();
                     break;
+                case UserType.Manager:
+                    Controller.Run<ManagerPresenter>();
+                    break;
                 default:
                     break;
             }
