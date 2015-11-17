@@ -8,13 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using UI.Views;
+using UI.AppController;
+
 namespace UI.Forms
 {
-    public partial class ManagerForm : Form
+    public partial class ManagerForm : Form, IManagerView
     {
-        public ManagerForm()
+        private readonly ApplicationContext _context;
+
+        public ManagerForm(ApplicationContext context)
         {
+            _context = context;
             InitializeComponent();
+        }
+
+        void IView.Show()
+        {
+            _context.MainForm = this;
+            base.Show();
         }
     }
 }
