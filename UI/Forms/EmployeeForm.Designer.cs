@@ -30,8 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.selfStatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phoneBook = new UI.Controls.PhoneBook();
             this.process1 = new System.Diagnostics.Process();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             this.selfStatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(523, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(441, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -51,19 +52,6 @@
             this.selfStatToolStripMenuItem.Name = "selfStatToolStripMenuItem";
             this.selfStatToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
             this.selfStatToolStripMenuItem.Text = "Личная статистика";
-            // 
-            // phoneBook
-            // 
-            this.phoneBook.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.phoneBook.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.phoneBook.Location = new System.Drawing.Point(0, 28);
-            this.phoneBook.Margin = new System.Windows.Forms.Padding(0);
-            this.phoneBook.Name = "phoneBook";
-            this.phoneBook.Padding = new System.Windows.Forms.Padding(10);
-            this.phoneBook.Size = new System.Drawing.Size(514, 246);
-            this.phoneBook.TabIndex = 0;
             // 
             // process1
             // 
@@ -75,12 +63,32 @@
             this.process1.StartInfo.UserName = "";
             this.process1.SynchronizingObject = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Найти";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(68, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(361, 22);
+            this.textBox1.TabIndex = 2;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 283);
-            this.Controls.Add(this.phoneBook);
+            this.ClientSize = new System.Drawing.Size(441, 235);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "EmployeeForm";
@@ -97,7 +105,8 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem selfStatToolStripMenuItem;
-        private Controls.PhoneBook phoneBook;
         private System.Diagnostics.Process process1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

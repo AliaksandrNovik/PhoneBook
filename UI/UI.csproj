@@ -59,12 +59,6 @@
     <Compile Include="AppController\LightInjectAdapter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Views\IManagerView.cs" />
-    <Compile Include="Controls\PhoneBook\PhoneBook.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\PhoneBook\PhoneBook.Designer.cs">
-      <DependentUpon>PhoneBook.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +86,6 @@
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\PhoneBook\PhoneBook.resx">
-      <DependentUpon>PhoneBook.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,7 +115,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{8e8a5d0f-e10a-47ec-8443-2929ee463f39}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

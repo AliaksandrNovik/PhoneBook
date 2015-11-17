@@ -9,16 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using UI.View;
+using UI.AppController;
 
 namespace UI.Forms
 {
     public partial class LoginForm : Form, ILoginView
     {
-        public LoginForm()
+        private readonly ApplicationContext _context;
+        public LoginForm(ApplicationContext context)
         {
+            _context = context;
             InitializeComponent();
 
             submitButton.Click += (sender, args) => Invoke(Submit);
+        }
+
+        //IView interface
+        //
+        void IView.Show()
+        {
+            _context.MainForm = this;
+            Application.Run(_context);
         }
 
         public string Password
@@ -43,6 +54,14 @@ namespace UI.Forms
         public void ShowError(string errorMessage)
         {
             throw new NotImplementedException();
+        }
+
+        private void Invoke(Action action)
+        {
+            if (action != null)
+            {
+                action();
+            }
         }
     }
 }

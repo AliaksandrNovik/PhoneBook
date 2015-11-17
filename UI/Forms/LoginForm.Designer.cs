@@ -60,7 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loginLine.Location = new System.Drawing.Point(15, 68);
             this.loginLine.Name = "loginLine";
-            this.loginLine.Size = new System.Drawing.Size(172, 22);
+            this.loginLine.Size = new System.Drawing.Size(245, 22);
             this.loginLine.TabIndex = 2;
             // 
             // passwordLine
@@ -70,27 +70,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordLine.Location = new System.Drawing.Point(15, 119);
             this.passwordLine.Name = "passwordLine";
-            this.passwordLine.Size = new System.Drawing.Size(172, 22);
+            this.passwordLine.Size = new System.Drawing.Size(245, 22);
             this.passwordLine.TabIndex = 3;
             // 
             // submitButton
             // 
-            this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.submitButton.Location = new System.Drawing.Point(12, 182);
+            this.submitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.submitButton.Location = new System.Drawing.Point(95, 187);
             this.submitButton.Margin = new System.Windows.Forms.Padding(15);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(175, 27);
+            this.submitButton.Size = new System.Drawing.Size(83, 28);
             this.submitButton.TabIndex = 4;
             this.submitButton.Text = "Войти";
             this.submitButton.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.submitButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(199, 221);
+            this.ClientSize = new System.Drawing.Size(272, 233);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.passwordLine);
             this.Controls.Add(this.loginLine);
@@ -99,6 +98,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Войти";
             this.ResumeLayout(false);
             this.PerformLayout();
