@@ -8,15 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using UI.AppController;
+using UI.Views;
+
 
 namespace UI.Forms
 {
-    public partial class EmployeeForm : Form
+    public partial class EmployeeForm : Form, IEmployeeView
     {
-        public EmployeeForm()
+        private readonly ApplicationContext _context;
+
+        public EmployeeForm(ApplicationContext context)
         {
+            _context = context;
             InitializeComponent();
-           // IModel model = new EmployeeForm();
+        }
+
+        void IView.Show()
+        {
+            _context.MainForm = this;
+            base.Show();
         }
     }
 }

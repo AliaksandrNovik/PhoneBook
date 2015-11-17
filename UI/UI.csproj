@@ -57,8 +57,9 @@
     <Compile Include="AppController\IPresenter.cs" />
     <Compile Include="AppController\IView.cs" />
     <Compile Include="AppController\LightInjectAdapter.cs" />
+    <Compile Include="Presenters\AdminPresenter.cs" />
+    <Compile Include="Presenters\EmployeePresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
-    <Compile Include="Views\IManagerView.cs" />
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,8 @@
     <Compile Include="Forms\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IAdminView.cs" />
+    <Compile Include="Views\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerForm.resx">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
