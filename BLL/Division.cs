@@ -8,5 +8,13 @@ namespace BLL
 {
     public class Division
     {
+        public void AddEmployee(Employee employee)
+        {
+        }
+
+        public void AddPhone(Phone phone)
+        {
+
+        }
     }
 }

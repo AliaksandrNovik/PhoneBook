@@ -9,7 +9,7 @@ namespace BLL
     public class Employee
     {
         //personal info
-        //
+        //TODO
         public string FirstName
         {
             get
@@ -59,20 +59,18 @@ namespace BLL
             }
         }
 
-
         //phone methods TODO
         void AddPhone(Phone phone)
         {}
-
         void RemovePhone(Phone phone)
         {}
+        
         //todo add phone accesor method
-
 
         private string firstName;
         private string lastName;
         private string patronym;
         private Division division;
-        private List<Phone> phonesList;
+        private readonly List<Phone> phonesList;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace UI.Forms
 {
     public partial class EmployeeForm : Form
@@ -15,6 +16,7 @@ namespace UI.Forms
         public EmployeeForm()
         {
             InitializeComponent();
+           // IModel model = new EmployeeForm();
         }
     }
 }

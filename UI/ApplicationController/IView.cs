@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI.Basics
+namespace UI.ApplicationController
 {
-    public interface IVew
+    public interface IView
     {
         void Show();
         void Close();

@@ -42,7 +42,7 @@
             this.selfStatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(488, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(523, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,7 +62,7 @@
             this.phoneBook.Margin = new System.Windows.Forms.Padding(0);
             this.phoneBook.Name = "phoneBook";
             this.phoneBook.Padding = new System.Windows.Forms.Padding(10);
-            this.phoneBook.Size = new System.Drawing.Size(479, 216);
+            this.phoneBook.Size = new System.Drawing.Size(514, 246);
             this.phoneBook.TabIndex = 0;
             // 
             // process1
@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 253);
+            this.ClientSize = new System.Drawing.Size(523, 283);
             this.Controls.Add(this.phoneBook);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

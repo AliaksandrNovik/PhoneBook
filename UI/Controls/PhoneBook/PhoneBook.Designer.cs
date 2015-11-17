@@ -60,11 +60,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.phonesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.phonesTable.Location = new System.Drawing.Point(16, 41);
+            this.phonesTable.Location = new System.Drawing.Point(10, 41);
             this.phonesTable.Margin = new System.Windows.Forms.Padding(0);
             this.phonesTable.Name = "phonesTable";
             this.phonesTable.RowTemplate.Height = 24;
-            this.phonesTable.Size = new System.Drawing.Size(334, 158);
+            this.phonesTable.Size = new System.Drawing.Size(457, 193);
             this.phonesTable.TabIndex = 2;
             // 
             // PhoneBook
