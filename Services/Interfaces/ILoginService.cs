@@ -11,4 +11,24 @@ namespace Services.Interfaces
     {
         UserType GetUserType(string userName, string password);
     }
+
+
+    public class DummyLogin : ILoginService
+    {
+        UserType ILoginService.GetUserType(string userName, string password)
+        {
+            if (userName.StartsWith("admin"))
+            {
+                return UserType.Admin;
+            }
+            else if (userName.StartsWith("manager"))
+            {
+                return UserType.Manager;
+            }
+            else
+            {
+                return UserType.Employee;
+            }
+        }
+    }
 }

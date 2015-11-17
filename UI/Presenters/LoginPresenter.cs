@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using UI.AppController;
-using UI.View;
+using UI.Views;
 using Services.Interfaces;
 using UI.Forms;
 
@@ -26,9 +26,19 @@ namespace UI.Presenters
         private void ProcessSubmit(string login, string password)
         {
             //TODO set next window
+            var userType = _service.GetUserType(login, password);
+            switch (userType)
+            {
+                case UserType.Admin:
+                    Controller.Run<AdminPresenter>();
+                    break;
+                case UserType.Employee:
+                    Controller.Run<EmployeePresenter>();
+                    break;
+                default:
+                    break;
+            }
             View.Close();
-            var form = new EmployeeForm();
-            form.Show();
         }
     }
 }

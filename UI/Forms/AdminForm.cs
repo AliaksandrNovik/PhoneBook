@@ -8,68 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using UI.View;
+using UI.Views;
+using UI.AppController;
+
 namespace UI.Forms
 {
-    public partial class AdminForm : Form, IManagerView
+    public partial class AdminForm : Form, IAdminView
     {
-        public AdminForm()
+        private readonly ApplicationContext _context;
+
+        public AdminForm(ApplicationContext context)
         {
+            _context = context;
             InitializeComponent();
         }
 
-        event Action IManagerView.addEmployee
+        void IView.Show()
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        event Action IManagerView.deleteEmployee
-        {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        event Action IManagerView.editEmployee
-        {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Find_Click(object sender, EventArgs e)
-        {
-
+            _context.MainForm = this;
+            base.Show();
         }
     }
 }

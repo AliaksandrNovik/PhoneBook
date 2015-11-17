@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using UI.View;
+using UI.Views;
 using UI.AppController;
 
 namespace UI.Forms

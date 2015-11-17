@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using UI.Forms;
 using UI.AppController;
 
-using UI.View;
+using UI.Views;
 using UI.Presenters;
 using Services.Interfaces;
 
@@ -27,7 +27,11 @@ namespace UI
             var controller = new ApplicationController(new LightInjectAdapder());
             controller.RegisterView<ILoginView, LoginForm>()
                 .RegisterService<ILoginService, DummyLogin>()
-                .RegisterInstance(new ApplicationContext());
+                .RegisterInstance(new ApplicationContext())
+                .RegisterView<IEmployeeView, EmployeeForm>()
+                .RegisterService<IEmployeeService, DummyEmployeeService>()
+                .RegisterView<IAdminView, AdminForm>()
+                .RegisterService<IAdminService, DummyAdminService>();
 
             controller.Run<LoginPresenter>();
         }
