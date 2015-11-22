@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,69 +9,78 @@ namespace BLL
 {
     public class Employee
     {
-        //personal info
-        //TODO
+        private string _firstName;
         public string FirstName
         {
             get
             {
-                return firstName;
+                return _firstName;
             }
             set
             {
-                firstName = value;
+                _firstName = value;
             }
         }
 
+        private string _lastName;
         public string LastName
         {
             get
             {
-                return lastName;
+                return _lastName;
             }
             set
             {
-                lastName = value;
+                _lastName = value;
             }
         }
 
+        private string _patronym;
         public string Patronym
         {
             get
             {
-                return patronym;
+                return _patronym;
             }
             set
             {
-                patronym = value;
+                _patronym = value;
             }
         }
 
-        //unit
+
+        private Division _division;
         public Division WorkingDivision
         {
             get
             {
-                return division;
+                return _division;
             }
             set
             {
-                division = value;
+                
+                _division = value;
             }
         }
 
-        //phone methods TODO
-        void AddPhone(Phone phone)
-        {}
-        void RemovePhone(Phone phone)
-        {}
-        
-        //todo add phone accesor method
+        //Phone methods
+        private IList<Phone> _phones = new List<Phone>();
+        public IReadOnlyCollection<Phone> Phones
+        {
+            get
+            {
+                return new ReadOnlyCollection<Phone>(_phones);
+            }
+        }
 
-        private string firstName;
-        private string lastName;
-        private string patronym;
-        private Division division;
-        private readonly List<Phone> phonesList;
+        void AddPhone(Phone phone)
+        {
+            _phones.Add(phone);
+        }
+
+        void RemovePhone(Phone phone)
+        {
+            _phones.Remove(phone);
+        }
     }
 }

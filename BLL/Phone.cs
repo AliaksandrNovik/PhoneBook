@@ -8,7 +8,11 @@ namespace BLL
 {
     public class Phone
     {
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber
+        {
+            get;
+            set;
+        }
 
         public Division CompanyDivision { get; set; }        
 
