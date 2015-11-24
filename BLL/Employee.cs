@@ -9,57 +9,38 @@ namespace BLL
 {
     public class Employee
     {
-        private string _firstName;
         public string FirstName
         {
-            get
-            {
-                return _firstName;
-            }
-            set
-            {
-                _firstName = value;
-            }
+            get;
+            set;
         }
 
-        private string _lastName;
         public string LastName
         {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                _lastName = value;
-            }
+            get;
+            set;
         }
 
-        private string _patronym;
         public string Patronym
         {
-            get
-            {
-                return _patronym;
-            }
-            set
-            {
-                _patronym = value;
-            }
+            get;
+            set;
         }
 
-
-        private Division _division;
-        public Division WorkingDivision
+        private Department _department;
+        public Department Department
         {
             get
             {
-                return _division;
+                return _department;
             }
-            set
+            internal set
             {
-                
-                _division = value;
+                _department = value;
+                foreach (var phone in _phones)
+                {
+                    phone.Department = _department;
+                }
             }
         }
 
@@ -75,11 +56,14 @@ namespace BLL
 
         void AddPhone(Phone phone)
         {
+            phone.Owner = this;
+            phone.Department = this.Department;
             _phones.Add(phone);
         }
 
         void RemovePhone(Phone phone)
         {
+            phone.Owner = null;
             _phones.Remove(phone);
         }
     }
