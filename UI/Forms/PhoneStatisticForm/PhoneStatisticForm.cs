@@ -46,11 +46,22 @@ namespace UI.Forms
             }
         }
 
+        private List<PhoneStatItemWrap> _items = new List<PhoneStatItemWrap>();
         public IReadOnlyCollection<StatisticItem> PhoneCalls
         {
             set
             {
-                phoneStatSource.DataSource = value;
+                int sum = 0;
+                _items.Clear();
+                phoneStatSource.DataSource = _items;
+                foreach (var newItem in value)
+                {
+                    _items.Add(new PhoneStatItemWrap(newItem));
+                    sum += newItem.TotalPrice;
+                }
+                phoneStatSource.ResetBindings(false);
+
+                summaryPrice.Text = sum.ToString();
             }
         }
 

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace Services.Facade
 {
-    public interface IAdminService
+    public interface ManagerUser : User
     {
-    }
-
-    public class DummyAdminService : IAdminService
-    {
+        EntityId Department
+        { get; set; }
     }
 }

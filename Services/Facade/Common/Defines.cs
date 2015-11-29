@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Entities
+namespace Services.Facade
 {
-    public enum Gender
-    {
-        Male,
-        Female
-    }
+    public class EntityId
+    { };
 }

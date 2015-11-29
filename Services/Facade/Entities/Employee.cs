@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Entities
+namespace Services.Facade
 {
     public interface Employee
     {
-        string EmployeeID
+        string Id
         { get; }
 
+        //own stuff
+        //
         string FirstName
         { get; set; }
 
@@ -20,10 +22,17 @@ namespace Services.Entities
         string Patronym
         { get; set; }
 
-        IDate BirthDate
+        Date BirthDate
         { get; set; }
 
         Gender Gender
+        { get; set; }
+
+        string Place
+        { get; set; }
+
+        //refs
+        EntityId DepartmentId
         { get; set; }
     }
 }

@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Entities
+namespace Services.Facade
 {
-    public interface IDate
+    public interface User
     {
-        int Day
+        EntityId UserId
+        { get; }
+
+        string Login
         { get; set; }
 
-        int Month
-        { get; set; }
-
-        int Year
+        string Password
         { get; set; }
     }
 }

@@ -4,17 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.PhoneService
+namespace Services.Facade
 {
-    class PhoneId
-    { }
-
-    interface Phone
+    public interface EmployeeUser : User
     {
-        PhoneId ID
-        { get; set; }
-
-        string Number
+        EntityId Employee
         { get; set; }
     }
 }

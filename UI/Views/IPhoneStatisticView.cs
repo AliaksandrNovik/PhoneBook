@@ -7,47 +7,36 @@ using UI.AppController;
 
 namespace UI.Views
 {
-    class Name
-    {
-        public Name (string firstName, string secondName, string patronym)
-        {
-            this.FirstName = firstName;
-            this.SecondName = secondName;
-            this.Patronym = patronym;
-        }
-            
-        public string FirstName
-        { get; set; }
-
-        public string SecondName
-        { get; set; }
-
-        public string Patronym
-        { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("{0} {1} {2}", FirstName, SecondName, Patronym);
-        }
-
-    }
     public class StatisticItem
     {
+        public StatisticItem(
+            DateTime dateTime, int durationSecs, 
+            string phone, int pricePerMinute, int totalPrice
+            )
+        {
+            this.DateAndTime = dateTime;
+            this.DurationInSeconds = durationSecs;
+            this.Phone = phone;
+            this.PricePerMinute = pricePerMinute;
+            this.TotalPrice = totalPrice;
+        }
+
         public DateTime DateAndTime
-        { get; set; }
+        { get; private set; }
 
         public int DurationInSeconds
-        { get; set; }
+        { get; private set; }
 
         public string Phone
-        { get; set; }
+        { get; private set; }
 
         public int PricePerMinute
-        { get; set; } 
+        { get; private set; } 
         
-        public int SummaryPrice
-        { get; set; }               
+        public int TotalPrice
+        { get; private set; }               
     }
+
     public interface IPhoneStatisticView : IView
     {
         string Phone

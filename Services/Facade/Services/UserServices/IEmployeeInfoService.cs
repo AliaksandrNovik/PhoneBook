@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace Services.Facade.Services.UserServices
 {
-    public interface IManagerService
+    public interface IEmployeeInfoService
     {
-    }
-
-    public class DummyManagerService : IManagerService
-    {
+        EntityId GetEmployee(IUserInfo info);
     }
 }

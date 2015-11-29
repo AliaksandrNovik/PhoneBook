@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace Services.Facade
 {
-    public enum UserType { Admin, Manager, Employee };
     public interface ILoginService
     {
-        UserType GetUserType(string userName, string password);
+        UserType Login(User user);
     }
 }

@@ -37,22 +37,26 @@
             this.departmentLine = new System.Windows.Forms.Label();
             this.employeeLine = new System.Windows.Forms.Label();
             this.phoneStatGridView = new System.Windows.Forms.DataGridView();
-            this.phoneStatSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.durationInSecondsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DurationInSecs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.summaryPrice = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pricePerMinuteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.summaryPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneStatSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatGridView)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.61238F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.38762F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -66,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(262, 61);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(840, 61);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -133,38 +137,69 @@
             this.phoneStatGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.phoneStatGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.phoneStatGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dateAndTimeDataGridViewTextBoxColumn,
-            this.durationInSecondsDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.DurationInSecs,
             this.phoneDataGridViewTextBoxColumn,
             this.pricePerMinuteDataGridViewTextBoxColumn,
-            this.summaryPriceDataGridViewTextBoxColumn});
+            this.totalPriceDataGridViewTextBoxColumn});
             this.phoneStatGridView.DataSource = this.phoneStatSource;
             this.phoneStatGridView.Location = new System.Drawing.Point(12, 79);
             this.phoneStatGridView.Name = "phoneStatGridView";
             this.phoneStatGridView.ReadOnly = true;
             this.phoneStatGridView.RowTemplate.Height = 24;
-            this.phoneStatGridView.Size = new System.Drawing.Size(806, 384);
+            this.phoneStatGridView.Size = new System.Drawing.Size(866, 331);
             this.phoneStatGridView.TabIndex = 1;
             // 
-            // phoneStatSource
+            // DurationInSecs
             // 
-            this.phoneStatSource.AllowNew = false;
-            this.phoneStatSource.DataSource = typeof(UI.Views.StatisticItem);
+            this.DurationInSecs.DataPropertyName = "DurationInSecs";
+            this.DurationInSecs.HeaderText = "Длительность, сек";
+            this.DurationInSecs.Name = "DurationInSecs";
+            this.DurationInSecs.ReadOnly = true;
             // 
-            // dateAndTimeDataGridViewTextBoxColumn
+            // tableLayoutPanel2
             // 
-            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime + DurationInSeconds";
-            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "Дата и время";
-            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
-            this.dateAndTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateAndTimeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.summaryPrice, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 419);
+            this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(100, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(866, 24);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // durationInSecondsDataGridViewTextBoxColumn
+            // label4
             // 
-            this.durationInSecondsDataGridViewTextBoxColumn.DataPropertyName = "DurationInSeconds";
-            this.durationInSecondsDataGridViewTextBoxColumn.HeaderText = "Длительность, сек";
-            this.durationInSecondsDataGridViewTextBoxColumn.Name = "durationInSecondsDataGridViewTextBoxColumn";
-            this.durationInSecondsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Итого";
+            // 
+            // summaryPrice
+            // 
+            this.summaryPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.summaryPrice.Location = new System.Drawing.Point(769, 0);
+            this.summaryPrice.Name = "summaryPrice";
+            this.summaryPrice.Size = new System.Drawing.Size(94, 24);
+            this.summaryPrice.TabIndex = 1;
+            this.summaryPrice.Text = "0";
+            this.summaryPrice.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "DateAndTime";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Дата и время";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -176,22 +211,27 @@
             // pricePerMinuteDataGridViewTextBoxColumn
             // 
             this.pricePerMinuteDataGridViewTextBoxColumn.DataPropertyName = "PricePerMinute";
-            this.pricePerMinuteDataGridViewTextBoxColumn.HeaderText = "Тариф, руб/мин";
+            this.pricePerMinuteDataGridViewTextBoxColumn.HeaderText = "Тариф, руб./мин";
             this.pricePerMinuteDataGridViewTextBoxColumn.Name = "pricePerMinuteDataGridViewTextBoxColumn";
             this.pricePerMinuteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // summaryPriceDataGridViewTextBoxColumn
+            // totalPriceDataGridViewTextBoxColumn
             // 
-            this.summaryPriceDataGridViewTextBoxColumn.DataPropertyName = "SummaryPrice";
-            this.summaryPriceDataGridViewTextBoxColumn.HeaderText = "Сумма, руб.";
-            this.summaryPriceDataGridViewTextBoxColumn.Name = "summaryPriceDataGridViewTextBoxColumn";
-            this.summaryPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "Сумма, руб.";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneStatSource
+            // 
+            this.phoneStatSource.DataSource = typeof(UI.Forms.PhoneStatItemWrap);
             // 
             // PhoneStatisticForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 475);
+            this.ClientSize = new System.Drawing.Size(890, 455);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.phoneStatGridView);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PhoneStatisticForm";
@@ -199,6 +239,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatGridView)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -215,10 +257,13 @@
         private System.Windows.Forms.Label employeeLine;
         private System.Windows.Forms.DataGridView phoneStatGridView;
         private System.Windows.Forms.BindingSource phoneStatSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn durationInSecondsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DurationInSecs;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pricePerMinuteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn summaryPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.Label summaryPrice;
     }
 }

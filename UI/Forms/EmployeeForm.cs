@@ -31,5 +31,10 @@ namespace UI.Forms
             _context.MainForm = this;
             base.Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -4,20 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Entities
+namespace Services.Facade
 {
-    public interface Phone
+    public interface Date
     {
-        string PhoneID
-        { get; }
-
-        string Number
+        int Day
         { get; set; }
 
-        Department Department
+        int Month
         { get; set; }
 
-        Employee Employee
+        int Year
         { get; set; }
     }
 }

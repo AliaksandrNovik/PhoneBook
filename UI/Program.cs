@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 using UI.Forms;
 using UI.AppController;
 
 using UI.Views;
-using UI.Presenters;
-using Services.Interfaces;
 
 namespace UI
 {
@@ -36,8 +35,28 @@ namespace UI
                 .RegisterService<IManagerService, DummyManagerService>();
 
             controller.Run<LoginPresenter>();*/
+
+            #region TEST_PHONE_STAT
             var form = new PhoneStatisticForm(new ApplicationContext());
-            form.ShowDialog();
+            form.Phone = "+375447174032";
+            form.Employee = "Вусик Кирилл Владимирович";
+            form.Department = "Отдел маркетинга";
+
+
+            IList<StatisticItem> calls = new List<StatisticItem>();
+            for (int i = 0; i < 100; ++i)
+            {
+                StatisticItem item = new StatisticItem(DateTime.Now, 3, "+375443337722", 58, 15);
+                calls.Add(item);
+            }
+            form.PhoneCalls = new ReadOnlyCollection<StatisticItem>(calls);
+
+            form.Show();
+            calls.Insert(0, new StatisticItem(DateTime.Now, 15, "Fuck!", 58, 15));
+            form.PhoneCalls = new ReadOnlyCollection<StatisticItem>(calls);
+
+            Application.Run();
+            #endregion
         }
     }
 }

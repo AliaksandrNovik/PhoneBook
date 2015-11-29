@@ -57,20 +57,13 @@
     <Compile Include="AppController\IPresenter.cs" />
     <Compile Include="AppController\IView.cs" />
     <Compile Include="AppController\LightInjectAdapter.cs" />
-    <Compile Include="Entities\Department.cs" />
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Forms\PhoneStatisticForm.cs">
+    <Compile Include="Forms\PhoneStatisticForm\PhoneStatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PhoneStatisticForm.Designer.cs">
+    <Compile Include="Forms\PhoneStatisticForm\PhoneStatisticForm.Designer.cs">
       <DependentUpon>PhoneStatisticForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Date.cs" />
-    <Compile Include="Entities\Gender.cs" />
-    <Compile Include="Entities\Phone.cs" />
-    <Compile Include="Presenters\AdminPresenter.cs" />
-    <Compile Include="Presenters\EmployeePresenter.cs" />
-    <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Forms\PhoneStatisticForm\PhoneStatItemWrap.cs" />
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +88,6 @@
     <Compile Include="Forms\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presenters\ManagerPresenter.cs" />
     <Compile Include="Views\IAdminView.cs" />
     <Compile Include="Views\IPhoneBookView.cs" />
     <Compile Include="Views\ILoginView.cs" />
@@ -115,7 +107,7 @@
     <EmbeddedResource Include="Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PhoneStatisticForm.resx">
+    <EmbeddedResource Include="Forms\PhoneStatisticForm\PhoneStatisticForm.resx">
       <DependentUpon>PhoneStatisticForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -128,6 +120,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\UI.Forms.PhoneStatItemWrap.datasource" />
     <None Include="Properties\DataSources\UI.Views.StatisticItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +140,10 @@
       <Project>{8e8a5d0f-e10a-47ec-8443-2929ee463f39}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Presenters\" />
+    <Folder Include="ServiceAPI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
