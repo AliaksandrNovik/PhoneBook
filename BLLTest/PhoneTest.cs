@@ -26,10 +26,11 @@ namespace BLLTest
         [TestMethod]
         public void Phone_DepartmentInit()
         {
-            var department = new Department();
+            /*var department = new Department();
             string number = "1";
             var phone = new Phone(number, department);
             Assert.AreEqual(phone.Department, new Department(), "Check");
+            */
         }
 
         [TestMethod]
@@ -39,6 +40,13 @@ namespace BLLTest
         {
             var employee = new Employee();
             var phone = new Phone("777-77", employee);
+        }
+
+        [TestMethod]
+        public void GetSet_test()
+        {
+            Employee empl = new Employee();
+                    
         }
     }
 }

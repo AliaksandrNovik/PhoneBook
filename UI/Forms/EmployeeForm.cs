@@ -14,7 +14,7 @@ using UI.Views;
 
 namespace UI.Forms
 {
-    public partial class EmployeeForm : Form, IEmployeeView
+    public partial class EmployeeForm : Form, IPhoneBookView
     {
         private readonly ApplicationContext _context;
 
@@ -23,6 +23,8 @@ namespace UI.Forms
             _context = context;
             InitializeComponent();
         }
+
+        public event Action OwnStatisticCallEvent;
 
         void IView.Show()
         {

@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    public enum UserType { Admin, Manager, Employee };
-    public interface ILoginService
+    public interface IEmployeeService
     {
-        UserType GetUserType(string userName, string password);
+        //get all entities
+
+        
+    }
+
+    public class DummyEmployeeService : IEmployeeService
+    {
     }
 }

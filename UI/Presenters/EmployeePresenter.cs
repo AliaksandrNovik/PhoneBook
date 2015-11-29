@@ -11,9 +11,9 @@ using UI.Forms;
 
 namespace UI.Presenters
 {
-    public class EmployeePresenter : BasePresener<IEmployeeView>
+    public class EmployeePresenter : BasePresener<IPhoneBookView>
     {
-        public EmployeePresenter(IApplicationController controller, IEmployeeView view, IEmployeeService service) :
+        public EmployeePresenter(IApplicationController controller, IPhoneBookView view, IEmployeeService service) :
             base(controller, view)
         {
 

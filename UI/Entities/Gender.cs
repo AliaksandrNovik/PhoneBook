@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using UI.AppController;
-
-namespace UI.Views
+namespace Services.Entities
 {
-    public interface IEmployeeView : IView
+    public enum Gender
     {
+        Male,
+        Female
     }
 }

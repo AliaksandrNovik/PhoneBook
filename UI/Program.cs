@@ -21,10 +21,10 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var controller = new ApplicationController(new LightInjectAdapder());
+            /*var controller = new ApplicationController(new LightInjectAdapder());
             controller.RegisterView<ILoginView, LoginForm>()
                 .RegisterService<ILoginService, DummyLogin>()
                 .RegisterInstance(new ApplicationContext())
@@ -35,7 +35,9 @@ namespace UI
                 .RegisterView<IManagerView, ManagerForm>()
                 .RegisterService<IManagerService, DummyManagerService>();
 
-            controller.Run<LoginPresenter>();
+            controller.Run<LoginPresenter>();*/
+            var form = new PhoneStatisticForm(new ApplicationContext());
+            form.ShowDialog();
         }
     }
 }
