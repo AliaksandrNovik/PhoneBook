@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace UI.CompanyStructure.Entities
 {
-    class Phone
+    public class Phone
     {
         public Phone(string number, Department department = null, Employee employee = null)
         { }
 
         public string Number
-        { get; set; }
+        { get; }
 
         public Department Department
-        { get; set; }
+        { get; }
 
         public Employee Employee
-        { get; set; }
+        { get; }
     }
 }

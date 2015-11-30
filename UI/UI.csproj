@@ -92,7 +92,7 @@
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CompanyStructure\View\IAdminView.cs" />
-    <Compile Include="CompanyStructure\View\IPhoneBookView.cs" />
+    <Compile Include="CompanyStructure\View\IPassiveCompanyStructView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,15 +6,31 @@ using System.Threading.Tasks;
 
 namespace UI.CompanyStructure.Entities
 {
-    class Department
+    public class Department
     {
-        public IReadOnlyCollection<Employee> Employees
+        public Department(
+            string name, Employee head,
+            List<Employee> employees, List<Department> subDepartments, List<Phone> phones)
+        {
+            this.Name = name;
+            this.Head = head;
+            this.SubordinateDepartments = subDepartments;
+            this.Phones = phones;
+        }
+
+        public string Name
         { get; set; }
 
-        public IReadOnlyCollection<Department> SubordinateDepartments
+        public Employee Head
         { get; set; }
 
-        public IReadOnlyCollection<Phone> Phones
+        public List<Employee> Employees
+        { get; set; }
+
+        public List<Department> SubordinateDepartments
+        { get; set; }
+
+        public List<Phone> Phones
         { get; set; }
     }
 }

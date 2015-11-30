@@ -23,13 +23,13 @@ namespace UI.CompanyStructure.Entities
         }
 
         public int Day
-        { get; set; }
+        { get; }
 
         public int Month
-        { get; set; }
+        { get; }
 
         public int Year
-        { get; set; }
+        { get; }
     }
     #endregion
 

@@ -35,13 +35,11 @@ namespace UI
                 .RegisterService<IManagerService, DummyManagerService>();
 
             controller.Run<LoginPresenter>();*/
-
             #region TEST_PHONE_STAT
             var form = new PhoneStatisticForm(new ApplicationContext());
             form.Phone = "+375447174032";
             form.Employee = "Вусик Кирилл Владимирович";
             form.Department = "Отдел маркетинга";
-
 
             IList<StatisticItem> calls = new List<StatisticItem>();
             for (int i = 0; i < 100; ++i)
