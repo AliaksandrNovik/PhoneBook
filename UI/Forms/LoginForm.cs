@@ -21,7 +21,7 @@ namespace UI.Forms
             _context = context;
             InitializeComponent();
 
-            submitButton.Click += (sender, args) => Invoke(Submit);
+            submitButton.Click += (sender, args) => Invoke(SubmitPressed);
         }
 
         //IView interface
@@ -48,7 +48,7 @@ namespace UI.Forms
             }
         }
 
-        public event Action Submit;
+        public event Action SubmitPressed;
 
         //TODO  
         public void ShowError(string errorMessage)

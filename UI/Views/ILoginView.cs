@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +12,8 @@ namespace UI.Views
         string Login { get; }
         string Password { get; }
 
-        //log in button is pressed
-        event Action Submit;
+        event Action SubmitPressed;
 
-        //TODO specify responsibility
         void ShowError(string errorMessage);
     }
 }
