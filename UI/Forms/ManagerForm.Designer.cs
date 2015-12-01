@@ -71,7 +71,7 @@
             this.tabWidget.Margin = new System.Windows.Forms.Padding(4);
             this.tabWidget.Name = "tabWidget";
             this.tabWidget.SelectedIndex = 0;
-            this.tabWidget.Size = new System.Drawing.Size(1047, 562);
+            this.tabWidget.Size = new System.Drawing.Size(739, 452);
             this.tabWidget.TabIndex = 0;
             // 
             // unitTab
@@ -87,14 +87,14 @@
             this.unitTab.Margin = new System.Windows.Forms.Padding(4);
             this.unitTab.Name = "unitTab";
             this.unitTab.Padding = new System.Windows.Forms.Padding(4);
-            this.unitTab.Size = new System.Drawing.Size(1039, 533);
+            this.unitTab.Size = new System.Drawing.Size(731, 423);
             this.unitTab.TabIndex = 0;
             this.unitTab.Text = "Подразделения";
             // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(225, 491);
+            this.button6.Location = new System.Drawing.Point(225, 381);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
@@ -105,7 +105,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(117, 491);
+            this.button5.Location = new System.Drawing.Point(117, 381);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 28);
@@ -116,7 +116,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(9, 491);
+            this.button4.Location = new System.Drawing.Point(9, 381);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
@@ -133,13 +133,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(9, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1013, 406);
+            this.dataGridView1.Size = new System.Drawing.Size(705, 296);
             this.dataGridView1.TabIndex = 4;
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(838, 42);
+            this.button3.Location = new System.Drawing.Point(530, 42);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(184, 27);
@@ -155,7 +155,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(820, 27);
+            this.textBox3.Size = new System.Drawing.Size(512, 27);
             this.textBox3.TabIndex = 1;
             // 
             // employeeTab
@@ -331,7 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 561);
+            this.ClientSize = new System.Drawing.Size(737, 451);
             this.Controls.Add(this.tabWidget);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagerForm";

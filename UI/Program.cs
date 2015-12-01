@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 using UI.Forms;
 using UI.AppController;
 
+using UI.AdminUI;
+using UI.EmployeeUI;
+using UI.LoginUI;
 using UI.Views;
-using UI.Presenters;
-using Services.Interfaces;
+using UI.Basics;
+using Services.Facade;
 
 namespace UI
 {
@@ -21,21 +25,19 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             var controller = new ApplicationController(new LightInjectAdapder());
-            controller.RegisterView<ILoginView, LoginForm>()
-                .RegisterService<ILoginService, DummyLogin>()
-                .RegisterInstance(new ApplicationContext())
-                .RegisterView<IEmployeeView, EmployeeForm>()
-                .RegisterService<IEmployeeService, DummyEmployeeService>()
-                .RegisterView<IAdminView, AdminForm>()
-                .RegisterService<IAdminService, DummyAdminService>()
-                .RegisterView<IManagerView, ManagerForm>()
-                .RegisterService<IManagerService, DummyManagerService>();
+            controller.RegisterView<IEmployeeView, EmployeeForm>()
+                .RegisterView<ILoginView, LoginForm>()
+            .RegisterInstance(new ApplicationContext())
+            .RegisterService<ILoginService, LoginService>()
+            .RegisterService<IReadOnlyPhoneService, PhoneService>()
+             .RegisterService<IReadOnlyDepartmentService, DepartmentService>()
+             .RegisterService<IReadOnlyEmployeeService, EmployeeService>();
 
-            controller.Run<LoginPresenter>();
+            controller.Run<LoginPresenter>();                        
         }
     }
 }
