@@ -130,7 +130,7 @@
             this.label.TabIndex = 6;
             this.label.Text = "Сотрудник";
             // 
-            // DepartmentEditView
+            // DepartmentEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,7 +138,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.loginLine);
-            this.Name = "DepartmentEditView";
+            this.Name = "DepartmentEditForm";
             this.Text = "DepartmentEditView";
             this.loginLine.ResumeLayout(false);
             this.loginLine.PerformLayout();

@@ -8,7 +8,7 @@ namespace Services.Facade
 {
     public interface EmployeeUser : User
     {
-        EntityId Employee
+        String Employee
         { get; set; }
     }
 }

@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace Services.Facade
 {
     public delegate void PassDepartment(Department department);
-    public delegate void PassDepartmentId(EntityId departmentId);
+    public delegate void PassDepartmentId(String departmentId);
     
     public interface IReadOnlyDepartmentService
     {
         //queries
-        Department GetById(EntityId id);
+        Department GetById(String id);
         IReadOnlyCollection<Department> GetAll();
-        IReadOnlyCollection<Department> GetByParentId(EntityId parentId);
+        IReadOnlyCollection<Department> GetByParentId(String parentId);
         Department GetRootDepartment();
-        Department GetDepartmentByManagerUserId(EntityId id);
+        Department GetDepartmentByManagerUserId(String id);
         
         //notifications
         event PassDepartment DepartmentCreated;

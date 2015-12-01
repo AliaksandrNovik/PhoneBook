@@ -11,15 +11,5 @@ namespace Services.Facade
         Admin,
         Manager,
         Employee
-    }
-
-    public interface IUserInfo
-    {
-        UserType UserType
-        { get; }
-
-        EntityId Id
-        { get; }
-    }
-        
+    }        
 }

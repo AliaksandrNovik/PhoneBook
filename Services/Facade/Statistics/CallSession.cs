@@ -8,7 +8,7 @@ namespace Services.Facade
 {
     public interface CallSession
     {
-        EntityId CallerPhone
+        String CallerPhone
         { get; }
 
         DateTime DateAndTime

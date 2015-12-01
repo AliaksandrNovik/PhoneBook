@@ -95,10 +95,6 @@ namespace UI.ManagerUI
         }
         #endregion
 
-        #region FillEmployeeView
-
-        #endregion
-
         #region DepartmentViewMethods
         public event DepartmentCreateDelegate DepartmentCreateCalled;
         public event DepartmentUpdateDelegate DepartmentDeleteCalled;

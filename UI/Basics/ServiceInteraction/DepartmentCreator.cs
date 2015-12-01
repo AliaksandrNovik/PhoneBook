@@ -17,7 +17,7 @@ namespace UI.Basics
 
         public static Department CreateDepartment(IReadOnlyDepartmentService departmentService,
             IReadOnlyEmployeeService employeeService, IReadOnlyPhoneService phoneService,
-            EntityId rootDepartment)
+            Services.Facade.String rootDepartment)
         {
             //todo
             return null;

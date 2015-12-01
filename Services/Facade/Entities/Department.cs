@@ -14,13 +14,13 @@ namespace Services.Facade
         string Name
         { get; set; }
 
-        EntityId HeadEmployeeId
+        String HeadEmployeeId
         { get; set; }
 
-        IReadOnlyCollection<EntityId> SubordinateDepartmentIds
+        IReadOnlyCollection<String> SubordinateDepartmentIds
         { get; set; }
 
-        EntityId ParentDepartmentId
+        String ParentDepartmentId
         { get; set; }
     }
 }

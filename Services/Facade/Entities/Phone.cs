@@ -14,10 +14,10 @@ namespace Services.Facade
         string Number
         { get; set; }
 
-        EntityId Department
+        String Department
         { get; set; }
 
-        EntityId Employee
+        String Employee
         { get; set; }
     }
 }

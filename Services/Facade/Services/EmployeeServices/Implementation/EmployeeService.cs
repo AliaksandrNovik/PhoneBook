@@ -12,12 +12,12 @@ namespace Services.Facade
         public event PassEmployeeId EmployeeDeleted;
         public event EmployeePassDelegate EmployeeUpdated;
 
-        public void CreateEmployee(string firstName, string lastName, string patronym, Date birthDate, Gender gender, string place, EntityId departmentId)
+        public void CreateEmployee(string firstName, string lastName, string patronym, Date birthDate, Gender gender, string place, String departmentId)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteEmployee(EntityId employeeId)
+        public void DeleteEmployee(String employeeId)
         {
             throw new NotImplementedException();
         }
@@ -27,17 +27,17 @@ namespace Services.Facade
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<Employee> GetByDepartmentId(EntityId departmentId)
+        public IReadOnlyCollection<Employee> GetByDepartmentId(String departmentId)
         {
             throw new NotImplementedException();
         }
 
-        public Employee GetByUserId(EntityId id)
+        public Employee GetByUserId(String id)
         {
             throw new NotImplementedException();
         }
 
-        public Employee GetEmployeeById(EntityId id)
+        public Employee GetEmployeeById(String id)
         {
             throw new NotImplementedException();
         }

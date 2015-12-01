@@ -8,6 +8,6 @@ namespace Services.Facade.Statistics
 {
     public interface IStatisticService
     {
-        IReadOnlyCollection<CallSession> GetByPhoneId(EntityId phoneId);
+        IReadOnlyCollection<CallSession> GetByPhoneId(String phoneId);
     }
 }

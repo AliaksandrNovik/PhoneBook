@@ -39,7 +39,7 @@ namespace UI
              .RegisterService<IReadOnlyDepartmentService, DepartmentService>()
              .RegisterService<IReadOnlyEmployeeService, EmployeeService>();
 
-            controller.Run<ManagerPresenter, EntityId>(null);                        
+            controller.Run<ManagerPresenter, Services.Facade.String>(null);                        
         }
     }
 }

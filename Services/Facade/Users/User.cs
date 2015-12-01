@@ -8,7 +8,7 @@ namespace Services.Facade
 {
     public interface User
     {
-        EntityId UserId
+        String UserId
         { get; }
 
         string Login
