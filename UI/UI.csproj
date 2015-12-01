@@ -89,17 +89,37 @@
     <Compile Include="Basics\Entities\Employee.cs" />
     <Compile Include="Basics\Entities\Phone.cs" />
     <Compile Include="Basics\Entities\RootDepartment.cs" />
+    <Compile Include="ManagerUI\Forms\DepartmentEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\DepartmentEditForm.Designer.cs">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\EmployeeEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\EmployeeEditForm.Designer.cs">
+      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Basics\ServiceInteraction\DepartmentCreator.cs" />
     <Compile Include="Basics\Views\DisplayViews\EditPassiveViewInterfaces.cs" />
-    <Compile Include="Basics\Views\EditViews\IDepartmentEditView.cs" />
+    <Compile Include="ManagerUI\Presenters\ManagerPresenter.cs" />
+    <Compile Include="ManagerUI\Views\IDepartmentEditView.cs" />
     <Compile Include="Basics\Views\IDialogView.cs" />
-    <Compile Include="Basics\Views\EditViews\IEmployeeEditView.cs" />
-    <Compile Include="Basics\Views\EditViews\IPhoneEditView.cs" />
+    <Compile Include="ManagerUI\Views\IEmployeeEditView.cs" />
+    <Compile Include="ManagerUI\Views\IPhoneEditView.cs" />
     <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
     <Compile Include="EmployeeUI\Presenters\EmployeePresenter.cs" />
     <Compile Include="EmployeeUI\Views\IEmployeeView.cs" />
     <Compile Include="LoginUI\Presenters\LoginPresenter.cs" />
-    <Compile Include="ManagerUI\Entities\DepartmentWrap.cs" />
+    <Compile Include="ManagerUI\Entities\EmployeeWrap.cs" />
+    <Compile Include="ManagerUI\Entities\PhoneWrap.cs" />
+    <Compile Include="ManagerUI\Forms\PhoneEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\PhoneEditForm.Designer.cs">
+      <DependentUpon>PhoneEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerUI\Views\IManagerPassiveView.cs" />
     <Compile Include="StatisticUI\Forms\PhoneStatisticForm.cs">
       <SubType>Form</SubType>
@@ -149,6 +169,12 @@
     <EmbeddedResource Include="AdminUI\Forms\ManagerUserEditForm.resx">
       <DependentUpon>ManagerUserEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\DepartmentEditForm.resx">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\EmployeeEditForm.resx">
+      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeUI\Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerUI\Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\PhoneEditForm.resx">
+      <DependentUpon>PhoneEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticUI\Forms\PhoneStatisticForm.resx">
       <DependentUpon>PhoneStatisticForm.cs</DependentUpon>
@@ -176,6 +205,8 @@
     <None Include="Properties\DataSources\UI.Basics.Employee.datasource" />
     <None Include="Properties\DataSources\UI.EmployeeUI.PhoneWrapItem.datasource" />
     <None Include="Properties\DataSources\UI.Forms.PhoneStatItemWrap.datasource" />
+    <None Include="Properties\DataSources\UI.ManagerUI.EmployeeWrap.datasource" />
+    <None Include="Properties\DataSources\UI.ManagerUI.PhoneWrap.datasource" />
     <None Include="Properties\DataSources\UI.Views.StatisticItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

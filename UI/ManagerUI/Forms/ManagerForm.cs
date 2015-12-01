@@ -22,6 +22,21 @@ namespace UI.ManagerUI
         {
             _context = context;
             InitializeComponent();
+
+            /*
+            addDepartment.Enabled = false;
+            changeDepartment.Enabled = false;
+            removeDepartment.Enabled = false;
+
+            addEmployee.Enabled = false;
+            changeEmployee.Enabled = false;
+            removeEmployee.Enabled = false;
+
+            addPhone.Enabled = false;
+            changePhone.Enabled = false;
+            removePhone.Enabled = false;
+            statPhoneButton.Enabled = false;
+            */
         }
        
         
@@ -37,6 +52,8 @@ namespace UI.ManagerUI
             {
                 _data = value;
                 FillTreeView(departmentView);
+                FillTreeView(employeeDepartmentView);
+                FillTreeView(phoneDepartmentView);
             }
         }
 
@@ -91,8 +108,8 @@ namespace UI.ManagerUI
         {
             if (DepartmentCreateCalled != null)
             {
-                var parent = GetCurrentParentDepartmentInDepartmentView();
-                var args = new DepartmentCreateArgs(parent);
+                var current = (Department)departmentView.SelectedNode?.Tag;
+                var args = new DepartmentCreateArgs(current);
                 DepartmentCreateCalled(args);
             }
         }
@@ -101,7 +118,7 @@ namespace UI.ManagerUI
         {
             if (DepartmentUpdateCalled != null)
             {
-                var current = GetCurrentDepartmentInDepartmentView();
+                var current = (Department)departmentView.SelectedNode?.Tag;
                 var args = new DepartmentUpdateArgs(current);
                 DepartmentUpdateCalled(args);
             }
@@ -111,7 +128,7 @@ namespace UI.ManagerUI
         {
             if (DepartmentDeleteCalled != null)
             {
-                var current = GetCurrentDepartmentInDepartmentView();
+                var current = (Department)departmentView.SelectedNode?.Tag;
                 var args = new DepartmentUpdateArgs(current);
                 DepartmentDeleteCalled(args);
             }
@@ -119,42 +136,27 @@ namespace UI.ManagerUI
 
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var node = e.Node;
-            SetDepartment(node);
+            var current = (Department)departmentView.SelectedNode.Tag;
+            if (current == null)
+            {
+                addDepartment.Enabled = false;
+            }
+            else
+            {
+                addDepartment.Enabled = true;
+            }
         }
 
         private void departmentView_MouseUp(object sender, MouseEventArgs e)
         {
-            var node = departmentView.SelectedNode;
-            SetDepartment(node);
-        }
-
-        private Department _currentParentDepartment;
-        private Department GetCurrentParentDepartmentInDepartmentView()
-        {
-            return _currentParentDepartment;
-        }
-
-        private Department _currentDepartment;
-        private Department GetCurrentDepartmentInDepartmentView()
-        {
-            return _currentDepartment;
-        }
-
-        private void SetDepartment(TreeNode node)
-        {
-            _currentDepartment = (Department)node?.Tag;
-            _currentParentDepartment = (Department)node?.Tag;
-            var head = _currentParentDepartment?.Head;
-            if (head != null)
+            var current = (Department)departmentView.SelectedNode.Tag;
+            if (current == null)
             {
-                headName.Text = head.FirstName + " " + head.LastName + " " + head.Patronym;
-                headPlace.Text = head.Place;
-                headGroupBox.Visible = true;
+                addDepartment.Enabled = false;
             }
             else
             {
-                headGroupBox.Visible = false;
+                addDepartment.Enabled = true;
             }
         }
         #endregion
@@ -166,18 +168,62 @@ namespace UI.ManagerUI
 
         private void addEmployee_Click(object sender, EventArgs e)
         {
-
+            if (EmployeeCreateCalled != null)
+            {
+                var currentDepartment = (Department)employeeDepartmentView.SelectedNode.Tag;
+                EmployeeCreateCalled(new EmployeeCreateArgs(currentDepartment));
+            }
         }
 
         private void changeEmployee_Click(object sender, EventArgs e)
         {
-
+            if (EmployeeUpdateCalled != null)
+            {
+                var currentEmployee = (Employee)employeeSource.Current;
+                EmployeeUpdateCalled(new EmployeeUpdateArgs(currentEmployee));
+            }
         }
 
         private void removeEmployee_Click(object sender, EventArgs e)
         {
+            if (EmployeeDeleteCalled != null)
+            {
+                var currentEmployee = (Employee)employeeSource.Current;
+                EmployeeDeleteCalled(new EmployeeUpdateArgs(currentEmployee));
+            }
+        }
+
+        private void employeeDepartmentView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var department = (Department)e.Node?.Tag;
+            if (department == null)
+            {
+                addDepartment.Enabled = false;
+            }
+            else
+            {
+                addDepartment.Enabled = true;
+            }
+        }
+
+        private void employeeDepartmentView_MouseUp(object sender, MouseEventArgs e)
+        {
+            var currentDepartment = (Department)employeeDepartmentView.SelectedNode.Tag;
+            if (currentDepartment == null)
+            {
+                addEmployee.Enabled = false;
+            }
+            else
+            {
+                addEmployee.Enabled = true;
+            }
+        }
+
+        private void employeeTable_SelectionChanged(object sender, EventArgs e)
+        {
 
         }
+
         #endregion
 
         #region PhoneViewMethods
@@ -200,8 +246,15 @@ namespace UI.ManagerUI
         {
 
         }
+
         #endregion
 
+        void IView.Show()
+        {
+            _context.MainForm = this;
+            Application.Run(_context);
+        }
 
+        
     }
 }

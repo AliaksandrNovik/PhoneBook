@@ -10,6 +10,7 @@ using UI.AppController;
 
 using UI.AdminUI;
 using UI.EmployeeUI;
+using UI.ManagerUI;
 using UI.LoginUI;
 using UI.Views;
 using UI.Basics;
@@ -31,13 +32,14 @@ namespace UI
             var controller = new ApplicationController(new LightInjectAdapder());
             controller.RegisterView<IEmployeeView, EmployeeForm>()
                 .RegisterView<ILoginView, LoginForm>()
+                .RegisterView<IManagerPassiveView, ManagerForm>()
             .RegisterInstance(new ApplicationContext())
             .RegisterService<ILoginService, LoginService>()
             .RegisterService<IReadOnlyPhoneService, PhoneService>()
              .RegisterService<IReadOnlyDepartmentService, DepartmentService>()
              .RegisterService<IReadOnlyEmployeeService, EmployeeService>();
 
-            controller.Run<LoginPresenter>();                        
+            controller.Run<ManagerPresenter, EntityId>(null);                        
         }
     }
 }

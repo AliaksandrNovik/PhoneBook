@@ -30,6 +30,11 @@ namespace UI.Basics
 
         public int Year
         { get; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}.{1}.{2}", this.Day, this.Month, this.Year);
+        }
     }
     #endregion
 
@@ -46,6 +51,11 @@ namespace UI.Basics
             this.BirthDay = birthDay;
             this.Gender = gender;
             this.Place = place; 
+        }
+
+        public string GetFullName()
+        {
+            return this.FirstName + " " + this.LastName + " " + this.Patronym;
         }
 
         public string FirstName
