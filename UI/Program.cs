@@ -8,7 +8,10 @@ using System.Collections.ObjectModel;
 using UI.Forms;
 using UI.AppController;
 
+using UI.AdminUI;
+using UI.EmployeeUI;
 using UI.Views;
+using UI.Basics;
 
 namespace UI
 {
@@ -52,9 +55,9 @@ namespace UI
             form.Show();
             calls.Insert(0, new StatisticItem(DateTime.Now, 15, "Fuck!", 58, 15));
             form.PhoneCalls = new ReadOnlyCollection<StatisticItem>(calls);
-
-            Application.Run();
             #endregion
+            Application.Run();
+            
         }
     }
 }

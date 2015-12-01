@@ -13,7 +13,7 @@ using UI.AppController;
 
 namespace UI.Forms
 {
-    public partial class ManagerForm : Form, IManagerView
+    public partial class ManagerForm : Form//, IManagerView
     {
         private readonly ApplicationContext _context;
 
@@ -23,10 +23,12 @@ namespace UI.Forms
             InitializeComponent();
         }
 
+        /*
         void IView.Show()
         {
             _context.MainForm = this;
             base.Show();
         }
+        */
     }
 }
