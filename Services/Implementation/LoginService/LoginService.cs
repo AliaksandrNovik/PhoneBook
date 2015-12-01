@@ -10,16 +10,39 @@ namespace Services.Implementation
 {
     class LoginService : ILoginService
     {
-        public LoginService(IUserRepository adminRepository)
-
-        public UserInfo Login(string user, string password)
+        private readonly IUserRepository _userRepository;
+        public LoginService(IUserRepository userRepository)
         {
-            throw new NotImplementedException();
+            this._userRepository = userRepository;
         }
 
-        Facade.UserInfo ILoginService.Login(string user, string password)
+        public IUserInfo Login(string user, string password)
         {
-            throw new NotImplementedException();
+            foreach (var userItem in _userRepository.GetAdminAll())
+            {
+                if (userItem.Login.Equals(user) && userItem.Password.Equals(password))
+                {
+                    return new UserInfo(UserType.Admin, userItem.Id);
+                }
+            }
+
+            foreach (var userItem in _userRepository.GetEmployeeAll())
+            {
+                if (userItem.Login.Equals(user) && userItem.Password.Equals(password))
+                {
+                    return new UserInfo(UserType.Employee, userItem.Id);
+                }
+            }
+
+            foreach (var userItem in _userRepository.GetManagerAll())
+            {
+                if (userItem.Login.Equals(user) && userItem.Password.Equals(password))
+                {
+                    return new UserInfo(UserType.Manager, userItem.Id);
+                }
+            }
+
+            return null;
         }
     }
 }

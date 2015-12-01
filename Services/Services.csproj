@@ -64,11 +64,18 @@
     <Compile Include="Facade\Users\EmployeeUser.cs" />
     <Compile Include="Facade\Users\ManagerUser.cs" />
     <Compile Include="Facade\Users\User.cs" />
-    <Compile Include="Facade\Users\UserInfo.cs" />
+    <Compile Include="Facade\Users\IUserInfo.cs" />
     <Compile Include="Facade\Users\UserType.cs" />
+    <Compile Include="Implementation\LoginService\LoginService.cs" />
+    <Compile Include="Implementation\LoginService\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{546c3b67-b789-4ecb-83af-15751f0a2af7}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

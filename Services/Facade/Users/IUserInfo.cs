@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface UserInfo
+    public interface IUserInfo
     {
-        String UserId
+        string UserId
         { get; set; }
 
         UserType Type

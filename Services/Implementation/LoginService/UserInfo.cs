@@ -9,16 +9,21 @@ namespace Services.Implementation
 {
     class UserInfo : IUserInfo
     {
-        public UserInfo(Facade.String id, UserType userType)
+        internal UserInfo(UserType type, string userId)
         {
-            this.Id = id;
-            this.UserType = userType;
+            this.Type = type;
+            this.UserId = userId;
+        }
+        public UserType Type
+        {
+            get;
+            set;
         }
 
-        public String Id
-        { get; private set; }
-
-        public UserType UserType
-        { get; private set; }
+        public string UserId
+        {
+            get;
+            set;
+        }
     }
 }

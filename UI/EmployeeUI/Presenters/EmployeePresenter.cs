@@ -9,7 +9,7 @@ using Services.Facade;
 
 namespace UI.EmployeeUI
 {
-    class EmployeePresenter : BasePresener<IEmployeeView, Services.Facade.String>
+    class EmployeePresenter : BasePresener<IEmployeeView, string>
     {
         private readonly IReadOnlyDepartmentService _departmentService;
         private readonly IReadOnlyEmployeeService _employeeService;
@@ -58,7 +58,7 @@ namespace UI.EmployeeUI
 
         private Services.Facade.Employee _employee;
         private UI.Basics.Department _department;
-        public override void Run(Services.Facade.String userId)
+        public override void Run(string userId)
         {
             if (userId != null)
             {

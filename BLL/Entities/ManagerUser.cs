@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ManagerUser
+    public class ManagerUser : Identified
     {
         ManagerUser(string login, string password, string employeeId, string departmentId) :
             base()
