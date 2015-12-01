@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using UI.Views;
 using UI.AppController;
 
-namespace UI.Forms
+namespace UI.ManagerUI
 {
     public partial class ManagerForm : Form//, IManagerView
     {

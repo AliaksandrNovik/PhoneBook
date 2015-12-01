@@ -70,6 +70,7 @@
     <Compile Include="AdminUI\Forms\ManagerUserEditForm.Designer.cs">
       <DependentUpon>ManagerUserEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\Presenters\AdminPresenter.cs" />
     <Compile Include="AdminUI\Views\IAdminPassiveView.cs" />
     <Compile Include="AdminUI\Views\IAdminUserEditView.cs" />
     <Compile Include="AdminUI\Views\IEmployeeUserEditView.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="EmployeeUI\Presenters\EmployeePresenter.cs" />
     <Compile Include="EmployeeUI\Views\IEmployeeView.cs" />
     <Compile Include="LoginUI\Presenters\LoginPresenter.cs" />
+    <Compile Include="ManagerUI\Views\IManagerPassiveView.cs" />
     <Compile Include="StatisticUI\Forms\PhoneStatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,10 +124,10 @@
     <Compile Include="LoginUI\Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManagerForm.cs">
+    <Compile Include="ManagerUI\Forms\ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManagerForm.Designer.cs">
+    <Compile Include="ManagerUI\Forms\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Basics\Views\DisplayViews\IPassiveCompanyStructView.cs" />
@@ -151,7 +153,7 @@
     <EmbeddedResource Include="LoginUI\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManagerForm.resx">
+    <EmbeddedResource Include="ManagerUI\Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticUI\Forms\PhoneStatisticForm.resx">
@@ -192,9 +194,7 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ManagerUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

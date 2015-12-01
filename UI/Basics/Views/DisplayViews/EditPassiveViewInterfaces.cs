@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI.AppController;
 
 namespace UI.Basics
 {
@@ -31,7 +32,7 @@ namespace UI.Basics
 
     public delegate void EmployeeUpdateDelegate(EmployeeUpdateArgs createArgs);
 
-    public interface IEmployeePassiveEditView
+    public interface IEmployeePassiveEditView : IView
     {
         event EmployeeCreateDelegate EmployeeCreateCalled;
 
@@ -65,7 +66,7 @@ namespace UI.Basics
 
     public delegate void DepartmentUpdateDelegate(DepartmentUpdateArgs createArgs);
 
-    public interface IDepartmentPassiveEditView
+    public interface IDepartmentPassiveEditView : IView
     {
         event DepartmentCreateDelegate DepartmentCreateCalled;
 
@@ -105,7 +106,7 @@ namespace UI.Basics
 
     public delegate void PhoneUpdateDelegate(DepartmentUpdateArgs createArgs);
 
-    public interface IPhonePassiveEditView
+    public interface IPhonePassiveEditView : IView
     {
         event PhoneCreateDelegate PhoneCreateCalled;
 

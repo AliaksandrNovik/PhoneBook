@@ -1,4 +1,4 @@
-﻿namespace UI.Forms
+﻿namespace UI.ManagerUI
 {
     partial class ManagerForm
     {
@@ -31,22 +31,22 @@
             this.tabWidget = new System.Windows.Forms.TabControl();
             this.unitTab = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.changeDepartmentButton = new System.Windows.Forms.Button();
+            this.addDepartmentButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.searchDepartmentButton = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.employeeTab = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.removeEmployee = new System.Windows.Forms.Button();
+            this.changeEmployee = new System.Windows.Forms.Button();
+            this.addEmployee = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.phoneTab = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.changePhone = new System.Windows.Forms.Button();
+            this.addPhone = new System.Windows.Forms.Button();
+            this.removePhone = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -71,30 +71,30 @@
             this.tabWidget.Margin = new System.Windows.Forms.Padding(4);
             this.tabWidget.Name = "tabWidget";
             this.tabWidget.SelectedIndex = 0;
-            this.tabWidget.Size = new System.Drawing.Size(739, 452);
+            this.tabWidget.Size = new System.Drawing.Size(759, 405);
             this.tabWidget.TabIndex = 0;
             // 
             // unitTab
             // 
             this.unitTab.BackColor = System.Drawing.Color.WhiteSmoke;
             this.unitTab.Controls.Add(this.button6);
-            this.unitTab.Controls.Add(this.button5);
-            this.unitTab.Controls.Add(this.button4);
+            this.unitTab.Controls.Add(this.changeDepartmentButton);
+            this.unitTab.Controls.Add(this.addDepartmentButton);
             this.unitTab.Controls.Add(this.dataGridView1);
-            this.unitTab.Controls.Add(this.button3);
+            this.unitTab.Controls.Add(this.searchDepartmentButton);
             this.unitTab.Controls.Add(this.textBox3);
             this.unitTab.Location = new System.Drawing.Point(4, 25);
             this.unitTab.Margin = new System.Windows.Forms.Padding(4);
             this.unitTab.Name = "unitTab";
             this.unitTab.Padding = new System.Windows.Forms.Padding(4);
-            this.unitTab.Size = new System.Drawing.Size(731, 423);
+            this.unitTab.Size = new System.Drawing.Size(751, 376);
             this.unitTab.TabIndex = 0;
             this.unitTab.Text = "Подразделения";
             // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(225, 381);
+            this.button6.Location = new System.Drawing.Point(224, 337);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
@@ -102,27 +102,27 @@
             this.button6.Text = "Удалить";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // changeDepartmentButton
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(117, 381);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 28);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Изменить";
-            this.button5.UseVisualStyleBackColor = true;
+            this.changeDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.changeDepartmentButton.Location = new System.Drawing.Point(116, 337);
+            this.changeDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
+            this.changeDepartmentButton.Name = "changeDepartmentButton";
+            this.changeDepartmentButton.Size = new System.Drawing.Size(100, 28);
+            this.changeDepartmentButton.TabIndex = 6;
+            this.changeDepartmentButton.Text = "Изменить";
+            this.changeDepartmentButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // addDepartmentButton
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(9, 381);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 28);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Добавить";
-            this.button4.UseVisualStyleBackColor = true;
+            this.addDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addDepartmentButton.Location = new System.Drawing.Point(8, 337);
+            this.addDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addDepartmentButton.Name = "addDepartmentButton";
+            this.addDepartmentButton.Size = new System.Drawing.Size(100, 28);
+            this.addDepartmentButton.TabIndex = 5;
+            this.addDepartmentButton.Text = "Добавить";
+            this.addDepartmentButton.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -130,40 +130,40 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 43);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(705, 296);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 286);
             this.dataGridView1.TabIndex = 4;
             // 
-            // button3
+            // searchDepartmentButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(530, 42);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(184, 27);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Найти";
-            this.button3.UseVisualStyleBackColor = true;
+            this.searchDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchDepartmentButton.Location = new System.Drawing.Point(559, 8);
+            this.searchDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchDepartmentButton.Name = "searchDepartmentButton";
+            this.searchDepartmentButton.Size = new System.Drawing.Size(184, 27);
+            this.searchDepartmentButton.TabIndex = 3;
+            this.searchDepartmentButton.Text = "Найти";
+            this.searchDepartmentButton.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(9, 42);
+            this.textBox3.Location = new System.Drawing.Point(8, 8);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(512, 27);
+            this.textBox3.Size = new System.Drawing.Size(543, 27);
             this.textBox3.TabIndex = 1;
             // 
             // employeeTab
             // 
             this.employeeTab.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.employeeTab.Controls.Add(this.button9);
-            this.employeeTab.Controls.Add(this.button8);
-            this.employeeTab.Controls.Add(this.button7);
+            this.employeeTab.Controls.Add(this.removeEmployee);
+            this.employeeTab.Controls.Add(this.changeEmployee);
+            this.employeeTab.Controls.Add(this.addEmployee);
             this.employeeTab.Controls.Add(this.dataGridView2);
             this.employeeTab.Controls.Add(this.button2);
             this.employeeTab.Controls.Add(this.textBox2);
@@ -171,42 +171,42 @@
             this.employeeTab.Margin = new System.Windows.Forms.Padding(4);
             this.employeeTab.Name = "employeeTab";
             this.employeeTab.Padding = new System.Windows.Forms.Padding(4);
-            this.employeeTab.Size = new System.Drawing.Size(1039, 533);
+            this.employeeTab.Size = new System.Drawing.Size(751, 376);
             this.employeeTab.TabIndex = 1;
             this.employeeTab.Text = "Сотрудники";
             // 
-            // button9
+            // removeEmployee
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.Location = new System.Drawing.Point(225, 491);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 28);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "Удалить";
-            this.button9.UseVisualStyleBackColor = true;
+            this.removeEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.removeEmployee.Location = new System.Drawing.Point(224, 337);
+            this.removeEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.removeEmployee.Name = "removeEmployee";
+            this.removeEmployee.Size = new System.Drawing.Size(100, 28);
+            this.removeEmployee.TabIndex = 6;
+            this.removeEmployee.Text = "Удалить";
+            this.removeEmployee.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // changeEmployee
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(117, 491);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 28);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Изменить";
-            this.button8.UseVisualStyleBackColor = true;
+            this.changeEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.changeEmployee.Location = new System.Drawing.Point(116, 337);
+            this.changeEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.changeEmployee.Name = "changeEmployee";
+            this.changeEmployee.Size = new System.Drawing.Size(100, 28);
+            this.changeEmployee.TabIndex = 5;
+            this.changeEmployee.Text = "Изменить";
+            this.changeEmployee.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // addEmployee
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(9, 491);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 28);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Добавить";
-            this.button7.UseVisualStyleBackColor = true;
+            this.addEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addEmployee.Location = new System.Drawing.Point(8, 337);
+            this.addEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.addEmployee.Name = "addEmployee";
+            this.addEmployee.Size = new System.Drawing.Size(100, 28);
+            this.addEmployee.TabIndex = 4;
+            this.addEmployee.Text = "Добавить";
+            this.addEmployee.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -214,16 +214,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 77);
+            this.dataGridView2.Location = new System.Drawing.Point(8, 43);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1013, 406);
+            this.dataGridView2.Size = new System.Drawing.Size(735, 286);
             this.dataGridView2.TabIndex = 3;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(839, 42);
+            this.button2.Location = new System.Drawing.Point(559, 8);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(184, 27);
@@ -235,19 +235,19 @@
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(9, 42);
+            this.textBox2.Location = new System.Drawing.Point(8, 8);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(820, 27);
+            this.textBox2.Size = new System.Drawing.Size(543, 27);
             this.textBox2.TabIndex = 1;
             // 
             // phoneTab
             // 
             this.phoneTab.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.phoneTab.Controls.Add(this.button12);
-            this.phoneTab.Controls.Add(this.button11);
-            this.phoneTab.Controls.Add(this.button10);
+            this.phoneTab.Controls.Add(this.changePhone);
+            this.phoneTab.Controls.Add(this.addPhone);
+            this.phoneTab.Controls.Add(this.removePhone);
             this.phoneTab.Controls.Add(this.dataGridView3);
             this.phoneTab.Controls.Add(this.button1);
             this.phoneTab.Controls.Add(this.textBox1);
@@ -256,42 +256,42 @@
             this.phoneTab.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTab.Name = "phoneTab";
             this.phoneTab.Padding = new System.Windows.Forms.Padding(4);
-            this.phoneTab.Size = new System.Drawing.Size(1039, 533);
+            this.phoneTab.Size = new System.Drawing.Size(751, 376);
             this.phoneTab.TabIndex = 2;
             this.phoneTab.Text = "Тел. номера";
             // 
-            // button12
+            // changePhone
             // 
-            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button12.Location = new System.Drawing.Point(117, 490);
-            this.button12.Margin = new System.Windows.Forms.Padding(4);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(100, 28);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "Изменить";
-            this.button12.UseVisualStyleBackColor = true;
+            this.changePhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.changePhone.Location = new System.Drawing.Point(116, 337);
+            this.changePhone.Margin = new System.Windows.Forms.Padding(4);
+            this.changePhone.Name = "changePhone";
+            this.changePhone.Size = new System.Drawing.Size(100, 28);
+            this.changePhone.TabIndex = 5;
+            this.changePhone.Text = "Изменить";
+            this.changePhone.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // addPhone
             // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button11.Location = new System.Drawing.Point(9, 490);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(100, 28);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "Добавить";
-            this.button11.UseVisualStyleBackColor = true;
+            this.addPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addPhone.Location = new System.Drawing.Point(8, 337);
+            this.addPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.addPhone.Name = "addPhone";
+            this.addPhone.Size = new System.Drawing.Size(100, 28);
+            this.addPhone.TabIndex = 4;
+            this.addPhone.Text = "Добавить";
+            this.addPhone.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // removePhone
             // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button10.Location = new System.Drawing.Point(225, 490);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(100, 28);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "Удалить";
-            this.button10.UseVisualStyleBackColor = true;
+            this.removePhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.removePhone.Location = new System.Drawing.Point(224, 337);
+            this.removePhone.Margin = new System.Windows.Forms.Padding(4);
+            this.removePhone.Name = "removePhone";
+            this.removePhone.Size = new System.Drawing.Size(100, 28);
+            this.removePhone.TabIndex = 3;
+            this.removePhone.Text = "Удалить";
+            this.removePhone.UseVisualStyleBackColor = true;
             // 
             // dataGridView3
             // 
@@ -299,16 +299,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(9, 77);
+            this.dataGridView3.Location = new System.Drawing.Point(8, 43);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1013, 406);
+            this.dataGridView3.Size = new System.Drawing.Size(735, 286);
             this.dataGridView3.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(839, 42);
+            this.button1.Location = new System.Drawing.Point(559, 8);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(184, 27);
@@ -320,18 +320,18 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(9, 42);
+            this.textBox1.Location = new System.Drawing.Point(4, 8);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(820, 27);
+            this.textBox1.Size = new System.Drawing.Size(547, 27);
             this.textBox1.TabIndex = 0;
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 451);
+            this.ClientSize = new System.Drawing.Size(757, 404);
             this.Controls.Add(this.tabWidget);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagerForm";
@@ -362,18 +362,18 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage unitTab;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button changeDepartmentButton;
+        private System.Windows.Forms.Button addDepartmentButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button searchDepartmentButton;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button removeEmployee;
+        private System.Windows.Forms.Button changeEmployee;
+        private System.Windows.Forms.Button addEmployee;
+        private System.Windows.Forms.Button changePhone;
+        private System.Windows.Forms.Button addPhone;
+        private System.Windows.Forms.Button removePhone;
     }
 }
