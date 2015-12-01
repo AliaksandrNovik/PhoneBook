@@ -8,7 +8,7 @@ namespace Services.Facade
 {
     public interface UserInfo
     {
-        EntityId UserId
+        String UserId
         { get; set; }
 
         UserType Type

@@ -12,12 +12,12 @@ namespace Services.Facade
         public event PassPhoneId PhoneDeleted;
         public event PassPhone PhoneUpdated;
 
-        public void CreatePhone(string number, EntityId department = null, EntityId employee = null)
+        public void CreatePhone(string number, String department = null, String employee = null)
         {
             throw new NotImplementedException();
         }
 
-        public void DeletePhone(EntityId phoneId)
+        public void DeletePhone(String phoneId)
         {
             throw new NotImplementedException();
         }
@@ -27,17 +27,17 @@ namespace Services.Facade
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<Phone> GetByDepartmentId(EntityId departmentId)
+        public IReadOnlyCollection<Phone> GetByDepartmentId(String departmentId)
         {
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<Phone> GetByEmployeeId(EntityId employeeId)
+        public IReadOnlyCollection<Phone> GetByEmployeeId(String employeeId)
         {
             throw new NotImplementedException();
         }
 
-        public Phone GetById(EntityId phoneId)
+        public Phone GetById(String phoneId)
         {
             throw new NotImplementedException();
         }

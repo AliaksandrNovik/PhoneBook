@@ -12,11 +12,11 @@ namespace Services.Facade
         void CreateEmployee(
             string firstName, string lastName, string patronym, 
             Date birthDate, Gender gender, string place,
-            EntityId departmentId
+            String departmentId
             );
 
         void UpdateEmployee(Employee employee);
 
-        void DeleteEmployee(EntityId employeeId);
+        void DeleteEmployee(String employeeId);
     }
 }

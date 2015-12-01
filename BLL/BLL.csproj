@@ -64,8 +64,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Repository\Implement\Ent\Department.cs" />
+    <Compile Include="Repository\Implement\Ent\Employee.cs" />
+    <Compile Include="Repository\Implement\Ent\Phone.cs" />
     <Compile Include="Repository\Implement\ReposDepart.cs" />
-    <Compile Include="Repository\Implement\ReposEmployee.cs" />
+    <Compile Include="Repository\Implement\ReposEmpl.cs" />
+    <Compile Include="Repository\Implement\ReposPhone.cs" />
     <Compile Include="Repository\Implement\Test.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IRepositoryDepartment.cs" />

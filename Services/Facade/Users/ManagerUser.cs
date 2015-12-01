@@ -8,7 +8,7 @@ namespace Services.Facade
 {
     public interface ManagerUser : User
     {
-        EntityId Department
+        String Department
         { get; set; }
     }
 }

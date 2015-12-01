@@ -32,7 +32,7 @@ namespace Services.Facade
         { get; set; }
 
         //refs
-        EntityId DepartmentId
+        String DepartmentId
         { get; set; }
     }
 }

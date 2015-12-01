@@ -9,7 +9,7 @@ using UI.Basics;
 
 namespace UI.ManagerUI
 {
-    public class ManagerPresenter : BasePresener<IManagerPassiveView, Services.Facade.EntityId>
+    public class ManagerPresenter : BasePresener<IManagerPassiveView, Services.Facade.String>
     {
         private DepartmentEditForm _departmentEditView = new DepartmentEditForm();
         private EmployeeEditForm _employeeEditView = new EmployeeEditForm();
@@ -32,12 +32,13 @@ namespace UI.ManagerUI
 
         private void DepartmentCreateCalled(DepartmentCreateArgs args)
         {
+            _departmentEditView.Department = args.Parent;
             _departmentEditView.ShowDialog();
         }
 
         private void DepartmentUpdateCalled(DepartmentUpdateArgs args)
         {
-
+            
         }
 
         private void DepartmentDeleteCalled(DepartmentUpdateArgs args)
@@ -76,7 +77,7 @@ namespace UI.ManagerUI
 
         }
 
-        public override void Run(EntityId argument)
+        public override void Run(Services.Facade.String argument)
         {
             View.Show();
         }

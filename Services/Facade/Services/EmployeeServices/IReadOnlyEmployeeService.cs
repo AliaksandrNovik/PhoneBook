@@ -8,14 +8,14 @@ namespace Services.Facade
 {
     //TODO async
     public delegate void EmployeePassDelegate(Employee employee);
-    public delegate void PassEmployeeId(EntityId employeeId);
+    public delegate void PassEmployeeId(String employeeId);
 
     public interface IReadOnlyEmployeeService
     {
-        Employee GetEmployeeById(EntityId id);
+        Employee GetEmployeeById(String id);
         IReadOnlyCollection<Employee> GetAll();
-        IReadOnlyCollection<Employee> GetByDepartmentId(EntityId departmentId);
-        Employee GetByUserId(EntityId id);
+        IReadOnlyCollection<Employee> GetByDepartmentId(String departmentId);
+        Employee GetByUserId(String id);
 
         //notifications
         event EmployeePassDelegate EmployeeCreated;

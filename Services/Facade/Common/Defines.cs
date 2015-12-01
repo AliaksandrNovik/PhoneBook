@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public class EntityId
+    public class String
     { };
 }

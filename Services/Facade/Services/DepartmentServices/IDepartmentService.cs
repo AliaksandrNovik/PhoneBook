@@ -9,11 +9,11 @@ namespace Services.Facade
     public interface IDepartmentService : IReadOnlyDepartmentService
     {
         void CreateDepartment(
-            string name, EntityId headEmployee, 
-            IReadOnlyCollection<EntityId> subordinateDepartments,
-            EntityId parentDepartment
+            string name, String headEmployee, 
+            IReadOnlyCollection<String> subordinateDepartments,
+            String parentDepartment
                 );
         void UpdateDepartment(Department department);
-        void DeleteEmployee(EntityId id);        
+        void DeleteEmployee(String id);        
     }
 }

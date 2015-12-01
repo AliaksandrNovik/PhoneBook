@@ -12,12 +12,12 @@ namespace Services.Facade
         public event PassDepartmentId DepartmentDeleted;
         public event PassDepartment DepartmentUpdated;
 
-        public void CreateDepartment(string name, EntityId headEmployee, IReadOnlyCollection<EntityId> subordinateDepartments, EntityId parentDepartment)
+        public void CreateDepartment(string name, String headEmployee, IReadOnlyCollection<String> subordinateDepartments, String parentDepartment)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteEmployee(EntityId id)
+        public void DeleteEmployee(String id)
         {
             throw new NotImplementedException();
         }
@@ -27,17 +27,17 @@ namespace Services.Facade
             throw new NotImplementedException();
         }
 
-        public Department GetById(EntityId id)
+        public Department GetById(String id)
         {
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<Department> GetByParentId(EntityId parentId)
+        public IReadOnlyCollection<Department> GetByParentId(String parentId)
         {
             throw new NotImplementedException();
         }
 
-        public Department GetDepartmentByManagerUserId(EntityId id)
+        public Department GetDepartmentByManagerUserId(String id)
         {
             throw new NotImplementedException();
         }
