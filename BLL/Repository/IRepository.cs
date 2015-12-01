@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+ 
+
     //interface for Alex.BestDevelperEver
     interface IRepository
     {
-        Department CreateDepartment();//args
-        bool UpdateDepartment(Department department);
-        bool DeleteDepartment(Department department);
+        Department createDepartment();//args
+        bool updateDepartment(Department department);
+        bool deleteDepartment(Department department);
 
-        Employee CreateEmployee();//args
-        bool UpdateEmployee(Employee employee);
-        bool DeleteEmployee(Employee employee);
+        Employee createEmployee();//args
+        bool updateEmployee(Employee employee);
+        bool deleteEmployee(Employee employee);
 
-        Phone CreatePhone();
-        bool UpdatePhone(Phone phone);
-        bool DeletePhone(Phone phone);
+        Phone createPhone();
+        bool updatePhone(Phone phone);
+        bool deletePhone(Phone phone);
     }
 }

@@ -15,7 +15,11 @@ namespace BLL
     {
         public PersonInfo PersonFields
         { get; set; }
-       
+
+        public string Id
+        {
+            get;
+        }
         private Department _department;
         public Department Department
         {

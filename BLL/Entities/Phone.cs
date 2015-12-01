@@ -50,5 +50,9 @@ namespace BLL
             get;
             internal set;
         }
+        public string Id
+        {
+            get;
+        }
     }
 }

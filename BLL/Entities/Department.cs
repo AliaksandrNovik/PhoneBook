@@ -13,10 +13,14 @@ namespace BLL
             this.Name = name;
             this.Manager = null;
         }
-
         public string Name
         {
             get;set;
+        }
+
+        public string Id
+        {
+            get;
         }
         //manager methods
         //
