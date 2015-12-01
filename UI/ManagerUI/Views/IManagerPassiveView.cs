@@ -7,6 +7,7 @@ using UI.Basics;
 
 namespace UI.ManagerUI
 {
-    public interface IManagerPassiveView : IEmployeePassiveEditView, IDepartmentPassiveEditView, IPhonePassiveEditView
+    public interface IManagerPassiveView : IEmployeePassiveEditView, IDepartmentPassiveEditView, IPhonePassiveEditView, 
+        IPassiveCompanyStructView
     {}
 }

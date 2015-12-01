@@ -12,7 +12,7 @@ namespace UI.Basics
     #region Employee Stuff
     public class EmployeeCreateArgs : EventArgs
     {
-        EmployeeCreateArgs(Department department)
+        public EmployeeCreateArgs(Department department)
         { this.Department = department; }
 
         public Department Department
@@ -23,7 +23,7 @@ namespace UI.Basics
 
     public class EmployeeUpdateArgs : EventArgs
     {
-        EmployeeUpdateArgs(Employee employee)
+        public EmployeeUpdateArgs(Employee employee)
         { this.Employee = employee; }
 
         public Employee Employee
@@ -46,7 +46,7 @@ namespace UI.Basics
     //Department
     public class DepartmentCreateArgs : EventArgs
     {
-        DepartmentCreateArgs(Department parent)
+        public DepartmentCreateArgs(Department parent)
         { this.Parent = parent; }
 
         public Department Parent
@@ -57,7 +57,7 @@ namespace UI.Basics
 
     public class DepartmentUpdateArgs : EventArgs
     {
-        DepartmentUpdateArgs(Department department)
+        public DepartmentUpdateArgs(Department department)
         { this.Department = department; }
 
         public Department Department
@@ -80,7 +80,7 @@ namespace UI.Basics
     //Phone
     public class PhoneCreateArgs : EventArgs
     {
-        PhoneCreateArgs(Department department, Employee employee)
+        public PhoneCreateArgs(Department department, Employee employee)
         {
             this.Department = department;
             this.Employee = employee;
@@ -97,7 +97,7 @@ namespace UI.Basics
 
     public class PhoneUpdateArgs : EventArgs
     {
-        PhoneUpdateArgs(Phone phone)
+        public PhoneUpdateArgs(Phone phone)
         { this.Phone = phone; }
 
         public Phone Phone
