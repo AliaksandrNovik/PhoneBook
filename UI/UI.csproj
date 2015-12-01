@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aga.Controls, Version=1.7.0.0, Culture=neutral, PublicKeyToken=fcc90fbf924463a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\TreeViewAdv.1.7.0.0\lib\net\Aga.Controls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="LightInject, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LightInject.4.0.0\lib\net45\LightInject.dll</HintPath>
       <Private>True</Private>
@@ -92,6 +88,7 @@
     <Compile Include="Basics\Entities\Department.cs" />
     <Compile Include="Basics\Entities\Employee.cs" />
     <Compile Include="Basics\Entities\Phone.cs" />
+    <Compile Include="Basics\Entities\RootDepartment.cs" />
     <Compile Include="Basics\ServiceInteraction\DepartmentCreator.cs" />
     <Compile Include="Basics\Views\DisplayViews\EditPassiveViewInterfaces.cs" />
     <Compile Include="Basics\Views\EditViews\IDepartmentEditView.cs" />

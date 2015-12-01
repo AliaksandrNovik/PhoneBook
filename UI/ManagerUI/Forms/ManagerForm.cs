@@ -36,19 +36,19 @@ namespace UI.ManagerUI
             set
             {
                 _data = value;
-                FillDepartment();
+                FillTreeView(departmentView);
             }
         }
 
         #region FillDepartmentView
-        void FillDepartment()
+        void FillTreeView(TreeView tree)
         {
             if (_data != null)
             {
                 var rootNode = CreateNode(_data);
                 if (rootNode != null)
                 {
-                    departmentView.Nodes.Add(rootNode);
+                    tree.Nodes.Add(rootNode);
                 }
             }
         }
@@ -76,6 +76,10 @@ namespace UI.ManagerUI
                 return null;
             }
         }
+        #endregion
+
+        #region FillEmployeeView
+
         #endregion
 
         #region DepartmentViewMethods
