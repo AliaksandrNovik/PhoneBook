@@ -104,7 +104,7 @@ namespace UI.Basics
         { get; }
     }
 
-    public delegate void PhoneUpdateDelegate(DepartmentUpdateArgs createArgs);
+    public delegate void PhoneUpdateDelegate(PhoneUpdateArgs createArgs);
 
     public interface IPhonePassiveEditView : IView
     {

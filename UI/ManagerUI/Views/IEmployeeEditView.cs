@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI.Basics;
 
-namespace UI.Basics
+namespace UI.ManagerUI
 {
-    public interface IDepartmentEditView : IDialogView
+    public interface IEmployeeEditView : IDialogView
     {
-        Department Department
+        Employee Employee
         { get; set; }
     }
 }
