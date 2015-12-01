@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface IDepartmentService : IReadOnlyEmployeeService
+    public interface IDepartmentService : IReadOnlyDepartmentService
     {
         void CreateDepartment(
             string name, EntityId headEmployee, 

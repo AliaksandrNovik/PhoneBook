@@ -7,11 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using UI.Views;
 using UI.AppController;
 
-namespace UI.Forms
+namespace UI.LoginUI
 {
     public partial class LoginForm : Form, ILoginView
     {
@@ -53,7 +51,7 @@ namespace UI.Forms
         //TODO  
         public void ShowError(string errorMessage)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(this, errorMessage, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Invoke(Action action)

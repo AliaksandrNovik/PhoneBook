@@ -87,6 +87,7 @@
     <Compile Include="Basics\Entities\Department.cs" />
     <Compile Include="Basics\Entities\Employee.cs" />
     <Compile Include="Basics\Entities\Phone.cs" />
+    <Compile Include="Basics\ServiceInteraction\DepartmentCreator.cs" />
     <Compile Include="Basics\Views\DisplayViews\EditPassiveViewInterfaces.cs" />
     <Compile Include="Basics\Views\EditViews\IDepartmentEditView.cs" />
     <Compile Include="Basics\Views\IDialogView.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
     <Compile Include="EmployeeUI\Presenters\EmployeePresenter.cs" />
     <Compile Include="EmployeeUI\Views\IEmployeeView.cs" />
+    <Compile Include="LoginUI\Presenters\LoginPresenter.cs" />
     <Compile Include="StatisticUI\Forms\PhoneStatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>

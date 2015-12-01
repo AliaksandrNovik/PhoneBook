@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Facade.Services.PhoneService
+namespace Services.Facade
 {
     public delegate void PassPhone(Phone phone);
     public delegate void PassPhoneId(Phone phoneId);
@@ -18,8 +18,8 @@ namespace Services.Facade.Services.PhoneService
         IReadOnlyCollection<Phone> GetByEmployeeId(EntityId employeeId);
 
         //notifications
-        event PassPhone EmployeeCreated;
-        event PassPhone EmployeeUpdated;
-        event PassPhoneId EntityDeleted;
+        event PassPhone PhoneCreated;
+        event PassPhone PhoneUpdated;
+        event PassPhoneId PhoneDeleted;
     }
 }

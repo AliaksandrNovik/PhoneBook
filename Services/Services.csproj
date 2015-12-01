@@ -42,26 +42,29 @@
   <ItemGroup>
     <Compile Include="Facade\Common\Defines.cs" />
     <Compile Include="Facade\Services\DepartmentServices\IDepartmentService.cs" />
+    <Compile Include="Facade\Services\DepartmentServices\Implementation\DepartmentService.cs" />
     <Compile Include="Facade\Services\DepartmentServices\IReadOnlyDepartmentService.cs" />
     <Compile Include="Facade\Services\EmployeeServices\IEmployeeService.cs" />
+    <Compile Include="Facade\Services\EmployeeServices\Implementation\EmployeeService.cs" />
     <Compile Include="Facade\Services\EmployeeServices\IReadOnlyEmployeeService.cs" />
     <Compile Include="Facade\Common\Date.cs" />
     <Compile Include="Facade\Entities\Department.cs" />
     <Compile Include="Facade\Entities\Employee.cs" />
     <Compile Include="Facade\Entities\Gender.cs" />
     <Compile Include="Facade\Entities\Phone.cs" />
-    <Compile Include="Facade\Services\UserServices\IEmployeeInfoService.cs" />
+    <Compile Include="Facade\Services\PhoneService\Implementation\PhoneService.cs" />
     <Compile Include="Facade\Services\UserServices\ILoginService.cs" />
     <Compile Include="Facade\Services\PhoneService\IPhoneService.cs" />
     <Compile Include="Facade\Services\PhoneService\IReadOnlyPhoneService.cs" />
     <Compile Include="Facade\Services\UserServices\IAdminService.cs" />
-    <Compile Include="Facade\Services\UserServices\IManagerInfoService.cs" />
+    <Compile Include="Facade\Services\UserServices\Implementation\LoginService.cs" />
     <Compile Include="Facade\Statistics\CallSession.cs" />
     <Compile Include="Facade\Statistics\IStatisticService.cs" />
     <Compile Include="Facade\Users\AdminUser.cs" />
     <Compile Include="Facade\Users\EmployeeUser.cs" />
     <Compile Include="Facade\Users\ManagerUser.cs" />
     <Compile Include="Facade\Users\User.cs" />
+    <Compile Include="Facade\Users\UserInfo.cs" />
     <Compile Include="Facade\Users\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

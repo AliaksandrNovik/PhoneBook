@@ -1,4 +1,4 @@
-﻿namespace UI.Forms
+﻿namespace UI.LoginUI
 {
     partial class LoginForm
     {

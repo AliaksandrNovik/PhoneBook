@@ -33,13 +33,13 @@
             this.selfStatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchLine = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneSource)).BeginInit();
@@ -96,21 +96,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(722, 188);
             this.dataGridView1.TabIndex = 3;
             // 
-            // searchButton
-            // 
-            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Location = new System.Drawing.Point(588, 31);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(150, 26);
-            this.searchButton.TabIndex = 4;
-            this.searchButton.Text = "Найти";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // phoneSource
-            // 
-            this.phoneSource.DataSource = typeof(UI.EmployeeUI.PhoneWrapItem);
-            // 
             // phoneDataGridViewTextBoxColumn
             // 
             this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
@@ -146,6 +131,21 @@
             this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
             this.departmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // phoneSource
+            // 
+            this.phoneSource.DataSource = typeof(UI.EmployeeUI.PhoneWrapItem);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Location = new System.Drawing.Point(588, 31);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(150, 26);
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "Найти";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -158,7 +158,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "EmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmployeeForm";
+            this.Text = "Телефонная книга";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

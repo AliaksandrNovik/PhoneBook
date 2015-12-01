@@ -16,6 +16,7 @@ namespace Services.Facade
         IReadOnlyCollection<Department> GetAll();
         IReadOnlyCollection<Department> GetByParentId(EntityId parentId);
         Department GetRootDepartment();
+        Department GetDepartmentByManagerUserId(EntityId id);
         
         //notifications
         event PassDepartment DepartmentCreated;

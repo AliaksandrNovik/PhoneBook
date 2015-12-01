@@ -18,7 +18,6 @@ namespace BLL
         {
             get;set;
         }
-
         //manager methods
         //
         Employee _manager;

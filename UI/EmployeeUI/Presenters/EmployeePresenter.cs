@@ -5,32 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using UI.AppController;
 using UI.Basics;
+using Services.Facade;
 
-namespace UI.EmployeeUI.Presenters
+namespace UI.EmployeeUI
 {
-    class EmployeePresenterArgs
+    class EmployeePresenter : BasePresener<IEmployeeView, Services.Facade.EntityId>
     {
-        public EmployeePresenterArgs(Department department, Employee employee)
-        {
-            this.Department = department;
-            this.Employee = employee;
-        }
+        private readonly IReadOnlyDepartmentService _departmentService;
+        private readonly IReadOnlyEmployeeService _employeeService;
+        private readonly IReadOnlyPhoneService _phoneService;
 
-        public Department Department
-        { get; private set; }
-
-        public Employee Employee
-        { get; private set; }
-
-    }
-    class EmployeePresenter : BasePresener<IEmployeeView, EmployeePresenterArgs>
-    {
-        public EmployeePresenter(IApplicationController controller, IEmployeeView view):
+        public EmployeePresenter(IApplicationController controller, IEmployeeView view, 
+            IReadOnlyDepartmentService departmentService,
+            IReadOnlyEmployeeService employeeService,
+            IReadOnlyPhoneService phoneService
+            ):
             base(controller, view)
         {
+            _departmentService = departmentService;
+            _employeeService = employeeService;
+            _phoneService = phoneService;
+
             View.OwnStatisticCalled += () => OwnStatisticCalled();
+
+            //just repeat request for a while
+            _departmentService.DepartmentCreated += (arg) => { RefillView(); };
+            _departmentService.DepartmentUpdated += (arg) => { RefillView(); };
+            _departmentService.DepartmentDeleted += (arg) => { RefillView(); };
+
+            _employeeService.EmployeeCreated += (arg) => { RefillView(); };
+            _employeeService.EmployeeUpdated += (arg) => { RefillView(); };
+            _employeeService.EmployeeDeleted+= (arg) => { RefillView(); };
+
+            _phoneService.PhoneCreated+= (arg) => { RefillView(); };
+            _phoneService.PhoneUpdated += (arg) => { RefillView(); };
+            _phoneService.PhoneDeleted += (arg) => { RefillView(); };
         }
 
+        //events
+        //
         private void OwnStatisticCalled()
         {
             if (_employee == null)
@@ -41,18 +54,24 @@ namespace UI.EmployeeUI.Presenters
             {
                 //call other presenter
             }
+        }      
+
+        private Services.Facade.Employee _employee;
+        private UI.Basics.Department _department;
+        public override void Run(Services.Facade.EntityId userId)
+        {
+            if (userId != null)
+            {
+                _employee = _employeeService.GetByUserId(userId);
+            }
+            RefillView();
+            View.Show();
         }
 
-        private Employee _employee;
-        private Department _department;
-        public override void Run(EmployeePresenterArgs argument)
+        private void RefillView()
         {
-            //[1]
-            _employee = argument.Employee;
-            _department = argument.Department;
-
-            //[2]
-            View.Show();
+            _department = DepartmentCreator.CreateRootDepartment(_departmentService, _employeeService, _phoneService);
+            View.CompanyStructure = _department;
         }
     }
 }

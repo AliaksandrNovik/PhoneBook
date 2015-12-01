@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface ILoginService
+    public interface UserInfo
     {
-        UserInfo Login(string user, string password);
+        EntityId UserId
+        { get; set; }
+
+        UserType Type
+        { get; set; }
     }
 }

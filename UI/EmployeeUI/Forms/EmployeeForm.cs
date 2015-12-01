@@ -24,7 +24,7 @@ namespace UI.EmployeeUI
             InitializeComponent();
         }
 
-        List<PhoneWrapItem> _phoneItems;
+        private List<PhoneWrapItem> _phoneItems = new List<PhoneWrapItem>();
         Department _department;
         public Department CompanyStructure
         {
@@ -48,7 +48,7 @@ namespace UI.EmployeeUI
                 {
                     if (phone != null)
                     {
-                        var phoneWrap = new PhoneWrapItem(phone, department);
+                        var phoneWrap = new PhoneWrapItem(phone);
                         _phoneItems.Add(phoneWrap);
                     }
                 }
@@ -102,7 +102,7 @@ namespace UI.EmployeeUI
 
         public void ShowError(string msg)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(this, msg, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /*void IView.Show()

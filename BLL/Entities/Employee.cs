@@ -7,26 +7,15 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    public class NameFields
+    {
+        
+    }
     public class Employee
     {
-        public string FirstName
-        {
-            get;
-            set;
-        }
-
-        public string LastName
-        {
-            get;
-            set;
-        }
-
-        public string Patronym
-        {
-            get;
-            set;
-        }
-
+        public PersonInfo PersonFields
+        { get; set; }
+       
         private Department _department;
         public Department Department
         {

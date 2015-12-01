@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UI.AppController;
 
-namespace UI.Views
+namespace UI.LoginUI
 {
     public interface ILoginView : IView
     {

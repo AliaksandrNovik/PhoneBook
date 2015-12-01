@@ -10,8 +10,10 @@ using UI.AppController;
 
 using UI.AdminUI;
 using UI.EmployeeUI;
+using UI.LoginUI;
 using UI.Views;
 using UI.Basics;
+using Services.Facade;
 
 namespace UI
 {
@@ -26,38 +28,16 @@ namespace UI
             //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*var controller = new ApplicationController(new LightInjectAdapder());
-            controller.RegisterView<ILoginView, LoginForm>()
-                .RegisterService<ILoginService, DummyLogin>()
-                .RegisterInstance(new ApplicationContext())
-                .RegisterView<IEmployeeView, EmployeeForm>()
-                .RegisterService<IEmployeeService, DummyEmployeeService>()
-                .RegisterView<IAdminView, AdminForm>()
-                .RegisterService<IAdminService, DummyAdminService>()
-                .RegisterView<IManagerView, ManagerForm>()
-                .RegisterService<IManagerService, DummyManagerService>();
+            var controller = new ApplicationController(new LightInjectAdapder());
+            controller.RegisterView<IEmployeeView, EmployeeForm>()
+                .RegisterView<ILoginView, LoginForm>()
+            .RegisterInstance(new ApplicationContext())
+            .RegisterService<ILoginService, LoginService>()
+            .RegisterService<IReadOnlyPhoneService, PhoneService>()
+             .RegisterService<IReadOnlyDepartmentService, DepartmentService>()
+             .RegisterService<IReadOnlyEmployeeService, EmployeeService>();
 
-            controller.Run<LoginPresenter>();*/
-            #region TEST_PHONE_STAT
-            var form = new PhoneStatisticForm(new ApplicationContext());
-            form.Phone = "+375447174032";
-            form.Employee = "Вусик Кирилл Владимирович";
-            form.Department = "Отдел маркетинга";
-
-            IList<StatisticItem> calls = new List<StatisticItem>();
-            for (int i = 0; i < 100; ++i)
-            {
-                StatisticItem item = new StatisticItem(DateTime.Now, 3, "+375443337722", 58, 15);
-                calls.Add(item);
-            }
-            form.PhoneCalls = new ReadOnlyCollection<StatisticItem>(calls);
-
-            form.Show();
-            calls.Insert(0, new StatisticItem(DateTime.Now, 15, "Fuck!", 58, 15));
-            form.PhoneCalls = new ReadOnlyCollection<StatisticItem>(calls);
-            #endregion
-            Application.Run();
-            
+            controller.Run<LoginPresenter>();                        
         }
     }
 }

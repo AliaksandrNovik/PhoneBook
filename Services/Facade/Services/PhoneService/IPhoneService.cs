@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Facade.Services.PhoneService
+namespace Services.Facade
 {
-    public interface IPhoneService
+    public interface IPhoneService : IReadOnlyPhoneService
     {
         void CreatePhone(string number, EntityId department = null, EntityId employee = null);
         void UpdatePhone(Phone phone);
