@@ -17,20 +17,12 @@ namespace UI.AdminUI
         public AdminForm()
         {
             InitializeComponent();
+
+            departmentView.Nodes.Add("Компания");
         }
 
-
-        private void addDepartmentButton_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void changeDepartmentButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void removeDepartmentButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -60,13 +52,6 @@ namespace UI.AdminUI
 
         }
 
-        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var adminUserDialog = new AdminUserEditDialog();
-            adminUserDialog.SubmitCalled += (s, a) => Create(s, a);
-            adminUserDialog.ShowDialog();
-        }
-
         private void Create(object sender, EventArgs e)
         {
             var dialog = (AdminUserEditDialog)sender;
@@ -77,13 +62,75 @@ namespace UI.AdminUI
                 //todo
                 dialog.Close();
             }
-        }            
-        /*
-        void IView.Show()
-        {
-            
-            base.Show();
         }
-        */
+
+        #region DepartmentEdit
+        private void addDepartment_Click(object sender, EventArgs e)
+        {
+            var currentDepartment = departmentView.SelectedNode;
+            if (currentDepartment != null)
+            {
+                var departmentEditForm = new EditDepartmentForm();
+                departmentEditForm.Confirmed += (s, a) => CreateDepartmentConfirmed(s, a);
+                departmentEditForm.ShowDialog();
+            }
+        }
+
+        private void CreateDepartmentConfirmed(object sender, EventArgs e)
+        {
+            var departmentEditForm = (EditDepartmentForm)sender;
+            if (departmentEditForm != null)
+            {
+                var newName = departmentEditForm.DepartmentName;
+                if (string.IsNullOrEmpty(newName))
+                {
+                    departmentEditForm.ShowError("Название не может быть пустым!");
+                }
+                else
+                {
+                    AddDepartment(new TreeNode(newName));
+                    departmentEditForm.DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+        private void removeDepartment_Click(object sender, EventArgs e)
+        {
+            var currentDepartment = departmentView.SelectedNode;
+            if (currentDepartment != null)
+            {
+                if (currentDepartment.Parent != null)
+                {
+                    departmentView.Nodes.Remove(currentDepartment);
+                }
+            }
+        }
+
+        void AddDepartment(TreeNode department)
+        {
+            if (department != null)
+            {
+                var parent = departmentView.SelectedNode;
+                if (parent != null)
+                {
+                    Console.WriteLine(parent.Level.ToString());
+                    if (parent.Level > 2)
+                    {
+                        parent = parent.Parent;
+                        if (parent != null)
+                        {
+                            parent.Nodes.Add(department);
+                        }
+                    }
+                    else
+                    {
+                        parent.Nodes.Add(department);
+                    }
+                }
+                departmentView.ExpandAll();
+            }
+        }
+
+        #endregion
     }
 }

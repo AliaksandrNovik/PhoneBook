@@ -58,27 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AdminUser.cs" />
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\EmployeeUser.cs" />
+    <Compile Include="Entities\Users\AdminUser.cs" />
+    <Compile Include="Entities\Company\Employee.cs" />
+    <Compile Include="Entities\Users\EmployeeUser.cs" />
     <Compile Include="Entities\Identified.cs" />
-    <Compile Include="Entities\ManagerUser.cs" />
-    <Compile Include="Entities\PersonInfo.cs" />
-    <Compile Include="Entities\Phone.cs" />
+    <Compile Include="Entities\Users\ManagerUser.cs" />
+    <Compile Include="Entities\Company\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\Company\Department.cs" />
+    <Compile Include="Repository\IDepartmentRepository.cs" />
+    <Compile Include="Repository\IEmployeeRepository.cs" />
+    <Compile Include="Repository\IPhoneRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
-    <Compile Include="Repository\Implement\Ent\Department.cs" />
-    <Compile Include="Repository\Implement\Ent\Employee.cs" />
-    <Compile Include="Repository\Implement\Ent\Phone.cs" />
-    <Compile Include="Repository\Implement\ReposDepart.cs" />
-    <Compile Include="Repository\Implement\ReposEmpl.cs" />
-    <Compile Include="Repository\Implement\ReposPhone.cs" />
-    <Compile Include="Repository\Implement\Test.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IRepositoryDepartment.cs" />
-    <Compile Include="Repository\IRepositoryEmployee.cs" />
-    <Compile Include="Repository\IRepositoryPhone.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
