@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    [Serializable]
     public class AdminUser : Identified
     {
+        AdminUser() : base() {}
+
         AdminUser(string login, string password) :
             base()
         {

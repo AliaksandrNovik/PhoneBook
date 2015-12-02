@@ -8,16 +8,24 @@ using BLL;
 
 namespace Services.Implementation
 {
-    class LoginService : ILoginService
+    public class LoginService : ILoginService
     {
         private readonly IUserRepository _userRepository;
-        public LoginService(IUserRepository userRepository)
+        public LoginService()
         {
-            this._userRepository = userRepository;
         }
 
         public IUserInfo Login(string user, string password)
         {
+            if (user.Equals("admin"))
+            {
+                return new UserInfo(UserType.Admin, "123");
+            }
+            else
+            {
+                return null;
+            }
+
             foreach (var userItem in _userRepository.GetAdminAll())
             {
                 if (userItem.Login.Equals(user) && userItem.Password.Equals(password))

@@ -33,8 +33,6 @@
             this.removeDepartmentButton = new System.Windows.Forms.Button();
             this.changeDepartmentButton = new System.Windows.Forms.Button();
             this.addDepartmentButton = new System.Windows.Forms.Button();
-            this.Find = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.changeEmployeeButton = new System.Windows.Forms.Button();
@@ -42,23 +40,13 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Найти = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сотрудникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.менеджерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.администраторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userGridView = new System.Windows.Forms.DataGridView();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.removeButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.departmentGroupBox = new System.Windows.Forms.GroupBox();
             this.userTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // userTab
@@ -68,7 +56,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userTab.Controls.Add(this.tabPage1);
             this.userTab.Controls.Add(this.tabPage2);
-            this.userTab.Controls.Add(this.tabPage3);
             this.userTab.Location = new System.Drawing.Point(3, 15);
             this.userTab.Margin = new System.Windows.Forms.Padding(4);
             this.userTab.Name = "userTab";
@@ -79,17 +66,15 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.treeView1);
+            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Controls.Add(this.removeDepartmentButton);
             this.tabPage1.Controls.Add(this.changeDepartmentButton);
             this.tabPage1.Controls.Add(this.addDepartmentButton);
-            this.tabPage1.Controls.Add(this.Find);
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(807, 472);
+            this.tabPage1.Size = new System.Drawing.Size(733, 406);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Подразделения";
             // 
@@ -128,28 +113,6 @@
             this.addDepartmentButton.Text = "Добавить";
             this.addDepartmentButton.UseVisualStyleBackColor = true;
             this.addDepartmentButton.Click += new System.EventHandler(this.addDepartmentButton_Click);
-            // 
-            // Find
-            // 
-            this.Find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Find.Location = new System.Drawing.Point(646, 21);
-            this.Find.Margin = new System.Windows.Forms.Padding(4);
-            this.Find.Name = "Find";
-            this.Find.Size = new System.Drawing.Size(150, 28);
-            this.Find.TabIndex = 1;
-            this.Find.Text = "Найти";
-            this.Find.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(13, 21);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(628, 27);
-            this.textBox1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -238,102 +201,33 @@
             this.textBox2.Size = new System.Drawing.Size(554, 27);
             this.textBox2.TabIndex = 2;
             // 
-            // treeView1
+            // tableLayoutPanel1
             // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(13, 55);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(784, 378);
-            this.treeView1.TabIndex = 6;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.Controls.Add(this.departmentGroupBox, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 7);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 390);
+            this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // tabPage3
+            // departmentGroupBox
             // 
-            this.tabPage3.Controls.Add(this.removeButton);
-            this.tabPage3.Controls.Add(this.changeButton);
-            this.tabPage3.Controls.Add(this.userGridView);
-            this.tabPage3.Controls.Add(this.menuStrip1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(733, 406);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Пользователи";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(727, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // добавитьToolStripMenuItem
-            // 
-            this.добавитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сотрудникToolStripMenuItem,
-            this.менеджерToolStripMenuItem,
-            this.администраторToolStripMenuItem});
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
-            // 
-            // сотрудникToolStripMenuItem
-            // 
-            this.сотрудникToolStripMenuItem.Name = "сотрудникToolStripMenuItem";
-            this.сотрудникToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.сотрудникToolStripMenuItem.Text = "Сотрудник";
-            // 
-            // менеджерToolStripMenuItem
-            // 
-            this.менеджерToolStripMenuItem.Name = "менеджерToolStripMenuItem";
-            this.менеджерToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.менеджерToolStripMenuItem.Text = "Менеджер";
-            // 
-            // администраторToolStripMenuItem
-            // 
-            this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
-            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.администраторToolStripMenuItem.Text = "Администратор";
-            // 
-            // userGridView
-            // 
-            this.userGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.departmentGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(7, 35);
-            this.userGridView.Name = "userGridView";
-            this.userGridView.RowTemplate.Height = 24;
-            this.userGridView.Size = new System.Drawing.Size(716, 333);
-            this.userGridView.TabIndex = 1;
-            // 
-            // changeButton
-            // 
-            this.changeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.changeButton.AutoSize = true;
-            this.changeButton.Location = new System.Drawing.Point(7, 374);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(82, 27);
-            this.changeButton.TabIndex = 2;
-            this.changeButton.Text = "Изменить";
-            this.changeButton.UseVisualStyleBackColor = true;
-            // 
-            // removeButton
-            // 
-            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeButton.AutoSize = true;
-            this.removeButton.Location = new System.Drawing.Point(95, 374);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(75, 27);
-            this.removeButton.TabIndex = 3;
-            this.removeButton.Text = "Удалить";
-            this.removeButton.UseVisualStyleBackColor = true;
+            this.departmentGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.departmentGroupBox.Name = "departmentGroupBox";
+            this.departmentGroupBox.Size = new System.Drawing.Size(210, 384);
+            this.departmentGroupBox.TabIndex = 0;
+            this.departmentGroupBox.TabStop = false;
+            this.departmentGroupBox.Text = "Структура подразделений";
             // 
             // AdminForm
             // 
@@ -341,22 +235,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 449);
             this.Controls.Add(this.userTab);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Администрирование";
             this.userTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -365,8 +253,6 @@
 
         private System.Windows.Forms.TabControl userTab;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button Find;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button removeDepartmentButton;
         private System.Windows.Forms.Button changeDepartmentButton;
         private System.Windows.Forms.Button addDepartmentButton;
@@ -377,15 +263,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button Найти;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button removeButton;
-        private System.Windows.Forms.Button changeButton;
-        private System.Windows.Forms.DataGridView userGridView;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сотрудникToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem менеджерToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem администраторToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox departmentGroupBox;
     }
 }

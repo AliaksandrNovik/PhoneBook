@@ -7,27 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.AppController;
+using Services.Facade;
 
 namespace UI.LoginUI
 {
-    public partial class LoginForm : Form, ILoginView
+    public partial class LoginForm : Form
     {
-        private readonly ApplicationContext _context;
-        public LoginForm(ApplicationContext context)
+        private ApplicationContext _context;
+        private readonly ILoginService _service;
+        public LoginForm(ILoginService service, ApplicationContext context)
         {
+            _service = service;
             _context = context;
             InitializeComponent();
-
-            submitButton.Click += (sender, args) => Invoke(SubmitPressed);
-        }
-
-        //IView interface
-        //
-        void IView.Show()
-        {
-            _context.MainForm = this;
-            Application.Run(_context);
         }
 
         public string Password
@@ -45,20 +37,59 @@ namespace UI.LoginUI
                 return loginLine.Text;
             }
         }
-
-        public event Action SubmitPressed;
-
-        //TODO  
-        public void ShowError(string errorMessage)
+        
+        public new void Show()
         {
-            MessageBox.Show(this, errorMessage, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _context.MainForm = this;
+            Application.Run(_context);
         }
 
-        private void Invoke(Action action)
+        private void ShowError(string errorMessage)
         {
-            if (action != null)
+            MessageBox.Show(this, errorMessage, "Вход", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            var login = loginLine.Text;
+            var password = passwordLine.Text;
+            if (string.IsNullOrEmpty(login))
             {
-                action();
+                ShowError("Введите логин!");
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                ShowError("Введите пароль!");
+
+            }
+            else
+            {
+                var userInfo = _service.Login(login, password);
+                if (userInfo == null)
+                {
+                    ShowError("Неправильная пара логин-пароль");
+                }
+                else
+                {
+                    Form form = null;
+                    switch (userInfo.Type)
+                    {
+                        case UserType.Admin:
+                            form = new AdminUI.AdminForm();
+                            break;
+                        case UserType.Employee:
+                            
+                            break;
+                        case UserType.Manager:
+                            break;
+                    }
+                    if (form != null)
+                    {
+                        _context.MainForm = form;
+                        this.Close();
+                        form.Show();
+                    }
+                }
             }
         }
     }

@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Facade;
 
-namespace BLL
+namespace Services.Implementation
 {
-    [Serializable]
-    public class EmployeeUser : Identified
+    class AdminUser : IAdminUser
     {
-        EmployeeUser():base() { }
-        EmployeeUser(string login, string password, string employeeId) :
-            base()
+        internal AdminUser(string login, string password, string userId)
         {
             this.Login = login;
             this.Password = password;
-            this.EmployeeId = employeeId;
+            this.UserId = userId;
         }
 
         public string Login
@@ -23,8 +21,9 @@ namespace BLL
 
         public string Password
         { get; set; }
-
-        public string EmployeeId
+        
+        public string UserId
         { get; set; }
+        
     }
 }

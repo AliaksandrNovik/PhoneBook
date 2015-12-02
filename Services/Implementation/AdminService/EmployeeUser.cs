@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Facade;
 
-namespace BLL
+namespace Services.Implementation
 {
-    [Serializable]
-    public class EmployeeUser : Identified
+    class EmployeeUser : IEmployeeUser
     {
-        EmployeeUser():base() { }
-        EmployeeUser(string login, string password, string employeeId) :
-            base()
+        internal EmployeeUser(string login, string password, string employeeId, string userId)
         {
             this.Login = login;
             this.Password = password;
             this.EmployeeId = employeeId;
+            this.UserId = userId;
         }
+
+        public string EmployeeId
+        { get; set; }
 
         public string Login
         { get; set; }
 
         public string Password
         { get; set; }
-
-        public string EmployeeId
+    
+        public string UserId
         { get; set; }
     }
 }

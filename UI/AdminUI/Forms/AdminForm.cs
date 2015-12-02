@@ -8,48 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using UI.Views;
 using UI.AppController;
-using UI.Basics;
 
 namespace UI.AdminUI
 {
-    public partial class AdminForm : Form, IAdminPassiveView
+    public partial class AdminForm : Form
     {
-        private readonly ApplicationContext _context;
-
-        public AdminForm(ApplicationContext context)
+        public AdminForm()
         {
-            _context = context;
             InitializeComponent();
         }
 
-        public event DepartmentCreateDelegate DepartmentCreateCalled;
-        public event DepartmentUpdateDelegate DepartmentDeleteCalled;
-        public event DepartmentUpdateDelegate DepartmentUpdateCalled;
-
-        public event EmployeeCreateDelegate EmployeeCreateCalled;
-        public event EmployeeUpdateDelegate EmployeeUpdateCalled;
-        public event EmployeeUpdateDelegate EmployeeDeleteCalled;
-
-        public event EventHandler AdminCreateCalled;
-        public event AdminUserDelegate AdminDeleteCalled;
-        public event AdminUserDelegate AdminUpdateCalled;
-
-        public event CreationContextDelegate EmployeeUserCreateCalled;
-        public event EmployeeUserDelegate EmployeeUserDeleteCalled;
-        public event EmployeeUserDelegate EmployeeUserUpdateCalled;
-
-        public event CreationContextDelegate ManagerUserCreateCalled;
-        public event ManagerUserDelegate ManagerUserDeleteCalled;
-        public event ManagerUserDelegate ManagerUserUpdateCalled;        
 
         private void addDepartmentButton_Click(object sender, EventArgs e)
         {
-            if (DepartmentCreateCalled != null)
-            {
-                
-            }
+            
         }
 
         private void changeDepartmentButton_Click(object sender, EventArgs e)
@@ -77,10 +50,38 @@ namespace UI.AdminUI
 
         }
 
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void managerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var adminUserDialog = new AdminUserEditDialog();
+            adminUserDialog.SubmitCalled += (s, a) => Create(s, a);
+            adminUserDialog.ShowDialog();
+        }
+
+        private void Create(object sender, EventArgs e)
+        {
+            var dialog = (AdminUserEditDialog)sender;
+            bool valid = !string.IsNullOrEmpty(dialog.Login) && !string.IsNullOrEmpty(dialog.Password);
+            Console.Write(valid);
+            if (valid.Equals(true))
+            {
+                //todo
+                dialog.Close();
+            }
+        }            
         /*
         void IView.Show()
         {
-            _context.MainForm = this;
+            
             base.Show();
         }
         */
