@@ -41,12 +41,30 @@
             this.Найти = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.departmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addDepartment = new System.Windows.Forms.Button();
+            this.changeDepartment = new System.Windows.Forms.Button();
+            this.removeDepartment = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.employeeGroupBox = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.userTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.employeeGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // userTab
@@ -60,7 +78,7 @@
             this.userTab.Margin = new System.Windows.Forms.Padding(4);
             this.userTab.Name = "userTab";
             this.userTab.SelectedIndex = 0;
-            this.userTab.Size = new System.Drawing.Size(741, 435);
+            this.userTab.Size = new System.Drawing.Size(836, 420);
             this.userTab.TabIndex = 0;
             // 
             // tabPage1
@@ -74,14 +92,14 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(733, 406);
+            this.tabPage1.Size = new System.Drawing.Size(828, 391);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Подразделения";
             // 
             // removeDepartmentButton
             // 
             this.removeDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeDepartmentButton.Location = new System.Drawing.Point(228, 440);
+            this.removeDepartmentButton.Location = new System.Drawing.Point(228, 404);
             this.removeDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeDepartmentButton.Name = "removeDepartmentButton";
             this.removeDepartmentButton.Size = new System.Drawing.Size(100, 28);
@@ -93,7 +111,7 @@
             // changeDepartmentButton
             // 
             this.changeDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.changeDepartmentButton.Location = new System.Drawing.Point(120, 440);
+            this.changeDepartmentButton.Location = new System.Drawing.Point(120, 404);
             this.changeDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.changeDepartmentButton.Name = "changeDepartmentButton";
             this.changeDepartmentButton.Size = new System.Drawing.Size(100, 28);
@@ -105,7 +123,7 @@
             // addDepartmentButton
             // 
             this.addDepartmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addDepartmentButton.Location = new System.Drawing.Point(12, 440);
+            this.addDepartmentButton.Location = new System.Drawing.Point(12, 404);
             this.addDepartmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.addDepartmentButton.Name = "addDepartmentButton";
             this.addDepartmentButton.Size = new System.Drawing.Size(100, 28);
@@ -127,7 +145,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(733, 406);
+            this.tabPage2.Size = new System.Drawing.Size(774, 373);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сотрудники";
             // 
@@ -207,15 +225,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Controls.Add(this.departmentGroupBox, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.63636F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 390);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 377);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.departmentGroupBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(290, 371);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // departmentGroupBox
             // 
@@ -224,16 +260,145 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.departmentGroupBox.Location = new System.Drawing.Point(3, 3);
             this.departmentGroupBox.Name = "departmentGroupBox";
-            this.departmentGroupBox.Size = new System.Drawing.Size(210, 384);
-            this.departmentGroupBox.TabIndex = 0;
+            this.departmentGroupBox.Size = new System.Drawing.Size(284, 315);
+            this.departmentGroupBox.TabIndex = 1;
             this.departmentGroupBox.TabStop = false;
             this.departmentGroupBox.Text = "Структура подразделений";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.addDepartment);
+            this.flowLayoutPanel1.Controls.Add(this.changeDepartment);
+            this.flowLayoutPanel1.Controls.Add(this.removeDepartment);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 324);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 44);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // addDepartment
+            // 
+            this.addDepartment.AutoSize = true;
+            this.addDepartment.Location = new System.Drawing.Point(3, 3);
+            this.addDepartment.Name = "addDepartment";
+            this.addDepartment.Size = new System.Drawing.Size(82, 27);
+            this.addDepartment.TabIndex = 0;
+            this.addDepartment.Text = "Добавить";
+            this.addDepartment.UseVisualStyleBackColor = true;
+            // 
+            // changeDepartment
+            // 
+            this.changeDepartment.AutoSize = true;
+            this.changeDepartment.Location = new System.Drawing.Point(91, 3);
+            this.changeDepartment.Name = "changeDepartment";
+            this.changeDepartment.Size = new System.Drawing.Size(82, 27);
+            this.changeDepartment.TabIndex = 1;
+            this.changeDepartment.Text = "Изменить";
+            this.changeDepartment.UseVisualStyleBackColor = true;
+            // 
+            // removeDepartment
+            // 
+            this.removeDepartment.AutoSize = true;
+            this.removeDepartment.Location = new System.Drawing.Point(179, 3);
+            this.removeDepartment.Name = "removeDepartment";
+            this.removeDepartment.Size = new System.Drawing.Size(75, 27);
+            this.removeDepartment.TabIndex = 2;
+            this.removeDepartment.Text = "Удалить";
+            this.removeDepartment.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.employeeGroupBox, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(299, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(513, 371);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.Controls.Add(this.button2);
+            this.flowLayoutPanel2.Controls.Add(this.button3);
+            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 324);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(507, 44);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(253, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 27);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Location = new System.Drawing.Point(422, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 27);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Изменить";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.Location = new System.Drawing.Point(341, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 27);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Удалить";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // employeeGroupBox
+            // 
+            this.employeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.employeeGroupBox.Controls.Add(this.dataGridView1);
+            this.employeeGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.employeeGroupBox.Name = "employeeGroupBox";
+            this.employeeGroupBox.Size = new System.Drawing.Size(507, 315);
+            this.employeeGroupBox.TabIndex = 1;
+            this.employeeGroupBox.TabStop = false;
+            this.employeeGroupBox.Text = "Сотрудники";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 21);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(495, 294);
+            this.dataGridView1.TabIndex = 0;
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 449);
+            this.ClientSize = new System.Drawing.Size(837, 434);
             this.Controls.Add(this.userTab);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
@@ -245,6 +410,14 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.employeeGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,6 +437,18 @@
         private System.Windows.Forms.Button Найти;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox departmentGroupBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button addDepartment;
+        private System.Windows.Forms.Button changeDepartment;
+        private System.Windows.Forms.Button removeDepartment;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox employeeGroupBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
