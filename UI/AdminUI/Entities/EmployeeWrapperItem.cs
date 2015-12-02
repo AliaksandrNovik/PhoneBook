@@ -7,12 +7,30 @@ using Services.Facade;
 
 namespace UI.AdminUI
 {
-    class EmployeeWrapperItem
+    public class EmployeeWrapperItem
     {
-        public EmployeeWrapperItem(Employee employee)
+        public EmployeeWrapperItem()
         {
-            this.Employee = Employee;
         }
+
+        public EmployeeWrapperItem(string firstName, string lastName, string patronym,
+            string birthDate, string place)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Patronym = patronym;
+            this.BirthDate = birthDate;
+            this.Place = place;
+        }
+
+        internal string FirstName
+        { get; set; }
+
+        internal string LastName
+        { get; set; }
+
+        internal string Patronym
+        { get; set; }
 
         public Employee Employee
         { get; set; }
@@ -21,8 +39,14 @@ namespace UI.AdminUI
         {
             get
             {
-                return this.Employee.FirstName + " " + this.Employee.LastName + " " + this.Employee.Patronym;
+                return FirstName + " " + LastName + " " + Patronym;
             }
         }
+
+        public string Place
+        { get; set; }
+
+        public string BirthDate
+        { get; set; }
     }
 }

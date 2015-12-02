@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.userTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,11 +41,11 @@
             this.removeDepartment = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.changeEmployee = new System.Windows.Forms.Button();
+            this.removeEmployee = new System.Windows.Forms.Button();
+            this.addEmployee = new System.Windows.Forms.Button();
             this.employeeGroupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.employeeTable = new System.Windows.Forms.DataGridView();
             this.removeDepartmentButton = new System.Windows.Forms.Button();
             this.changeDepartmentButton = new System.Windows.Forms.Button();
             this.addDepartmentButton = new System.Windows.Forms.Button();
@@ -55,6 +56,10 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Найти = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,9 +69,10 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.employeeGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.SuspendLayout();
             // 
             // userTab
@@ -155,6 +161,7 @@
             this.departmentView.Name = "departmentView";
             this.departmentView.Size = new System.Drawing.Size(284, 294);
             this.departmentView.TabIndex = 0;
+            this.departmentView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.departmentView_AfterSelect);
             // 
             // flowLayoutPanel1
             // 
@@ -189,6 +196,7 @@
             this.changeDepartment.TabIndex = 1;
             this.changeDepartment.Text = "Изменить";
             this.changeDepartment.UseVisualStyleBackColor = true;
+            this.changeDepartment.Click += new System.EventHandler(this.changeDepartment_Click);
             // 
             // removeDepartment
             // 
@@ -223,51 +231,54 @@
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.Controls.Add(this.button2);
-            this.flowLayoutPanel2.Controls.Add(this.button3);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.removeEmployee);
+            this.flowLayoutPanel2.Controls.Add(this.changeEmployee);
+            this.flowLayoutPanel2.Controls.Add(this.addEmployee);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 324);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(507, 44);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // button2
+            // changeEmployee
             // 
-            this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(422, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.changeEmployee.AutoSize = true;
+            this.changeEmployee.Location = new System.Drawing.Point(341, 3);
+            this.changeEmployee.Name = "changeEmployee";
+            this.changeEmployee.Size = new System.Drawing.Size(82, 27);
+            this.changeEmployee.TabIndex = 4;
+            this.changeEmployee.Text = "Изменить";
+            this.changeEmployee.UseVisualStyleBackColor = true;
+            this.changeEmployee.Click += new System.EventHandler(this.changeEmployee_Click);
             // 
-            // button3
+            // removeEmployee
             // 
-            this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(341, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 27);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.removeEmployee.AutoSize = true;
+            this.removeEmployee.Location = new System.Drawing.Point(429, 3);
+            this.removeEmployee.Name = "removeEmployee";
+            this.removeEmployee.Size = new System.Drawing.Size(75, 27);
+            this.removeEmployee.TabIndex = 5;
+            this.removeEmployee.Text = "Удалить";
+            this.removeEmployee.UseVisualStyleBackColor = true;
+            this.removeEmployee.Click += new System.EventHandler(this.removeEmployee_Click);
             // 
-            // button1
+            // addEmployee
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(253, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 27);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addEmployee.AutoSize = true;
+            this.addEmployee.Location = new System.Drawing.Point(253, 3);
+            this.addEmployee.Name = "addEmployee";
+            this.addEmployee.Size = new System.Drawing.Size(82, 27);
+            this.addEmployee.TabIndex = 3;
+            this.addEmployee.Text = "Добавить";
+            this.addEmployee.UseVisualStyleBackColor = true;
+            this.addEmployee.Click += new System.EventHandler(this.addEmployee_Click);
             // 
             // employeeGroupBox
             // 
             this.employeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.employeeGroupBox.Controls.Add(this.dataGridView1);
+            this.employeeGroupBox.Controls.Add(this.employeeTable);
             this.employeeGroupBox.Location = new System.Drawing.Point(3, 3);
             this.employeeGroupBox.Name = "employeeGroupBox";
             this.employeeGroupBox.Size = new System.Drawing.Size(507, 315);
@@ -275,17 +286,25 @@
             this.employeeGroupBox.TabStop = false;
             this.employeeGroupBox.Text = "Сотрудники";
             // 
-            // dataGridView1
+            // employeeTable
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.employeeTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(495, 294);
-            this.dataGridView1.TabIndex = 0;
+            this.employeeTable.AutoGenerateColumns = false;
+            this.employeeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.placeDataGridViewTextBoxColumn,
+            this.birthDateDataGridViewTextBoxColumn});
+            this.employeeTable.DataSource = this.employeeSource;
+            this.employeeTable.Location = new System.Drawing.Point(6, 21);
+            this.employeeTable.Name = "employeeTable";
+            this.employeeTable.RowTemplate.Height = 24;
+            this.employeeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.employeeTable.Size = new System.Drawing.Size(495, 294);
+            this.employeeTable.TabIndex = 0;
             // 
             // removeDepartmentButton
             // 
@@ -308,7 +327,6 @@
             this.changeDepartmentButton.TabIndex = 4;
             this.changeDepartmentButton.Text = "Изменить";
             this.changeDepartmentButton.UseVisualStyleBackColor = true;
-            this.changeDepartmentButton.Click += new System.EventHandler(this.changeDepartmentButton_Click);
             // 
             // addDepartmentButton
             // 
@@ -348,7 +366,6 @@
             this.removeEmployeeButton.TabIndex = 8;
             this.removeEmployeeButton.Text = "Удалить";
             this.removeEmployeeButton.UseVisualStyleBackColor = true;
-            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
             // 
             // changeEmployeeButton
             // 
@@ -360,7 +377,6 @@
             this.changeEmployeeButton.TabIndex = 7;
             this.changeEmployeeButton.Text = "Изменить";
             this.changeEmployeeButton.UseVisualStyleBackColor = true;
-            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
             // 
             // addEmployeeButton
             // 
@@ -372,7 +388,6 @@
             this.addEmployeeButton.TabIndex = 6;
             this.addEmployeeButton.Text = "Добавить";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
-            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // dataGridView2
             // 
@@ -408,6 +423,31 @@
             this.textBox2.Size = new System.Drawing.Size(554, 27);
             this.textBox2.TabIndex = 2;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placeDataGridViewTextBoxColumn
+            // 
+            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
+            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
+            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // birthDateDataGridViewTextBoxColumn
+            // 
+            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeSource
+            // 
+            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,10 +469,11 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.employeeGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,11 +501,15 @@
         private System.Windows.Forms.Button removeDepartment;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button changeEmployee;
+        private System.Windows.Forms.Button removeEmployee;
+        private System.Windows.Forms.Button addEmployee;
         private System.Windows.Forms.GroupBox employeeGroupBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView employeeTable;
         private System.Windows.Forms.TreeView departmentView;
+        private System.Windows.Forms.BindingSource employeeSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
     }
 }
