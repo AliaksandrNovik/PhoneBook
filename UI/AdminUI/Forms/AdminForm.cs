@@ -34,7 +34,7 @@ namespace UI.AdminUI
         }
 
         #region DepartmentEdit
-        private void addDepartment_Click(object sender, EventArgs e)
+        private void addDeparmentButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
             if (currentDepartment != null)
@@ -88,7 +88,7 @@ namespace UI.AdminUI
             }
         }
 
-        private void changeDepartment_Click(object sender, EventArgs e)
+        private void changeDepartmentButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
             if (currentDepartment != null)
@@ -120,7 +120,7 @@ namespace UI.AdminUI
             }
         }
 
-        private void removeDepartment_Click(object sender, EventArgs e)
+        private void removeDepartmentButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
             if (currentDepartment != null)
@@ -158,7 +158,7 @@ namespace UI.AdminUI
             employeeSource.ResetBindings(false);
         }
 
-        private void addEmployee_Click(object sender, EventArgs e)
+        private void addEmployeeButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
             if (currentDepartment != null)
@@ -182,7 +182,7 @@ namespace UI.AdminUI
             employeeEditForm.DialogResult = DialogResult.OK;
         }
 
-        private void changeEmployee_Click(object sender, EventArgs e)
+        private void changeEmployeeButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
             if (currentDepartment != null)
@@ -216,7 +216,7 @@ namespace UI.AdminUI
             employeeEditForm.DialogResult = DialogResult.OK;
         }
 
-        private void removeEmployee_Click(object sender, EventArgs e)
+        private void removeEmployeeButton_Click(object sender, EventArgs e)
         {
             employeeSource.RemoveCurrent();            
         }

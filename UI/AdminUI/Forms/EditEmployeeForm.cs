@@ -58,11 +58,11 @@ namespace UI.AdminUI
         {
             get
             {
-                return this.birthDate.Text;
+                return this.birthDay.Text;
             }
             set
             {
-                this.birthDate.Text = value;
+                this.birthDay.Text = value;
             }
         }
 

@@ -11,7 +11,7 @@ namespace Services.Facade
     {
         void CreateEmployee(
             string firstName, string lastName, string patronym, 
-            Date birthDate, Gender gender, string place,
+            Date birthDate, string place,
             String departmentId
             );
 

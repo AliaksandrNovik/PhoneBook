@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    //TODO async
-    public delegate void EmployeePassDelegate(Employee employee);
-    public delegate void PassEmployeeId(String employeeId);
+    //public delegate void EmployeePassDelegate(Employee employee);
+    //public delegate void PassEmployeeId(String employeeId);
 
     public interface IReadOnlyEmployeeService
     {
@@ -18,8 +17,8 @@ namespace Services.Facade
         Employee GetByUserId(String id);
 
         //notifications
-        event EmployeePassDelegate EmployeeCreated;
-        event EmployeePassDelegate EmployeeUpdated;
-        event PassEmployeeId EmployeeDeleted;
+        //event EmployeePassDelegate EmployeeCreated;
+        //event EmployeePassDelegate EmployeeUpdated;
+        //event PassEmployeeId EmployeeDeleted;
     }
 }

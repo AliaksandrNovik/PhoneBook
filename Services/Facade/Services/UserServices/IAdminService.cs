@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
+    /*
     public delegate void PassEmployeeUser(IEmployeeUser user);
     public delegate void PassEmployeeUserId(string user);
 
@@ -14,6 +15,7 @@ namespace Services.Facade
 
     public delegate void PassAdminUser(IAdminUser user);
     public delegate void PassAdminUserId(string user);
+    */
 
     public interface IAdminService
     {

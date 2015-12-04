@@ -25,14 +25,11 @@ namespace Services.Facade
         Date BirthDate
         { get; set; }
 
-        Gender Gender
-        { get; set; }
-
         string Place
         { get; set; }
 
         //refs
-        String DepartmentId
+        string DepartmentId
         { get; set; }
     }
 }

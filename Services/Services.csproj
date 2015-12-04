@@ -47,7 +47,6 @@
     <Compile Include="Facade\Common\Date.cs" />
     <Compile Include="Facade\Entities\Department.cs" />
     <Compile Include="Facade\Entities\Employee.cs" />
-    <Compile Include="Facade\Entities\Gender.cs" />
     <Compile Include="Facade\Entities\Phone.cs" />
     <Compile Include="Facade\Services\UserServices\ILoginService.cs" />
     <Compile Include="Facade\Services\PhoneService\IPhoneService.cs" />

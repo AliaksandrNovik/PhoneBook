@@ -13,7 +13,14 @@ namespace BLL
             this.Id = Guid.NewGuid().ToString("N");
         }
 
+        public Identified(string id)
+        {
+            this.Id = id;
+        }
+
         public string Id
         { get; private set; }
+
+
     }
 }

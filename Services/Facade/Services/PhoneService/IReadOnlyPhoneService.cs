@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public delegate void PassPhone(Phone phone);
-    public delegate void PassPhoneId(Phone phoneId);
+    //public delegate void PassPhone(Phone phone);
+    //public delegate void PassPhoneId(Phone phoneId);
 
     public interface IReadOnlyPhoneService
     {
@@ -18,8 +18,9 @@ namespace Services.Facade
         IReadOnlyCollection<Phone> GetByEmployeeId(String employeeId);
 
         //notifications
-        event PassPhone PhoneCreated;
-        event PassPhone PhoneUpdated;
-        event PassPhoneId PhoneDeleted;
+
+        //event PassPhone PhoneCreated;
+        //event PassPhone PhoneUpdated;
+        //event PassPhoneId PhoneDeleted;
     }
 }

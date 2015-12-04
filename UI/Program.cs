@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.Collections.ObjectModel;
 
 using UI.LoginUI;
+using BLL;
+using BLL.Repository;
 
 namespace UI
 {
@@ -22,7 +24,7 @@ namespace UI
 
             var context = new ApplicationContext();
             var loginForm = new LoginForm(new Services.Implementation.LoginService(), new ApplicationContext());
-            loginForm.Show();
+            loginForm.Show();            
         }
     }
 }
