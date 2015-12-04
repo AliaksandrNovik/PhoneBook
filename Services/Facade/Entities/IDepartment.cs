@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface Department
+    public interface IDepartment
     {
         string Id
         { get; }
@@ -14,13 +14,7 @@ namespace Services.Facade
         string Name
         { get; set; }
 
-        String HeadEmployeeId
-        { get; set; }
-
-        IReadOnlyCollection<String> SubordinateDepartmentIds
-        { get; set; }
-
-        String ParentDepartmentId
+        string ParentDepartmentId
         { get; set; }
     }
 }

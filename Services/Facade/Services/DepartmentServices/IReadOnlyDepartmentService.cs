@@ -12,12 +12,10 @@ namespace Services.Facade
     public interface IReadOnlyDepartmentService
     {
         //queries
-        Department GetById(string id);
-        IReadOnlyCollection<Department> GetAll();
-        IReadOnlyCollection<Department> GetByParentId(string parentId);
-        Department GetRootDepartment();
-        Department GetDepartmentByManagerUserId(string id);
-        
+        IDepartment GetById(string id);
+        IReadOnlyCollection<IDepartment> GetAll();
+        IReadOnlyCollection<IDepartment> GetByParentId(string parentId);
+        string GetRootDepartmentId();        
         //notifications
         //event PassDepartment DepartmentCreated;
         //event PassDepartment DepartmentUpdated;

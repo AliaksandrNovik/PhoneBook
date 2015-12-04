@@ -11,6 +11,7 @@ namespace BLL
         IReadOnlyCollection<Department> GetAllDepartment();
         Department GetDepartmentById(string departmentId);
         Department CreateDepartment(string name, string parentId);
+        string GetRootId();
         bool UpdateDepartment(Department department);
         bool DeleteDepartment(string departmentId);
     }

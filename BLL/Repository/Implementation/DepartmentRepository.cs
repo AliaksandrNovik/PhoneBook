@@ -11,6 +11,7 @@ namespace BLL.Repository
 {
     public class DepartmentRepository : IDepartmentRepository
     {
+        private readonly static string RootId = "Root";
         private readonly string fileName = "Departmet.txt";
         Dictionary<string, Department> _departmentsDictionary;
 
@@ -63,6 +64,12 @@ namespace BLL.Repository
             {
                 return null;
             }
+        }
+
+
+        public string GetRootId()
+        {
+            return RootId;
         }
 
         public bool UpdateDepartment(Department department)

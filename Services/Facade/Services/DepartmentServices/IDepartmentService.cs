@@ -8,12 +8,8 @@ namespace Services.Facade
 {
     public interface IDepartmentService : IReadOnlyDepartmentService
     {
-        void CreateDepartment(
-            string name, string headEmployee, 
-            IReadOnlyCollection<string> subordinateDepartments,
-            string parentDepartment
-                );
-        void UpdateDepartment(Department department);
-        void DeleteEmployee(string id);        
+        IDepartment Create(string name, string parentDepartmentId);
+        bool Update(IDepartment department);
+        bool Delete(IDepartment department);        
     }
 }
