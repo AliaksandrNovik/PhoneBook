@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using BLL.Serialization;
+﻿using System.Collections.Generic;
 
 namespace BLL.Repository
 {
@@ -48,10 +41,13 @@ namespace BLL.Repository
         public bool UpdateDepartment(Department department)
         {
             var oldValue = _fileRepository.GetById(department.Id);
-            bool updated = (oldValue != null);
+            bool canUpdate = (oldValue != null);
+            if (canUpdate)
+            {
+                _fileRepository.Upsert(department);
+            }
 
-            _fileRepository.Upsert(department);
-            return updated;
+            return canUpdate;
         }
     }
 }
