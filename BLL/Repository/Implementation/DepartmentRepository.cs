@@ -12,55 +12,33 @@ namespace BLL.Repository
     public class DepartmentRepository : IDepartmentRepository
     {
         private readonly static string RootId = "Root";
-        private readonly string fileName = "Departmet.txt";
-        Dictionary<string, Department> _departmentsDictionary;
-
+        private FileRepository<Department> _fileRepository;
         public DepartmentRepository()
         {
-            if (!File.Exists(fileName))
-            {
-                var file = File.Create(fileName);
-                file.Close();
-                _departmentsDictionary = new Dictionary<string, Department>();
-            }
-            else
-            {
-                _departmentsDictionary = Serializer.DeSerializeObject<Dictionary<string, Department>> (fileName);
-            }
+            _fileRepository = new FileRepository<Department>("Departmet.txt");
         }
 
         public Department CreateDepartment(string name, string parentId)
         {
             var newDepartment = new Department(name, parentId);
-            _departmentsDictionary.Add(newDepartment.Id, newDepartment);
-            UpdateFile();
+            _fileRepository.Upsert(newDepartment);
             return newDepartment;
         }
 
         public bool DeleteDepartment(string departmentId)
         {
-            bool result = _departmentsDictionary.Remove(departmentId);
-            UpdateFile();
-            return result;
+            return _fileRepository.Delete(departmentId);
         }
 
         public IReadOnlyCollection<Department> GetAllDepartment()
         {
-            return _departmentsDictionary.Values.ToList();            
+            return _fileRepository.GetAll();
         }
 
         public Department GetDepartmentById(string departmentId)
         {
-            if (_departmentsDictionary.ContainsKey(departmentId))
-            {
-                return _departmentsDictionary[departmentId];
-            }
-            else
-            {
-                return null;
-            }
+            return _fileRepository.GetById(departmentId);
         }
-
 
         public string GetRootId()
         {
@@ -69,24 +47,11 @@ namespace BLL.Repository
 
         public bool UpdateDepartment(Department department)
         {
-            var key = department.Id;
-            if (_departmentsDictionary.ContainsKey(key))
-            {
-                var storedDepartment = _departmentsDictionary[key];
-                storedDepartment.Name = department.Name;
-                storedDepartment.ParentId = department.ParentId;
-                UpdateFile();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+            var oldValue = _fileRepository.GetById(department.Id);
+            bool updated = (oldValue != null);
 
-        private void UpdateFile()
-        {
-            Serializer.SerializeObject(_departmentsDictionary, fileName);
+            _fileRepository.Upsert(department);
+            return updated;
         }
     }
 }

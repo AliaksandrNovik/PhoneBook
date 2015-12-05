@@ -74,6 +74,7 @@
     <Compile Include="Repository\IEmployeeRepository.cs" />
     <Compile Include="Repository\Implementation\DepartmentRepository.cs" />
     <Compile Include="Repository\Implementation\EmployeeRepository.cs" />
+    <Compile Include="Repository\Implementation\FileRepository.cs" />
     <Compile Include="Repository\IPhoneRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Serialization\Serializer.cs" />
