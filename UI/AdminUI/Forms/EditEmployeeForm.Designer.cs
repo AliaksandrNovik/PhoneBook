@@ -38,9 +38,9 @@
             this.firstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lastName = new System.Windows.Forms.TextBox();
+            this.birthDay = new System.Windows.Forms.DateTimePicker();
             this.cancelButton = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
-            this.birthDay = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,6 +187,17 @@
             this.lastName.Size = new System.Drawing.Size(224, 22);
             this.lastName.TabIndex = 1;
             // 
+            // birthDay
+            // 
+            this.birthDay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.birthDay.Location = new System.Drawing.Point(223, 102);
+            this.birthDay.Margin = new System.Windows.Forms.Padding(0);
+            this.birthDay.Name = "birthDay";
+            this.birthDay.Size = new System.Drawing.Size(224, 22);
+            this.birthDay.TabIndex = 10;
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -210,17 +221,6 @@
             this.submitButton.Text = "ОК";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
-            // 
-            // birthDay
-            // 
-            this.birthDay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.birthDay.Location = new System.Drawing.Point(223, 102);
-            this.birthDay.Margin = new System.Windows.Forms.Padding(0);
-            this.birthDay.Name = "birthDay";
-            this.birthDay.Size = new System.Drawing.Size(224, 22);
-            this.birthDay.TabIndex = 10;
             // 
             // EditEmployeeForm
             // 

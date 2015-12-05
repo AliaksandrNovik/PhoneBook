@@ -24,6 +24,7 @@ namespace UI.AdminUI
         }
 
 
+        #region Fill department view
         private void FillDepartmentView()
         {
             var rootId = _departmentService.GetRootId();
@@ -44,8 +45,9 @@ namespace UI.AdminUI
             }
             return treeNode;
         }
+        #endregion
 
-
+        #region Handling departments
         void CreateDepartment(string name)
         {
             var treeNode = new TreeNode(name);
@@ -76,20 +78,6 @@ namespace UI.AdminUI
             departmentView.ExpandAll();
         }
 
-
-        private void Create(object sender, EventArgs e)
-        {
-            var dialog = (AdminUserEditDialog)sender;
-            bool valid = !string.IsNullOrEmpty(dialog.Login) && !string.IsNullOrEmpty(dialog.Password);
-            Console.Write(valid);
-            if (valid.Equals(true))
-            {
-                //todo
-                dialog.Close();
-            }
-        }
-
-        #region DepartmentEdit
         private void addDeparmentButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;           
@@ -116,8 +104,6 @@ namespace UI.AdminUI
             }
         }
 
-        
-
         private void changeDepartmentButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
@@ -143,8 +129,16 @@ namespace UI.AdminUI
                 }
                 else
                 {
-                    var currentDepartment = departmentView.SelectedNode;
-                    currentDepartment.Text = newName;
+                    //update nodes
+                    //
+                    var currentNode = departmentView.SelectedNode;
+                    currentNode.Text = newName;
+
+                    //update data
+                    //
+                    var currentDepartment = (Department)currentNode.Tag;
+                    currentDepartment.Name = newName;
+                    _departmentService.Update(currentDepartment);
                     departmentEditForm.DialogResult = DialogResult.OK;
                 }
             }
@@ -152,13 +146,12 @@ namespace UI.AdminUI
 
         private void removeDepartmentButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = departmentView.SelectedNode;
-            if (currentDepartment != null)
+            var currentNode = departmentView.SelectedNode;
+            if (currentNode != null)
             {
-                if (currentDepartment.Parent != null)
-                {
-                    departmentView.Nodes.Remove(currentDepartment);
-                }
+                var department = (Department)currentNode.Tag;
+                departmentView.Nodes.Remove(currentNode);
+                _departmentService.Delete(department);
             }
         }
         #endregion
