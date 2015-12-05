@@ -15,7 +15,7 @@ namespace Services.Facade
         IDepartment GetById(string id);
         IReadOnlyCollection<IDepartment> GetAll();
         IReadOnlyCollection<IDepartment> GetByParentId(string parentId);
-        string GetRootDepartmentId();        
+        string GetRootId();        
         //notifications
         //event PassDepartment DepartmentCreated;
         //event PassDepartment DepartmentUpdated;

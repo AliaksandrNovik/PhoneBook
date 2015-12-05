@@ -53,13 +53,13 @@ namespace Services.Implementation
             List<IDepartment> result = new List<IDepartment>();
             foreach (var repDepartment in _departmentRepository.GetAllDepartment())
             {
-                if (repDepartment.ParentId == parentId)
+                if (repDepartment.ParentId.Equals(parentId))
                     result.Add(new Department(repDepartment.Id, repDepartment.Name, repDepartment.ParentId));
             }
             return result;
         }
 
-        public string GetRootDepartmentId()
+        public string GetRootId()
         {
             return _departmentRepository.GetRootId();
         }

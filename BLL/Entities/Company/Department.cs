@@ -9,9 +9,16 @@ namespace BLL
 {
     public class Department : Identified
     {
-        [JsonConstructor]
         internal Department(string name, string parentId):
             base()
+        {
+            this.Name = name;
+            this.ParentId = parentId;
+        }
+
+        [JsonConstructor]
+        internal Department(string id, string name, string parentId) :
+            base(id)
         {
             this.Name = name;
             this.ParentId = parentId;

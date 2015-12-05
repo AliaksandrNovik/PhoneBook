@@ -9,17 +9,73 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using UI.AppController;
+using Services.Facade;
+using Services.Implementation;
 
 namespace UI.AdminUI
 {
     public partial class AdminForm : Form
     {
+        private IDepartmentService _departmentService = new DepartmentService();
         public AdminForm()
         {
             InitializeComponent();
+            FillDepartmentView();
+        }
 
-            departmentView.Nodes.Add("Компания");
-        }                      
+
+        private void FillDepartmentView()
+        {
+            var rootId = _departmentService.GetRootId();
+            foreach (var subDepartment in _departmentService.GetByParentId(rootId))
+            {
+                departmentView.Nodes.Add(CreateNode(subDepartment));
+            }
+            departmentView.ExpandAll();
+        }
+
+        private TreeNode CreateNode(IDepartment department)
+        {
+            var treeNode = new TreeNode(department.Name);
+            treeNode.Tag = department;
+            foreach (var subDepartment in _departmentService.GetByParentId(department.Id))
+            {
+                treeNode.Nodes.Add(CreateNode(subDepartment));
+            }
+            return treeNode;
+        }
+
+
+        void CreateDepartment(string name)
+        {
+            var treeNode = new TreeNode(name);
+
+            //create hash for employees
+            //
+            if (!_employeeDict.ContainsKey(treeNode))
+            {
+                _employeeDict.Add(treeNode, new List<EmployeeWrapperItem>());
+            }
+
+            var parent = departmentView.SelectedNode;
+            if (parent == null)
+            {
+                var rootId = _departmentService.GetRootId();
+                var newDepartment = _departmentService.Create(name, rootId);
+                treeNode.Tag = newDepartment;
+                departmentView.Nodes.Add(treeNode);
+            }
+            else
+            {
+                var parentDepartment = (Department)parent.Tag;
+                var newDepartment = _departmentService.Create(name, parentDepartment.Id);
+                treeNode.Tag = newDepartment;
+                parent.Nodes.Add(treeNode);
+            }
+            //departmentViewForUsers.Nodes.Add(treeNode);
+            departmentView.ExpandAll();
+        }
+
 
         private void Create(object sender, EventArgs e)
         {
@@ -36,13 +92,10 @@ namespace UI.AdminUI
         #region DepartmentEdit
         private void addDeparmentButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = departmentView.SelectedNode;
-            if (currentDepartment != null)
-            {
-                var departmentEditForm = new EditDepartmentForm();
-                departmentEditForm.Confirmed += (s, a) => CreateDepartmentConfirmed(s, a);
-                departmentEditForm.ShowDialog();
-            }
+            var currentDepartment = departmentView.SelectedNode;           
+            var departmentEditForm = new EditDepartmentForm();
+            departmentEditForm.Confirmed += (s, a) => CreateDepartmentConfirmed(s, a);
+            departmentEditForm.ShowDialog();
         }
 
         private void CreateDepartmentConfirmed(object sender, EventArgs e)
@@ -57,36 +110,13 @@ namespace UI.AdminUI
                 }
                 else
                 {
-                    AddDepartment(new TreeNode(newName));
+                    CreateDepartment(newName);
                     departmentEditForm.DialogResult = DialogResult.OK;
                 }
             }
         }
 
-        void AddDepartment(TreeNode department)
-        {
-            if (department != null)
-            {
-                var parent = departmentView.SelectedNode;
-                if (parent != null)
-                {
-                    Console.WriteLine(parent.Level.ToString());
-                    if (parent.Level > 2)
-                    {
-                        parent = parent.Parent;
-                        if (parent != null)
-                        {
-                            parent.Nodes.Add(department);
-                        }
-                    }
-                    else
-                    {
-                        parent.Nodes.Add(department);
-                    }
-                }
-                departmentView.ExpandAll();
-            }
-        }
+        
 
         private void changeDepartmentButton_Click(object sender, EventArgs e)
         {
