@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Date.cs" />
     <Compile Include="Entities\Users\AdminUser.cs" />
     <Compile Include="Entities\Company\Employee.cs" />
     <Compile Include="Entities\Users\EmployeeUser.cs" />

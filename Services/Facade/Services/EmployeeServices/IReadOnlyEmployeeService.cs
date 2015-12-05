@@ -11,11 +11,9 @@ namespace Services.Facade
 
     public interface IReadOnlyEmployeeService
     {
-        Employee GetEmployeeById(String id);
-        IReadOnlyCollection<Employee> GetAll();
-        IReadOnlyCollection<Employee> GetByDepartmentId(String departmentId);
-        Employee GetByUserId(String id);
-
+        IEmployee GetEmployeeById(String id);
+        IReadOnlyCollection<IEmployee> GetAll();
+        IReadOnlyCollection<IEmployee> GetByDepartmentId(String departmentId);
         //notifications
         //event EmployeePassDelegate EmployeeCreated;
         //event EmployeePassDelegate EmployeeUpdated;

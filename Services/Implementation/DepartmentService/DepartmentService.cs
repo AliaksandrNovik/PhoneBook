@@ -50,13 +50,7 @@ namespace Services.Implementation
 
         public IReadOnlyCollection<IDepartment> GetByParentId(string parentId)
         {
-            List<IDepartment> result = new List<IDepartment>();
-            foreach (var repDepartment in _departmentRepository.GetAllDepartment())
-            {
-                if (repDepartment.ParentId.Equals(parentId))
-                    result.Add(new Department(repDepartment.Id, repDepartment.Name, repDepartment.ParentId));
-            }
-            return result;
+            return GetAll().Where(x => x.ParentDepartmentId == parentId).ToList();
         }
 
         public string GetRootId()

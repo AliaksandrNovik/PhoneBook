@@ -44,9 +44,8 @@
     <Compile Include="Facade\Services\DepartmentServices\IReadOnlyDepartmentService.cs" />
     <Compile Include="Facade\Services\EmployeeServices\IEmployeeService.cs" />
     <Compile Include="Facade\Services\EmployeeServices\IReadOnlyEmployeeService.cs" />
-    <Compile Include="Facade\Common\Date.cs" />
     <Compile Include="Facade\Entities\IDepartment.cs" />
-    <Compile Include="Facade\Entities\Employee.cs" />
+    <Compile Include="Facade\Entities\IEmployee.cs" />
     <Compile Include="Facade\Entities\Phone.cs" />
     <Compile Include="Facade\Services\UserServices\ILoginService.cs" />
     <Compile Include="Facade\Services\PhoneService\IPhoneService.cs" />
@@ -66,6 +65,8 @@
     <Compile Include="Implementation\AdminService\ManagerUser.cs" />
     <Compile Include="Implementation\DepartmentService\Department.cs" />
     <Compile Include="Implementation\DepartmentService\DepartmentService.cs" />
+    <Compile Include="Implementation\EmployeeService\Employee.cs" />
+    <Compile Include="Implementation\EmployeeService\EmployeeService.cs" />
     <Compile Include="Implementation\LoginService\LoginService.cs" />
     <Compile Include="Implementation\LoginService\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

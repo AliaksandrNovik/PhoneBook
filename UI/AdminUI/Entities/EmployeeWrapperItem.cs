@@ -32,7 +32,7 @@ namespace UI.AdminUI
         internal string Patronym
         { get; set; }
 
-        public Employee Employee
+        public IEmployee Employee
         { get; set; }
 
         public string Name

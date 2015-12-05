@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Services.Facade
+﻿namespace Services.Facade
 {
-    public interface Employee
+    public interface IEmployee
     {
         string Id
         { get; }
@@ -22,7 +16,7 @@ namespace Services.Facade
         string Patronym
         { get; set; }
 
-        Date BirthDate
+        BLL.Date BirthDate
         { get; set; }
 
         string Place

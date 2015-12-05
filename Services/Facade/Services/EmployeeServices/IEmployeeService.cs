@@ -9,14 +9,14 @@ namespace Services.Facade
     //TODO async
     public interface IEmployeeService : IReadOnlyEmployeeService
     {
-        void CreateEmployee(
+        IEmployee CreateEmployee(
             string firstName, string lastName, string patronym, 
-            Date birthDate, string place,
-            String departmentId
+            BLL.Date birthDate, string place,
+            string departmentId
             );
 
-        void UpdateEmployee(Employee employee);
+        bool UpdateEmployee(IEmployee employee);
 
-        void DeleteEmployee(String employeeId);
+        bool DeleteEmployee(string employeeId);
     }
 }
