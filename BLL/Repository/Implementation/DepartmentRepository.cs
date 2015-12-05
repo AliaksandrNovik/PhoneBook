@@ -21,16 +21,11 @@ namespace BLL.Repository
             {
                 var file = File.Create(fileName);
                 file.Close();
+                _departmentsDictionary = new Dictionary<string, Department>();
             }
-
-            _departmentsDictionary = new Dictionary<string, Department>();
-            var list = Serializer.DeSerializeObject<List<Department>>(fileName);
-            if (list != null)
+            else
             {
-                foreach (var department in list)
-                {
-                    _departmentsDictionary.Add(department.Id, department);
-                }
+                _departmentsDictionary = Serializer.DeSerializeObject<Dictionary<string, Department>> (fileName);
             }
         }
 
@@ -91,7 +86,7 @@ namespace BLL.Repository
 
         private void UpdateFile()
         {
-            Serializer.SerializeObject(_departmentsDictionary.Values.ToList(), fileName);
+            Serializer.SerializeObject(_departmentsDictionary, fileName);
         }
     }
 }
