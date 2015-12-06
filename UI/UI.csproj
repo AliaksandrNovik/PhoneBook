@@ -50,34 +50,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminUI\Entities\EmployeeUser.cs" />
     <Compile Include="AdminUI\Entities\EmployeeWrapperItem.cs" />
-    <Compile Include="AdminUI\Forms\AdminUserEditForm.cs">
+    <Compile Include="AdminUI\Forms\EditDepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUI\Forms\AdminUserEditForm.Designer.cs">
-      <DependentUpon>AdminUserEditForm.cs</DependentUpon>
+    <Compile Include="AdminUI\Forms\EditDepartmentForm.Designer.cs">
+      <DependentUpon>EditDepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUI\Forms\EmployeeUserEditForm.cs">
+    <Compile Include="AdminUI\Forms\EditEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUI\Forms\EmployeeUserEditForm.Designer.cs">
-      <DependentUpon>EmployeeUserEditForm.cs</DependentUpon>
+    <Compile Include="AdminUI\Forms\EditEmployeeForm.Designer.cs">
+      <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUI\Forms\ManagerUserEditForm.cs">
+    <Compile Include="AdminUI\Forms\EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUI\Forms\ManagerUserEditForm.Designer.cs">
-      <DependentUpon>ManagerUserEditForm.cs</DependentUpon>
+    <Compile Include="AdminUI\Forms\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUI\Presenters\AdminPresenter.cs" />
-    <Compile Include="AdminUI\Views\IAdminPassiveView.cs" />
-    <Compile Include="AdminUI\Views\IAdminUserEditView.cs" />
-    <Compile Include="AdminUI\Views\IEmployeeUserEditView.cs" />
-    <Compile Include="AdminUI\Views\IManagerUserEditView.cs" />
-    <Compile Include="AdminUI\Entities\ManagerUser.cs" />
-    <Compile Include="AdminUI\Entities\UserInfo.cs" />
-    <Compile Include="AdminUI\Views\IUserEditView.cs" />
+    <Compile Include="AdminUI\Forms\EditAdminUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Forms\EditAdminUserForm.Designer.cs">
+      <DependentUpon>EditAdminUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppController\ApplicationController.cs" />
     <Compile Include="AppController\BasePresenter.cs" />
     <Compile Include="AppController\IApplicationController.cs" />
@@ -85,60 +82,12 @@
     <Compile Include="AppController\IPresenter.cs" />
     <Compile Include="AppController\IView.cs" />
     <Compile Include="AppController\LightInjectAdapter.cs" />
-    <Compile Include="Basics\Entities\Department.cs" />
-    <Compile Include="Basics\Entities\Employee.cs" />
-    <Compile Include="Basics\Entities\Phone.cs" />
-    <Compile Include="Basics\Entities\RootDepartment.cs" />
-    <Compile Include="ManagerUI\Forms\DepartmentEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerUI\Forms\DepartmentEditForm.Designer.cs">
-      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerUI\Forms\EmployeeEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerUI\Forms\EmployeeEditForm.Designer.cs">
-      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Basics\ServiceInteraction\DepartmentCreator.cs" />
-    <Compile Include="Basics\Views\DisplayViews\EditPassiveViewInterfaces.cs" />
-    <Compile Include="ManagerUI\Presenters\ManagerPresenter.cs" />
-    <Compile Include="ManagerUI\Views\IDepartmentEditView.cs" />
-    <Compile Include="Basics\Views\IDialogView.cs" />
-    <Compile Include="ManagerUI\Views\IEmployeeEditView.cs" />
-    <Compile Include="ManagerUI\Views\IPhoneEditView.cs" />
-    <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
-    <Compile Include="EmployeeUI\Presenters\EmployeePresenter.cs" />
-    <Compile Include="EmployeeUI\Views\IEmployeeView.cs" />
     <Compile Include="LoginUI\Presenters\LoginPresenter.cs" />
-    <Compile Include="ManagerUI\Entities\EmployeeWrap.cs" />
-    <Compile Include="ManagerUI\Entities\PhoneWrap.cs" />
-    <Compile Include="ManagerUI\Forms\PhoneEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerUI\Forms\PhoneEditForm.Designer.cs">
-      <DependentUpon>PhoneEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerUI\Views\IManagerPassiveView.cs" />
-    <Compile Include="StatisticUI\Forms\PhoneStatisticForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StatisticUI\Forms\PhoneStatisticForm.Designer.cs">
-      <DependentUpon>PhoneStatisticForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StatisticUI\Entities\PhoneStatItemWrap.cs" />
     <Compile Include="AdminUI\Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminUI\Forms\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeUI\Forms\EmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeUI\Forms\EmployeeForm.Designer.cs">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginUI\Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -146,49 +95,26 @@
     <Compile Include="LoginUI\Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerUI\Forms\ManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerUI\Forms\ManagerForm.Designer.cs">
-      <DependentUpon>ManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Basics\Views\DisplayViews\IPassiveCompanyStructView.cs" />
     <Compile Include="LoginUI\Views\ILoginView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticUI\Views\IPhoneStatisticView.cs" />
     <EmbeddedResource Include="AdminUI\Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUI\Forms\AdminUserEditForm.resx">
-      <DependentUpon>AdminUserEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUI\Forms\EditDepartmentForm.resx">
+      <DependentUpon>EditDepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUI\Forms\EmployeeUserEditForm.resx">
-      <DependentUpon>EmployeeUserEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUI\Forms\EditEmployeeForm.resx">
+      <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUI\Forms\ManagerUserEditForm.resx">
-      <DependentUpon>ManagerUserEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUI\Forms\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerUI\Forms\DepartmentEditForm.resx">
-      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagerUI\Forms\EmployeeEditForm.resx">
-      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeUI\Forms\EmployeeForm.resx">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUI\Forms\EditAdminUserForm.resx">
+      <DependentUpon>EditAdminUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUI\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagerUI\Forms\ManagerForm.resx">
-      <DependentUpon>ManagerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagerUI\Forms\PhoneEditForm.resx">
-      <DependentUpon>PhoneEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StatisticUI\Forms\PhoneStatisticForm.resx">
-      <DependentUpon>PhoneStatisticForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,6 +126,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BLL.AdminUser.datasource" />
+    <None Include="Properties\DataSources\Services.Facade.IAdminUser.datasource" />
     <None Include="Properties\DataSources\UI.AdminUI.EmployeeWrapperItem.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Department.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Employee.datasource" />
@@ -222,12 +150,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{546c3b67-b789-4ecb-83af-15751f0a2af7}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{8e8a5d0f-e10a-47ec-8443-2929ee463f39}</Project>
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="EmployeeUI\" />
+    <Folder Include="ManagerUI\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

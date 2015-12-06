@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public delegate void PassDepartment(Department department);
-    public delegate void PassDepartmentId(EntityId departmentId);
+    //public delegate void PassDepartment(Department department);
+    //public delegate void PassDepartmentId(String departmentId);
     
     public interface IReadOnlyDepartmentService
     {
         //queries
-        Department GetById(EntityId id);
-        IReadOnlyCollection<Department> GetAll();
-        IReadOnlyCollection<Department> GetByParentId(EntityId parentId);
-        Department GetRootDepartment();
-        Department GetDepartmentByManagerUserId(EntityId id);
-        
+        IDepartment GetById(string id);
+        IReadOnlyCollection<IDepartment> GetAll();
+        IReadOnlyCollection<IDepartment> GetByParentId(string parentId);
+        string GetRootId();        
         //notifications
-        event PassDepartment DepartmentCreated;
-        event PassDepartment DepartmentUpdated;
-        event PassDepartmentId DepartmentDeleted;
+        //event PassDepartment DepartmentCreated;
+        //event PassDepartment DepartmentUpdated;
+        //event PassDepartmentId DepartmentDeleted;
 
     }
 }

@@ -44,6 +44,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -58,19 +62,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\PersonInfo.cs" />
-    <Compile Include="Entities\Phone.cs" />
+    <Compile Include="Entities\Date.cs" />
+    <Compile Include="Entities\Users\AdminUser.cs" />
+    <Compile Include="Entities\Company\Employee.cs" />
+    <Compile Include="Entities\Users\EmployeeUser.cs" />
+    <Compile Include="Entities\Identified.cs" />
+    <Compile Include="Entities\Users\ManagerUser.cs" />
+    <Compile Include="Entities\Company\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Department.cs" />
-    <Compile Include="Repository\Implement\Ent\Department.cs" />
-    <Compile Include="Repository\Implement\ReposDepart.cs" />
-    <Compile Include="Repository\Implement\ReposEmployee.cs" />
-    <Compile Include="Repository\Implement\Test.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IRepositoryDepartment.cs" />
-    <Compile Include="Repository\IRepositoryEmployee.cs" />
-    <Compile Include="Repository\IRepositoryPhone.cs" />
+    <Compile Include="Entities\Company\Department.cs" />
+    <Compile Include="Repository\IDepartmentRepository.cs" />
+    <Compile Include="Repository\IEmployeeRepository.cs" />
+    <Compile Include="Repository\Implementation\DepartmentRepository.cs" />
+    <Compile Include="Repository\Implementation\EmployeeRepository.cs" />
+    <Compile Include="Repository\Implementation\FileRepository.cs" />
+    <Compile Include="Repository\Implementation\UserRepository.cs" />
+    <Compile Include="Repository\IPhoneRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +88,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
     <None Include="packages.config" />

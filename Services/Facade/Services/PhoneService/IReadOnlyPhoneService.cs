@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public delegate void PassPhone(Phone phone);
-    public delegate void PassPhoneId(Phone phoneId);
+    //public delegate void PassPhone(Phone phone);
+    //public delegate void PassPhoneId(Phone phoneId);
 
     public interface IReadOnlyPhoneService
     {
         //queries
-        Phone GetById(EntityId phoneId);
+        Phone GetById(String phoneId);
         IReadOnlyCollection<Phone> GetAll();
-        IReadOnlyCollection<Phone> GetByDepartmentId(EntityId departmentId);
-        IReadOnlyCollection<Phone> GetByEmployeeId(EntityId employeeId);
+        IReadOnlyCollection<Phone> GetByDepartmentId(String departmentId);
+        IReadOnlyCollection<Phone> GetByEmployeeId(String employeeId);
 
         //notifications
-        event PassPhone PhoneCreated;
-        event PassPhone PhoneUpdated;
-        event PassPhoneId PhoneDeleted;
+
+        //event PassPhone PhoneCreated;
+        //event PassPhone PhoneUpdated;
+        //event PassPhoneId PhoneDeleted;
     }
 }

@@ -8,6 +8,6 @@ namespace Services.Facade
 {
     public interface ILoginService
     {
-        UserInfo Login(string user, string password);
+        IUserInfo Login(string user, string password);
     }
 }

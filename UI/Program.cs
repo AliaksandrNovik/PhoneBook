@@ -5,16 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
 
-using UI.Forms;
-using UI.AppController;
-
-using UI.AdminUI;
-using UI.EmployeeUI;
-using UI.ManagerUI;
 using UI.LoginUI;
-using UI.Views;
-using UI.Basics;
 using Services.Facade;
+using Services.Implementation;
 
 namespace UI
 {
@@ -26,20 +19,12 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var controller = new ApplicationController(new LightInjectAdapder());
-            controller.RegisterView<IEmployeeView, EmployeeForm>()
-                .RegisterView<ILoginView, LoginForm>()
-                .RegisterView<IManagerPassiveView, ManagerForm>()
-            .RegisterInstance(new ApplicationContext())
-            .RegisterService<ILoginService, LoginService>()
-            .RegisterService<IReadOnlyPhoneService, PhoneService>()
-             .RegisterService<IReadOnlyDepartmentService, DepartmentService>()
-             .RegisterService<IReadOnlyEmployeeService, EmployeeService>();
-
-            controller.Run<ManagerPresenter, EntityId>(null);                        
+            var context = new ApplicationContext();
+            var loginForm = new LoginForm(new Services.Implementation.LoginService(), new ApplicationContext());
+            loginForm.Show();
         }
     }
 }

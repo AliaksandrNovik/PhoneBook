@@ -30,7 +30,7 @@ namespace UI.LoginUI
 
                         break;
                     case UserType.Employee:
-                        this.Controller.Run<UI.EmployeeUI.EmployeePresenter, EntityId>(userId);
+                        
                         break;
                     case UserType.Manager:
                         break;
