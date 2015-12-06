@@ -46,10 +46,6 @@
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.employeeGroupBox = new System.Windows.Forms.GroupBox();
             this.employeeTable = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,6 +65,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.adminList = new System.Windows.Forms.ListView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabWidget.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -79,7 +82,6 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.employeeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -92,6 +94,7 @@
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabWidget
@@ -324,31 +327,6 @@
             this.employeeTable.Size = new System.Drawing.Size(524, 270);
             this.employeeTable.TabIndex = 0;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // placeDataGridViewTextBoxColumn
-            // 
-            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
-            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
-            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // birthDateDataGridViewTextBoxColumn
-            // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
-            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeeSource
-            // 
-            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel4);
@@ -438,6 +416,7 @@
             this.departmentViewForUsers.Name = "departmentViewForUsers";
             this.departmentViewForUsers.Size = new System.Drawing.Size(382, 270);
             this.departmentViewForUsers.TabIndex = 0;
+            this.departmentViewForUsers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.departmentViewForUsers_AfterSelect);
             // 
             // tableLayoutPanel6
             // 
@@ -495,8 +474,14 @@
             this.employeeTableViewForUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.employeeTableViewForUsers.AutoGenerateColumns = false;
             this.employeeTableViewForUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.employeeTableViewForUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeTableViewForUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn1,
+            this.placeDataGridViewTextBoxColumn1,
+            this.birthDateDataGridViewTextBoxColumn1});
+            this.employeeTableViewForUsers.DataSource = this.employeeSource;
             this.employeeTableViewForUsers.Location = new System.Drawing.Point(6, 21);
             this.employeeTableViewForUsers.Name = "employeeTableViewForUsers";
             this.employeeTableViewForUsers.RowTemplate.Height = 24;
@@ -583,6 +568,52 @@
             this.adminList.TabIndex = 0;
             this.adminList.UseCompatibleStateImageBehavior = false;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placeDataGridViewTextBoxColumn
+            // 
+            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
+            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
+            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // birthDateDataGridViewTextBoxColumn
+            // 
+            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeSource
+            // 
+            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // placeDataGridViewTextBoxColumn1
+            // 
+            this.placeDataGridViewTextBoxColumn1.DataPropertyName = "Place";
+            this.placeDataGridViewTextBoxColumn1.HeaderText = "Должность";
+            this.placeDataGridViewTextBoxColumn1.Name = "placeDataGridViewTextBoxColumn1";
+            this.placeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // birthDateDataGridViewTextBoxColumn1
+            // 
+            this.birthDateDataGridViewTextBoxColumn1.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn1.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn1.Name = "birthDateDataGridViewTextBoxColumn1";
+            this.birthDateDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -605,7 +636,6 @@
             this.flowLayoutPanel2.PerformLayout();
             this.employeeGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -621,6 +651,7 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -667,5 +698,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource employeeSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn1;
     }
 }

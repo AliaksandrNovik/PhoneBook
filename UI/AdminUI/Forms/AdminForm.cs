@@ -156,9 +156,22 @@ namespace UI.AdminUI
         #region EmployeeEdit
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var currentDictionary = (Department)e.Node.Tag;
+            var currentDepartment = (Department)e.Node.Tag;
             var wrappedList = new List<EmployeeWrapperItem>();
-            foreach (var employee in _employeeService.GetByDepartmentId(currentDictionary.Id))
+            foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
+            {
+                wrappedList.Add(new EmployeeWrapperItem(employee));
+            }
+
+            employeeSource.DataSource = wrappedList;
+            employeeSource.ResetBindings(false);
+        }
+
+        private void departmentViewForUsers_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var currentDepartment = (Department)e.Node.Tag;
+            var wrappedList = new List<EmployeeWrapperItem>();
+            foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
             {
                 wrappedList.Add(new EmployeeWrapperItem(employee));
             }
@@ -279,20 +292,51 @@ namespace UI.AdminUI
         private void sructTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             int currentTab = tabWidget.SelectedIndex;
-            departmentViewForUsers.Nodes.Clear();
             if (currentTab == 1)
             {
+                var currentDepartment = (Department)departmentViewForUsers.SelectedNode?.Tag;
+                
+                departmentViewForUsers.Nodes.Clear();
                 foreach (TreeNode node in departmentView.Nodes)
                 {
                     var cloneNode = (TreeNode)node.Clone();
                     departmentViewForUsers.Nodes.Add(cloneNode);
-                    if (node == departmentView.SelectedNode)
-                    {
-                        departmentViewForUsers.SelectedNode = cloneNode;
-                    }                   
                 }
+
+                if (currentDepartment != null)
+                {
+                    foreach (TreeNode node in departmentViewForUsers.Nodes)
+                    {
+                        var toSelect = FindNode(currentDepartment, node);
+                        if (toSelect != null)
+                        {
+                            departmentViewForUsers.SelectedNode = toSelect;
+                            break;
+                        }
+                    }       
+                }
+
                 departmentViewForUsers.ExpandAll();
+                departmentViewForUsers.Focus();
             }
+            else if (currentTab == 0)
+            {
+                var currentNode = departmentView.SelectedNode;
+                departmentView.SelectedNode = null;
+                departmentView.SelectedNode = currentNode;
+                departmentView.Focus();
+            }
+        }
+
+        public TreeNode FindNode(Department department, TreeNode rootNode)
+        {
+            foreach (TreeNode node in rootNode.Nodes)
+            {
+                if (node.Tag.Equals(department)) return node;
+                TreeNode next = FindNode(department, node);
+                if (next != null) return next;
+            }
+            return null;
         }
     }
 }
