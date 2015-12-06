@@ -21,7 +21,6 @@ namespace Services.Implementation
                     return new UserInfo(UserType.Admin, userItem.Id);
                 }
             }
-            return null;
 
             foreach (var userItem in _userRepository.GetEmployeeAll())
             {
@@ -39,7 +38,7 @@ namespace Services.Implementation
                 }
             }
 
-            //return null;
+            return null;
         }
     }
 }

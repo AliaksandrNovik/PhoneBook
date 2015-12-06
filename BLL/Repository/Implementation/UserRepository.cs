@@ -8,12 +8,11 @@ namespace BLL.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private FileRepository<AdminUser> _adminRepository;
-        public UserRepository()
-        {
-            _adminRepository = new FileRepository<AdminUser>("AdminUser.txt");
-        }
+        private FileRepository<AdminUser> _adminRepository = new FileRepository<AdminUser>("AdminUser.txt");
+        private FileRepository<EmployeeUser> _employeeRepository = new FileRepository<EmployeeUser>("EmployeeUser.txt");
+        private FileRepository<ManagerUser> _managerRepository = new FileRepository<ManagerUser>("ManagerUser.txt");
 
+        #region Admin
         public AdminUser CreateAdmin(string login, string password)
         {
             var adminUser = new AdminUser(login, password);
@@ -45,56 +44,74 @@ namespace BLL.Repository
             }
             return canUpdate;
         }
+        #endregion
 
-        public EmployeeUser CreateEmployee(string login, string password, string employeeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ManagerUser CreateManager(string login, string password, string employeeId, string departmentId)
-        {
-            throw new NotImplementedException();
-        }             
-
+        #region Employee
         public IReadOnlyCollection<EmployeeUser> GetEmployeeAll()
         {
-            throw new NotImplementedException();
+            return _employeeRepository.GetAll();
         }
 
         public EmployeeUser GetEmployeeById(string id)
         {
-            throw new NotImplementedException();
+            return _employeeRepository.GetById(id);
         }
-
-        public IReadOnlyCollection<ManagerUser> GetManagerAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ManagerUser GetManagerById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public bool RemoveEmployee(string id)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool RemoveManager(string id)
-        {
-            throw new NotImplementedException();
+            return _employeeRepository.Delete(id);
         }
 
         public bool UpdateEmployee(EmployeeUser user)
         {
-            throw new NotImplementedException();
+            bool canUpdate = (_employeeRepository.GetById(user.Id) != null);
+            if (canUpdate)
+            {
+                _employeeRepository.Upsert(user);
+            }
+            return canUpdate;
+        }
+
+        public EmployeeUser CreateEmployee(string login, string password, string employeeId)
+        {
+            var employeeUser = new EmployeeUser(login, password, employeeId);
+            _employeeRepository.Upsert(employeeUser);
+            return employeeUser;
+        }
+        #endregion
+
+        #region Manager
+        public IReadOnlyCollection<ManagerUser> GetManagerAll()
+        {
+            return _managerRepository.GetAll();
+        }
+
+        public ManagerUser GetManagerById(string id)
+        {
+            return _managerRepository.GetById(id);
+        }
+
+        public bool RemoveManager(string id)
+        {
+            return _managerRepository.Delete(id);
         }
 
         public bool UpdateManager(ManagerUser user)
         {
-            throw new NotImplementedException();
+            bool canUpdate = (_managerRepository.GetById(user.Id) != null);
+            if (canUpdate)
+            {
+                _managerRepository.Upsert(user);
+            }
+            return canUpdate;
         }
+
+        public ManagerUser CreateManager(string login, string password, string employeeId, string departmentId)
+        {
+            var managerUser = new ManagerUser(login, password, employeeId, departmentId);
+            _managerRepository.Upsert(managerUser);
+            return managerUser;
+        }
+        #endregion
     }
 }

@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BLL
 {
     public class ManagerUser : Identified
     {
-        ManagerUser(string login, string password, string employeeId, string departmentId) :
+        [JsonConstructor]
+        internal ManagerUser(string id, string login, string password, string employeeId, string departmentId):
+            base(id)
+        {
+            this.Login = login;
+            this.Password = password;
+            this.EmployeeId = employeeId;
+            this.DepartmentId = departmentId;
+        }
+
+        internal ManagerUser(string login, string password, string employeeId, string departmentId) :
             base()
         {
             this.Login = login;

@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BLL
 {
-    [Serializable]
     public class EmployeeUser : Identified
     {
-        EmployeeUser():base() { }
-        EmployeeUser(string login, string password, string employeeId) :
+        [JsonConstructor]
+        internal EmployeeUser(string id, string login, string password, string employeeId):
+            base(id)
+        {
+            this.Login = login;
+            this.Password = password;
+            this.EmployeeId = employeeId;
+        }
+
+        internal EmployeeUser(string login, string password, string employeeId) :
             base()
         {
             this.Login = login;

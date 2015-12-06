@@ -12,6 +12,19 @@ namespace Services.Implementation
     {
         public bool ContainsUser(string login)
         {
+            bool containsAdmin = GetAllAdminUsers().Any(x => x.Login == login);
+            if (containsAdmin)
+                return true;
+
+            
+            bool containsManager = GetAllManagerUsers().Any(x => x.Login == login);
+            if (containsManager)
+                return true;
+
+            bool containsEmployee = GetAllEmployeeUsers().Any(x => x.Login == login);
+            if (containsEmployee)
+                return true;
+
             return false;
         }
 
@@ -37,7 +50,7 @@ namespace Services.Implementation
             return _userRepository.UpdateAdmin(adminRepUser);
         }
 
-        IReadOnlyCollection<IAdminUser> IAdminService.GetAllAdminUsers()
+        public IReadOnlyCollection<IAdminUser> GetAllAdminUsers()
         {
             var adminUserList = new List<IAdminUser>();
             foreach (var repAdminUser in _userRepository.GetAdminAll())
