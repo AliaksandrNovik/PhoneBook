@@ -18,10 +18,12 @@ namespace UI.AdminUI
     {
         private IDepartmentService _departmentService = new DepartmentService();
         private IEmployeeService _employeeService = new EmployeeService();
+        private IAdminService _adminService = new AdminService();
         public AdminForm()
         {
             InitializeComponent();
             FillDepartmentView();
+            FillAdminUser();
 
             SetStructureButtonsEnabled(false);
             changeEmployeeButton.Enabled = false;
@@ -48,6 +50,17 @@ namespace UI.AdminUI
                 departmentView.Nodes.Add(CreateNode(subDepartment));
             }
             departmentView.ExpandAll();
+        }
+
+        private void FillAdminUser()
+        {
+            var users = _adminService.GetAllAdminUsers();
+            foreach (var user in users)
+            {
+                var item = new TreeNode(user.Login);
+                item.Tag = user;
+                adminList.Nodes.Add(item);
+            }
         }
 
         private TreeNode CreateNode(IDepartment department)
@@ -79,7 +92,7 @@ namespace UI.AdminUI
             }
             else
             {
-                var parentDepartment = (Department)parent.Tag;
+                var parentDepartment = (IDepartment)parent.Tag;
                 var newDepartment = _departmentService.Create(name, parentDepartment.Id);
                 treeNode.Tag = newDepartment;
                 parent.Nodes.Add(treeNode);
@@ -146,7 +159,7 @@ namespace UI.AdminUI
 
                     //update data
                     //
-                    var currentDepartment = (Department)currentNode.Tag;
+                    var currentDepartment = (IDepartment)currentNode.Tag;
                     currentDepartment.Name = newName;
                     _departmentService.Update(currentDepartment);
                     departmentEditForm.DialogResult = DialogResult.OK;
@@ -157,12 +170,9 @@ namespace UI.AdminUI
         private void removeDepartmentButton_Click(object sender, EventArgs e)
         {
             var currentNode = departmentView.SelectedNode;
-            if (currentNode != null)
-            {
-                var department = (Department)currentNode.Tag;
-                departmentView.Nodes.Remove(currentNode);
-                _departmentService.Delete(department);
-            }
+            var department = (IDepartment)currentNode.Tag;
+            departmentView.Nodes.Remove(currentNode);
+            _departmentService.Delete(department);
         }
         #endregion
 
@@ -170,7 +180,7 @@ namespace UI.AdminUI
         #region EmployeeEdit
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var currentDepartment = (Department)e.Node.Tag;
+            var currentDepartment = (IDepartment)e.Node.Tag;
             var wrappedList = new List<EmployeeWrapperItem>();
             foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
             {
@@ -184,7 +194,7 @@ namespace UI.AdminUI
 
         private void departmentViewForUsers_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var currentDepartment = (Department)e.Node.Tag;
+            var currentDepartment = (IDepartment)e.Node.Tag;
             var wrappedList = new List<EmployeeWrapperItem>();
             foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
             {
@@ -219,7 +229,7 @@ namespace UI.AdminUI
                 var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
 
                 //departmentId
-                var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+                var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
                 var newEmployee = _employeeService.CreateEmployee(firstName, lastName, patronym, date, place, currentDepartment.Id);
                 employeeSource.Add(new EmployeeWrapperItem(newEmployee));
                 employeeSource.ResetBindings(false);
@@ -258,7 +268,7 @@ namespace UI.AdminUI
 
         private void changeEmployeeButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+            var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
             var currentEmployee = (EmployeeWrapperItem)employeeSource.Current;
             if (currentEmployee != null)
             {
@@ -278,7 +288,7 @@ namespace UI.AdminUI
             var employeeEditForm = (EditEmployeeForm)sender;
             if (ValidateEmployee(employeeEditForm))
             {              
-                var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+                var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
                 var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
                 var currentEmployee = currentEmployeeWrap.Item;
                 currentEmployee.FirstName = employeeEditForm.FirstName;
@@ -309,7 +319,7 @@ namespace UI.AdminUI
             int currentTab = tabWidget.SelectedIndex;
             if (currentTab == 1)
             {
-                var currentDepartment = (Department)departmentViewForUsers.SelectedNode?.Tag;
+                var currentDepartment = (IDepartment)departmentViewForUsers.SelectedNode?.Tag;
                 
                 departmentViewForUsers.Nodes.Clear();
                 foreach (TreeNode node in departmentView.Nodes)
@@ -343,7 +353,7 @@ namespace UI.AdminUI
             }
         }
 
-        public TreeNode FindNode(Department department, TreeNode rootNode)
+        public TreeNode FindNode(IDepartment department, TreeNode rootNode)
         {
             foreach (TreeNode node in rootNode.Nodes)
             {
@@ -360,6 +370,22 @@ namespace UI.AdminUI
             changeEmployeeButton.Enabled = enabled;
             removeEmployeeButton.Enabled = enabled;
             assignUserButton.Enabled = enabled;
+        }
+
+        private void addAdmin_Click(object sender, EventArgs e)
+        {
+            //var adminUser = _adminService.CreateAdminUser("admin", "admin");
+            //ListViewItem item = new ListViewItem(adminUser.Login);
+            //item.Tag = adminUser;
+            //adminList.Items.Add(item);
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            var currentItem = adminList.SelectedNode;
+            var adminUser = (IAdminUser)currentItem.Tag;
+            _adminService.DeleteAdminUser(adminUser.UserId);
+            adminList.Nodes.Remove(currentItem);
         }
     }
 }

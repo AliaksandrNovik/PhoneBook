@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BLL
 {
-    [Serializable]
     public class AdminUser : Identified
     {
-        AdminUser() : base() {}
+        [JsonConstructor]
+        internal AdminUser(string id, string login, string password) :
+            base(id)
+        {
+            this.Login = login;
+            this.Password = password;
+        }
 
-        AdminUser(string login, string password) :
+        internal AdminUser(string login, string password) :
             base()
         {
             this.Login = login;

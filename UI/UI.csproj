@@ -117,6 +117,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BLL.AdminUser.datasource" />
+    <None Include="Properties\DataSources\Services.Facade.IAdminUser.datasource" />
     <None Include="Properties\DataSources\UI.AdminUI.EmployeeWrapperItem.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Department.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Employee.datasource" />

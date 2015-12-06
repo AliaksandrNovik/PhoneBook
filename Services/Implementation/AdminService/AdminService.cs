@@ -4,57 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Services.Facade;
+using BLL.Repository;
 
 namespace Services.Implementation
 {
     public class AdminService : IAdminService
     {
-        private BLL.IUserRepository _userRepository;
-        public AdminService(BLL.IUserRepository useRepository)
+        public bool ContainsUser(string login)
         {
-            _userRepository = useRepository;
+            return false;
         }
 
+        private IUserRepository _userRepository = new UserRepository();
+
+        #region Admin
         public IAdminUser CreateAdminUser(string login, string password)
         {
             var adminRepUser = _userRepository.CreateAdmin(login, password);
             return new AdminUser(login, password, adminRepUser.Id);
         }
 
-        public IEmployeeUser CreateEmployeeUser(string login, string password, string employeeId)
-        {
-            var employeeUser = _userRepository.CreateEmployee(login, password, employeeId);
-            return new EmployeeUser(login, password, employeeId, employeeUser.Id);
-        }
-
-        public IManagerUser CreateManagerUser(string login, string password, string employeeId, string departmentId)
-        {
-            var employeeUser = _userRepository.CreateManager(login, password, employeeId, departmentId);
-            return new ManagerUser(login, password, employeeId, departmentId, employeeUser.Id);
-        }
-
         public bool DeleteAdminUser(string userId)
         {
             return _userRepository.RemoveAdmin(userId);
-        }
-
-        public bool DeleteEmployeeUser(string userId)
-        {
-            return _userRepository.RemoveEmployee(userId);
-        }
-
-        public bool DeleteManagerUser(string userId)
-        {
-            return _userRepository.RemoveManager(userId);
-        }
-
-        public bool UdpateEmployeeUser(IEmployeeUser employeeUser)
-        {
-            var employeeRepUser = _userRepository.GetEmployeeById(employeeUser.UserId);
-            employeeRepUser.Login = employeeUser.Login;
-            employeeRepUser.Password = employeeUser.Password;
-            employeeRepUser.EmployeeId = employeeUser.EmployeeId;
-            return _userRepository.UpdateEmployee(employeeRepUser);
         }
 
         public bool UpdateAdminUser(IAdminUser user)
@@ -65,6 +37,57 @@ namespace Services.Implementation
             return _userRepository.UpdateAdmin(adminRepUser);
         }
 
+        IReadOnlyCollection<IAdminUser> IAdminService.GetAllAdminUsers()
+        {
+            var adminUserList = new List<IAdminUser>();
+            foreach (var repAdminUser in _userRepository.GetAdminAll())
+            {
+                adminUserList.Add(new AdminUser(repAdminUser.Login, repAdminUser.Password, repAdminUser.Id));
+            }
+            return adminUserList;
+        }
+        #endregion
+
+        #region Employee
+        public IEmployeeUser CreateEmployeeUser(string login, string password, string employeeId)
+        {
+            var employeeUser = _userRepository.CreateEmployee(login, password, employeeId);
+            return new EmployeeUser(login, password, employeeId, employeeUser.Id);
+        }
+
+        public bool DeleteEmployeeUser(string userId)
+        {
+            return _userRepository.RemoveEmployee(userId);
+        }
+
+        public bool UdpateEmployeeUser(IEmployeeUser employeeUser)
+        {
+            var employeeRepUser = _userRepository.GetEmployeeById(employeeUser.UserId);
+            employeeRepUser.Login = employeeUser.Login;
+            employeeRepUser.Password = employeeUser.Password;
+            employeeRepUser.EmployeeId = employeeUser.EmployeeId;
+            return _userRepository.UpdateEmployee(employeeRepUser);
+        }
+        #endregion
+
+        #region Manager
+        public IManagerUser CreateManagerUser(string login, string password, string employeeId, string departmentId)
+        {
+            var employeeUser = _userRepository.CreateManager(login, password, employeeId, departmentId);
+            return new ManagerUser(login, password, employeeId, departmentId, employeeUser.Id);
+        }
+        
+        public bool DeleteManagerUser(string userId)
+        {
+            return _userRepository.RemoveManager(userId);
+        }
+
+        public IReadOnlyCollection<IManagerUser> GetAllEmployeeUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public bool UpdateManagerUser(IManagerUser managerUser)
         {
             var managerRepUser = _userRepository.GetManagerById(managerUser.UserId);
@@ -73,6 +96,12 @@ namespace Services.Implementation
             managerRepUser.EmployeeId = managerUser.EmployeeId;
             managerRepUser.DepartmentId = managerRepUser.DepartmentId;
             return _userRepository.UpdateManager(managerRepUser);
+        }       
+
+        public IReadOnlyCollection<IManagerUser> GetAllManagerUsers()
+        {
+            throw new NotImplementedException();
         }
+        #endregion
     }
 }

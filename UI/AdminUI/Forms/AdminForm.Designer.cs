@@ -59,12 +59,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.employeeTableViewForUsers = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.adminTable = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.adminList = new System.Windows.Forms.ListView();
+            this.addAdmin = new System.Windows.Forms.Button();
+            this.changeAdmin = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.adminList = new System.Windows.Forms.TreeView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,7 +92,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTableViewForUsers)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
+            this.adminTable.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.SuspendLayout();
@@ -493,7 +493,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage3.Controls.Add(this.adminTable);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -502,62 +502,67 @@
             this.tabPage3.Text = "Администраторы";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel7
+            // adminTable
             // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel5, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.adminList, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(942, 353);
-            this.tableLayoutPanel7.TabIndex = 0;
+            this.adminTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminTable.ColumnCount = 1;
+            this.adminTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.adminTable.Controls.Add(this.flowLayoutPanel5, 0, 1);
+            this.adminTable.Controls.Add(this.adminList, 0, 0);
+            this.adminTable.Location = new System.Drawing.Point(6, 6);
+            this.adminTable.Name = "adminTable";
+            this.adminTable.RowCount = 2;
+            this.adminTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.adminTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.adminTable.Size = new System.Drawing.Size(942, 353);
+            this.adminTable.TabIndex = 0;
             // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel5.Controls.Add(this.button1);
-            this.flowLayoutPanel5.Controls.Add(this.button2);
-            this.flowLayoutPanel5.Controls.Add(this.button3);
+            this.flowLayoutPanel5.Controls.Add(this.addAdmin);
+            this.flowLayoutPanel5.Controls.Add(this.changeAdmin);
+            this.flowLayoutPanel5.Controls.Add(this.removeButton);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 306);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(936, 44);
             this.flowLayoutPanel5.TabIndex = 4;
             // 
-            // button1
+            // addAdmin
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 27);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addAdmin.AutoSize = true;
+            this.addAdmin.Location = new System.Drawing.Point(3, 3);
+            this.addAdmin.Name = "addAdmin";
+            this.addAdmin.Size = new System.Drawing.Size(82, 27);
+            this.addAdmin.TabIndex = 3;
+            this.addAdmin.Text = "Добавить";
+            this.addAdmin.UseVisualStyleBackColor = true;
+            this.addAdmin.Click += new System.EventHandler(this.addAdmin_Click);
             // 
-            // button2
+            // changeAdmin
             // 
-            this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(91, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.changeAdmin.AutoSize = true;
+            this.changeAdmin.Location = new System.Drawing.Point(91, 3);
+            this.changeAdmin.Name = "changeAdmin";
+            this.changeAdmin.Size = new System.Drawing.Size(82, 27);
+            this.changeAdmin.TabIndex = 4;
+            this.changeAdmin.Text = "Изменить";
+            this.changeAdmin.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // removeButton
             // 
-            this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(179, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 27);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.removeButton.AutoSize = true;
+            this.removeButton.Location = new System.Drawing.Point(179, 3);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(75, 27);
+            this.removeButton.TabIndex = 5;
+            this.removeButton.Text = "Удалить";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // adminList
             // 
@@ -567,8 +572,7 @@
             this.adminList.Location = new System.Drawing.Point(3, 3);
             this.adminList.Name = "adminList";
             this.adminList.Size = new System.Drawing.Size(936, 297);
-            this.adminList.TabIndex = 0;
-            this.adminList.UseCompatibleStateImageBehavior = false;
+            this.adminList.TabIndex = 5;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -651,7 +655,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeeTableViewForUsers)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
+            this.adminTable.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
@@ -691,12 +695,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView employeeTableViewForUsers;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel adminTable;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView adminList;
+        private System.Windows.Forms.Button addAdmin;
+        private System.Windows.Forms.Button changeAdmin;
+        private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
@@ -704,5 +707,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TreeView adminList;
     }
 }
