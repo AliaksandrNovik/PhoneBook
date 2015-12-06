@@ -10,6 +10,7 @@ namespace BLL.Repository
 {
     public class FileRepository<T> where T : Identified
     {
+        private Dictionary<string, T> _valuesDict;
         public FileRepository(string fileName)
         {
             this.FileName = fileName;
@@ -22,9 +23,10 @@ namespace BLL.Repository
             {
                 _valuesDict = Serializer.DeSerializeObject<Dictionary<string, T>>(this.FileName);
             }
-        }
-        
-        private Dictionary<string, T> _valuesDict = new Dictionary<string, T>();
+
+            if (_valuesDict == null)
+                _valuesDict = new Dictionary<string, T>();
+    }
 
         public string FileName
         { get; set; }

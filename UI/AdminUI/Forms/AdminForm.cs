@@ -17,6 +17,7 @@ namespace UI.AdminUI
     public partial class AdminForm : Form
     {
         private IDepartmentService _departmentService = new DepartmentService();
+        private IEmployeeService _employeeService = new EmployeeService();
         public AdminForm()
         {
             InitializeComponent();
@@ -54,11 +55,6 @@ namespace UI.AdminUI
 
             //create hash for employees
             //
-            if (!_employeeDict.ContainsKey(treeNode))
-            {
-                _employeeDict.Add(treeNode, new List<EmployeeWrapperItem>());
-            }
-
             var parent = departmentView.SelectedNode;
             if (parent == null)
             {
@@ -158,90 +154,126 @@ namespace UI.AdminUI
 
 
         #region EmployeeEdit
-        #endregion
-        Dictionary<TreeNode, List<EmployeeWrapperItem>> _employeeDict = new Dictionary<TreeNode, List<EmployeeWrapperItem>>();
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var currentDepartment = e.Node;
-            if (currentDepartment != null)
+            var currentDictionary = (Department)e.Node.Tag;
+            var wrappedList = new List<EmployeeWrapperItem>();
+            foreach (var employee in _employeeService.GetByDepartmentId(currentDictionary.Id))
             {
-                if (_employeeDict.ContainsKey(currentDepartment))
-                {
-                    employeeSource.DataSource = _employeeDict[currentDepartment];
-                }
-                else
-                {
-                    employeeSource.DataSource = null;
-                }
+                wrappedList.Add(new EmployeeWrapperItem(employee));
             }
-            else
-            {
-                employeeSource.DataSource = null;
-            }
+
+            employeeSource.DataSource = wrappedList;
             employeeSource.ResetBindings(false);
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
             var currentDepartment = departmentView.SelectedNode;
-            if (currentDepartment != null)
-            {
-                var employeeEditForm = new EditEmployeeForm();
-                employeeEditForm.Confirmed += (s, a) => CreateEmployeeConfirmed(s, a);
-                employeeEditForm.ShowDialog();
-            }
+            var employeeEditForm = new EditEmployeeForm();
+            employeeEditForm.Confirmed += (s, a) => CreateEmployeeConfirmed(s, a);
+            employeeEditForm.ShowDialog();
         }
 
         private void CreateEmployeeConfirmed(object sender, EventArgs e)
         {
+            //employee params
+            //
             var employeeEditForm = (EditEmployeeForm)sender;
-            var firstName = employeeEditForm.FirstName;
-            var lastName = employeeEditForm.LastName;
-            var patronym = employeeEditForm.Patronym;
-            var birthday = employeeEditForm.Birthday;
-            var place = employeeEditForm.Place;
-            employeeSource.Add(new EmployeeWrapperItem(firstName, lastName, patronym, birthday, place));
-            employeeSource.ResetBindings(false);
-            employeeEditForm.DialogResult = DialogResult.OK;
+            if (ValidateEmployee(employeeEditForm))
+            {
+                var firstName = employeeEditForm.FirstName;
+                var lastName = employeeEditForm.LastName;
+                var patronym = employeeEditForm.Patronym;
+                var birthday = employeeEditForm.Birthday;
+                var place = employeeEditForm.Place;
+                var sysDate = DateTime.Parse(employeeEditForm.Birthday);
+                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+
+                //departmentId
+                var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+                var newEmployee = _employeeService.CreateEmployee(firstName, lastName, patronym, date, place, currentDepartment.Id);
+                employeeSource.Add(new EmployeeWrapperItem(newEmployee));
+                employeeSource.ResetBindings(false);
+                employeeEditForm.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private bool ValidateEmployee(EditEmployeeForm form)
+        {
+            if (string.IsNullOrWhiteSpace(form.FirstName))
+            {
+                form.ShowError("Введите имя!");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(form.LastName))
+            {
+                form.ShowError("Введите фамилию!");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(form.Place))
+            {
+                form.ShowError("Введите должность!");
+                return false;
+            }
+
+            DateTime dateTime;
+            if (!DateTime.TryParse(form.Birthday, out dateTime))
+            {
+                form.ShowError("Некорректно задана дата рождения");
+                return false;
+            }
+            return true;
         }
 
         private void changeEmployeeButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = departmentView.SelectedNode;
-            if (currentDepartment != null)
+            var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+            var currentEmployee = (EmployeeWrapperItem)employeeSource.Current;
+            if (currentEmployee != null)
             {
-                var currentEmployee = (EmployeeWrapperItem)employeeSource.Current;
-                if (currentEmployee != null)
-                {
-                    var employeeEditForm = new EditEmployeeForm();
-                    employeeEditForm.FirstName = currentEmployee.FirstName;
-                    employeeEditForm.LastName = currentEmployee.LastName;
-                    employeeEditForm.Patronym = currentEmployee.Patronym;
-                    employeeEditForm.Birthday = currentEmployee.BirthDate;
-                    employeeEditForm.Place = currentEmployee.Place;
-                    employeeEditForm.Confirmed += (s, a) => UpdateEmployeeConfirmed(s, a);
-                    employeeEditForm.ShowDialog();
-                }
+                var employeeEditForm = new EditEmployeeForm();
+                employeeEditForm.FirstName = currentEmployee.Item.FirstName;
+                employeeEditForm.LastName = currentEmployee.Item.LastName;
+                employeeEditForm.Patronym = currentEmployee.Item.Patronym;
+                employeeEditForm.Birthday = currentEmployee.Item.BirthDate.ToString();
+                employeeEditForm.Place = currentEmployee.Item.Place;
+                employeeEditForm.Confirmed += (s, a) => UpdateEmployeeConfirmed(s, a);
+                employeeEditForm.ShowDialog();
             }
         }
 
         private void UpdateEmployeeConfirmed(object sender, EventArgs e)
         {
             var employeeEditForm = (EditEmployeeForm)sender;
-
-            var currentEmployee = (EmployeeWrapperItem)employeeSource.Current;
-            currentEmployee.FirstName = employeeEditForm.FirstName;
-            currentEmployee.LastName = employeeEditForm.LastName;
-            currentEmployee.Patronym = employeeEditForm.Patronym;
-            currentEmployee.BirthDate = employeeEditForm.Birthday;
-            currentEmployee.Place = employeeEditForm.Place;
-            employeeSource.ResetBindings(false);
-            employeeEditForm.DialogResult = DialogResult.OK;
+            if (ValidateEmployee(employeeEditForm))
+            {              
+                var currentDepartment = (Department)departmentView.SelectedNode.Tag;
+                var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
+                var currentEmployee = currentEmployeeWrap.Item;
+                currentEmployee.FirstName = employeeEditForm.FirstName;
+                currentEmployee.LastName = employeeEditForm.LastName;
+                currentEmployee.Patronym = employeeEditForm.Patronym;
+                currentEmployee.Place = employeeEditForm.Place;
+                var birthday = employeeEditForm.Birthday;
+                var sysDate = DateTime.Parse(employeeEditForm.Birthday);
+                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+                currentEmployee.BirthDate = date;
+                _employeeService.UpdateEmployee(currentEmployee);
+                employeeSource.ResetBindings(false);
+                employeeEditForm.DialogResult = DialogResult.OK;
+            }            
         }
 
         private void removeEmployeeButton_Click(object sender, EventArgs e)
         {
+            var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
+            _employeeService.DeleteEmployee(currentEmployeeWrap.Item.Id);
             employeeSource.RemoveCurrent();            
         }
+        #endregion
+
     }
 }

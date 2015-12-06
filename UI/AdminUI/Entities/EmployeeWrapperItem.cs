@@ -9,44 +9,42 @@ namespace UI.AdminUI
 {
     public class EmployeeWrapperItem
     {
-        public EmployeeWrapperItem()
+        public EmployeeWrapperItem(IEmployee item)
         {
+            this.Item = item;
+            if (item == null)
+            {
+                throw new ArgumentException("Item is null");
+            }
         }
 
-        public EmployeeWrapperItem(string firstName, string lastName, string patronym,
-            string birthDate, string place)
+        public IEmployee Item
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Patronym = patronym;
-            this.BirthDate = birthDate;
-            this.Place = place;
+            get; set;
         }
-
-        internal string FirstName
-        { get; set; }
-
-        internal string LastName
-        { get; set; }
-
-        internal string Patronym
-        { get; set; }
-
-        public IEmployee Employee
-        { get; set; }
 
         public string Name
         {
             get
             {
-                return FirstName + " " + LastName + " " + Patronym;
+                return this.Item.FirstName + " " + this.Item.LastName + " " + this.Item.Patronym;
             }
         }
 
         public string Place
-        { get; set; }
+        {
+            get
+            {
+                return this.Item.Place;
+            }
+        }
 
         public string BirthDate
-        { get; set; }
+        {
+            get
+            {
+                return this.Item.BirthDate.ToString();
+            }
+        }
     }
 }

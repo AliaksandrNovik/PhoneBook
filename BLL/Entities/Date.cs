@@ -28,5 +28,10 @@ namespace BLL
 
         public int Year
         { get; set; }
+
+        public override string ToString()
+        {
+            return Day.ToString() + " " + Month.ToString() + " " + Year.ToString();
+        }
     }
 }

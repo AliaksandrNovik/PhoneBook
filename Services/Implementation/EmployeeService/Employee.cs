@@ -25,15 +25,15 @@ namespace Services.Implementation
             this.DepartmentId = departmentId;
         }
 
-        public Employee(BLL.Employee bllEmployee)
+        public Employee(BLL.Employee repEmployee)
         {
-            this.Id = bllEmployee.Id;
-            this.FirstName = bllEmployee.FirstName;
-            this.LastName = bllEmployee.LastName;
-            this.Patronym = bllEmployee.Patronym;
-            this.Place = bllEmployee.Place;
-            this.BirthDate = bllEmployee.BirthDate;
-            this.DepartmentId = bllEmployee.DepartmentId;
+            this.Id = repEmployee.Id;
+            this.FirstName = repEmployee.FirstName;
+            this.LastName = repEmployee.LastName;
+            this.Patronym = repEmployee.Patronym;
+            this.Place = repEmployee.Place;
+            this.BirthDate = repEmployee.BirthDate;
+            this.DepartmentId = repEmployee.DepartmentId;
         }         
 
         public string Id

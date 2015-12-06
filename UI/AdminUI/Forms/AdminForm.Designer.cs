@@ -30,23 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             this.sructTab = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.employeeGroupBox = new System.Windows.Forms.GroupBox();
-            this.employeeTable = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.removeEmployeeButton = new System.Windows.Forms.Button();
-            this.changeEmployeeButton = new System.Windows.Forms.Button();
-            this.addEmployeeButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addDeparmentButton = new System.Windows.Forms.Button();
+            this.changeDepartmentButton = new System.Windows.Forms.Button();
+            this.removeDepartmentButton = new System.Windows.Forms.Button();
             this.departmentGroupBox = new System.Windows.Forms.GroupBox();
             this.departmentView = new System.Windows.Forms.TreeView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.removeDepartmentButton = new System.Windows.Forms.Button();
-            this.changeDepartmentButton = new System.Windows.Forms.Button();
-            this.addDeparmentButton = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addEmployeeButton = new System.Windows.Forms.Button();
+            this.changeEmployeeButton = new System.Windows.Forms.Button();
+            this.removeEmployeeButton = new System.Windows.Forms.Button();
+            this.employeeGroupBox = new System.Windows.Forms.GroupBox();
+            this.employeeTable = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,26 +64,23 @@
             this.employeeTableViewForUsers = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.adminList = new System.Windows.Forms.ListView();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
+            this.adminList = new System.Windows.Forms.ListView();
             this.sructTab.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.departmentGroupBox.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.employeeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.departmentGroupBox.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -91,7 +92,6 @@
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sructTab
@@ -108,16 +108,16 @@
             this.sructTab.Size = new System.Drawing.Size(962, 394);
             this.sructTab.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPage1
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(954, 365);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Пользователи";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(954, 365);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Структура подразделения";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -136,102 +136,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(942, 353);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.employeeGroupBox, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(397, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(542, 347);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // employeeGroupBox
-            // 
-            this.employeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.employeeGroupBox.Controls.Add(this.employeeTable);
-            this.employeeGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.employeeGroupBox.Name = "employeeGroupBox";
-            this.employeeGroupBox.Size = new System.Drawing.Size(536, 291);
-            this.employeeGroupBox.TabIndex = 2;
-            this.employeeGroupBox.TabStop = false;
-            this.employeeGroupBox.Text = "Сотрудники";
-            // 
-            // employeeTable
-            // 
-            this.employeeTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.employeeTable.AutoGenerateColumns = false;
-            this.employeeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.placeDataGridViewTextBoxColumn,
-            this.birthDateDataGridViewTextBoxColumn});
-            this.employeeTable.DataSource = this.employeeSource;
-            this.employeeTable.Location = new System.Drawing.Point(6, 21);
-            this.employeeTable.Name = "employeeTable";
-            this.employeeTable.RowTemplate.Height = 24;
-            this.employeeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeTable.Size = new System.Drawing.Size(524, 270);
-            this.employeeTable.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.Controls.Add(this.addEmployeeButton);
-            this.flowLayoutPanel2.Controls.Add(this.changeEmployeeButton);
-            this.flowLayoutPanel2.Controls.Add(this.removeEmployeeButton);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 300);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(536, 44);
-            this.flowLayoutPanel2.TabIndex = 3;
-            // 
-            // removeEmployeeButton
-            // 
-            this.removeEmployeeButton.AutoSize = true;
-            this.removeEmployeeButton.Location = new System.Drawing.Point(179, 3);
-            this.removeEmployeeButton.Name = "removeEmployeeButton";
-            this.removeEmployeeButton.Size = new System.Drawing.Size(75, 27);
-            this.removeEmployeeButton.TabIndex = 5;
-            this.removeEmployeeButton.Text = "Удалить";
-            this.removeEmployeeButton.UseVisualStyleBackColor = true;
-            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
-            // 
-            // changeEmployeeButton
-            // 
-            this.changeEmployeeButton.AutoSize = true;
-            this.changeEmployeeButton.Location = new System.Drawing.Point(91, 3);
-            this.changeEmployeeButton.Name = "changeEmployeeButton";
-            this.changeEmployeeButton.Size = new System.Drawing.Size(82, 27);
-            this.changeEmployeeButton.TabIndex = 4;
-            this.changeEmployeeButton.Text = "Изменить";
-            this.changeEmployeeButton.UseVisualStyleBackColor = true;
-            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
-            // 
-            // addEmployeeButton
-            // 
-            this.addEmployeeButton.AutoSize = true;
-            this.addEmployeeButton.Location = new System.Drawing.Point(3, 3);
-            this.addEmployeeButton.Name = "addEmployeeButton";
-            this.addEmployeeButton.Size = new System.Drawing.Size(82, 27);
-            this.addEmployeeButton.TabIndex = 3;
-            this.addEmployeeButton.Text = "Добавить";
-            this.addEmployeeButton.UseVisualStyleBackColor = true;
-            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -248,6 +152,52 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(388, 347);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.addDeparmentButton);
+            this.flowLayoutPanel1.Controls.Add(this.changeDepartmentButton);
+            this.flowLayoutPanel1.Controls.Add(this.removeDepartmentButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 300);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(382, 44);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // addDeparmentButton
+            // 
+            this.addDeparmentButton.AutoSize = true;
+            this.addDeparmentButton.Location = new System.Drawing.Point(3, 3);
+            this.addDeparmentButton.Name = "addDeparmentButton";
+            this.addDeparmentButton.Size = new System.Drawing.Size(82, 27);
+            this.addDeparmentButton.TabIndex = 0;
+            this.addDeparmentButton.Text = "Добавить";
+            this.addDeparmentButton.UseVisualStyleBackColor = true;
+            this.addDeparmentButton.Click += new System.EventHandler(this.addDeparmentButton_Click);
+            // 
+            // changeDepartmentButton
+            // 
+            this.changeDepartmentButton.AutoSize = true;
+            this.changeDepartmentButton.Location = new System.Drawing.Point(91, 3);
+            this.changeDepartmentButton.Name = "changeDepartmentButton";
+            this.changeDepartmentButton.Size = new System.Drawing.Size(82, 27);
+            this.changeDepartmentButton.TabIndex = 1;
+            this.changeDepartmentButton.Text = "Изменить";
+            this.changeDepartmentButton.UseVisualStyleBackColor = true;
+            this.changeDepartmentButton.Click += new System.EventHandler(this.changeDepartmentButton_Click);
+            // 
+            // removeDepartmentButton
+            // 
+            this.removeDepartmentButton.AutoSize = true;
+            this.removeDepartmentButton.Location = new System.Drawing.Point(179, 3);
+            this.removeDepartmentButton.Name = "removeDepartmentButton";
+            this.removeDepartmentButton.Size = new System.Drawing.Size(75, 27);
+            this.removeDepartmentButton.TabIndex = 2;
+            this.removeDepartmentButton.Text = "Удалить";
+            this.removeDepartmentButton.UseVisualStyleBackColor = true;
+            this.removeDepartmentButton.Click += new System.EventHandler(this.removeDepartmentButton_Click);
             // 
             // departmentGroupBox
             // 
@@ -272,63 +222,142 @@
             this.departmentView.Name = "departmentView";
             this.departmentView.Size = new System.Drawing.Size(382, 270);
             this.departmentView.TabIndex = 0;
+            this.departmentView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.departmentView_AfterSelect);
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel3
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.addDeparmentButton);
-            this.flowLayoutPanel1.Controls.Add(this.changeDepartmentButton);
-            this.flowLayoutPanel1.Controls.Add(this.removeDepartmentButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 300);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(382, 44);
-            this.flowLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.employeeGroupBox, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(397, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(542, 347);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // removeDepartmentButton
+            // flowLayoutPanel2
             // 
-            this.removeDepartmentButton.AutoSize = true;
-            this.removeDepartmentButton.Location = new System.Drawing.Point(179, 3);
-            this.removeDepartmentButton.Name = "removeDepartmentButton";
-            this.removeDepartmentButton.Size = new System.Drawing.Size(75, 27);
-            this.removeDepartmentButton.TabIndex = 2;
-            this.removeDepartmentButton.Text = "Удалить";
-            this.removeDepartmentButton.UseVisualStyleBackColor = true;
-            this.removeDepartmentButton.Click += new System.EventHandler(this.removeDepartmentButton_Click);
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.Controls.Add(this.addEmployeeButton);
+            this.flowLayoutPanel2.Controls.Add(this.changeEmployeeButton);
+            this.flowLayoutPanel2.Controls.Add(this.removeEmployeeButton);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 300);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(536, 44);
+            this.flowLayoutPanel2.TabIndex = 3;
             // 
-            // changeDepartmentButton
+            // addEmployeeButton
             // 
-            this.changeDepartmentButton.AutoSize = true;
-            this.changeDepartmentButton.Location = new System.Drawing.Point(91, 3);
-            this.changeDepartmentButton.Name = "changeDepartmentButton";
-            this.changeDepartmentButton.Size = new System.Drawing.Size(82, 27);
-            this.changeDepartmentButton.TabIndex = 1;
-            this.changeDepartmentButton.Text = "Изменить";
-            this.changeDepartmentButton.UseVisualStyleBackColor = true;
-            this.changeDepartmentButton.Click += new System.EventHandler(this.changeDepartmentButton_Click);
+            this.addEmployeeButton.AutoSize = true;
+            this.addEmployeeButton.Location = new System.Drawing.Point(3, 3);
+            this.addEmployeeButton.Name = "addEmployeeButton";
+            this.addEmployeeButton.Size = new System.Drawing.Size(82, 27);
+            this.addEmployeeButton.TabIndex = 3;
+            this.addEmployeeButton.Text = "Добавить";
+            this.addEmployeeButton.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
-            // addDeparmentButton
+            // changeEmployeeButton
             // 
-            this.addDeparmentButton.AutoSize = true;
-            this.addDeparmentButton.Location = new System.Drawing.Point(3, 3);
-            this.addDeparmentButton.Name = "addDeparmentButton";
-            this.addDeparmentButton.Size = new System.Drawing.Size(82, 27);
-            this.addDeparmentButton.TabIndex = 0;
-            this.addDeparmentButton.Text = "Добавить";
-            this.addDeparmentButton.UseVisualStyleBackColor = true;
-            this.addDeparmentButton.Click += new System.EventHandler(this.addDeparmentButton_Click);
+            this.changeEmployeeButton.AutoSize = true;
+            this.changeEmployeeButton.Location = new System.Drawing.Point(91, 3);
+            this.changeEmployeeButton.Name = "changeEmployeeButton";
+            this.changeEmployeeButton.Size = new System.Drawing.Size(82, 27);
+            this.changeEmployeeButton.TabIndex = 4;
+            this.changeEmployeeButton.Text = "Изменить";
+            this.changeEmployeeButton.UseVisualStyleBackColor = true;
+            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
             // 
-            // tabPage1
+            // removeEmployeeButton
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(954, 365);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Структура подразделения";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.removeEmployeeButton.AutoSize = true;
+            this.removeEmployeeButton.Location = new System.Drawing.Point(179, 3);
+            this.removeEmployeeButton.Name = "removeEmployeeButton";
+            this.removeEmployeeButton.Size = new System.Drawing.Size(75, 27);
+            this.removeEmployeeButton.TabIndex = 5;
+            this.removeEmployeeButton.Text = "Удалить";
+            this.removeEmployeeButton.UseVisualStyleBackColor = true;
+            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
+            // 
+            // employeeGroupBox
+            // 
+            this.employeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.employeeGroupBox.Controls.Add(this.employeeTable);
+            this.employeeGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.employeeGroupBox.Name = "employeeGroupBox";
+            this.employeeGroupBox.Size = new System.Drawing.Size(536, 291);
+            this.employeeGroupBox.TabIndex = 2;
+            this.employeeGroupBox.TabStop = false;
+            this.employeeGroupBox.Text = "Сотрудники";
+            // 
+            // employeeTable
+            // 
+            this.employeeTable.AllowUserToAddRows = false;
+            this.employeeTable.AllowUserToDeleteRows = false;
+            this.employeeTable.AllowUserToOrderColumns = true;
+            this.employeeTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.employeeTable.AutoGenerateColumns = false;
+            this.employeeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.employeeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.placeDataGridViewTextBoxColumn,
+            this.birthDateDataGridViewTextBoxColumn});
+            this.employeeTable.DataSource = this.employeeSource;
+            this.employeeTable.Location = new System.Drawing.Point(6, 21);
+            this.employeeTable.Name = "employeeTable";
+            this.employeeTable.RowTemplate.Height = 24;
+            this.employeeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.employeeTable.Size = new System.Drawing.Size(524, 270);
+            this.employeeTable.TabIndex = 0;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placeDataGridViewTextBoxColumn
+            // 
+            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
+            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
+            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // birthDateDataGridViewTextBoxColumn
+            // 
+            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeSource
+            // 
+            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(954, 365);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Пользователи";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -499,17 +528,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(942, 353);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // adminList
-            // 
-            this.adminList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.adminList.Location = new System.Drawing.Point(3, 3);
-            this.adminList.Name = "adminList";
-            this.adminList.Size = new System.Drawing.Size(936, 297);
-            this.adminList.TabIndex = 0;
-            this.adminList.UseCompatibleStateImageBehavior = false;
-            // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -553,28 +571,16 @@
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // adminList
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // placeDataGridViewTextBoxColumn
-            // 
-            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
-            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
-            // 
-            // birthDateDataGridViewTextBoxColumn
-            // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
-            // 
-            // employeeSource
-            // 
-            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            this.adminList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminList.Location = new System.Drawing.Point(3, 3);
+            this.adminList.Name = "adminList";
+            this.adminList.Size = new System.Drawing.Size(936, 297);
+            this.adminList.TabIndex = 0;
+            this.adminList.UseCompatibleStateImageBehavior = false;
             // 
             // AdminForm
             // 
@@ -587,18 +593,19 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Администрирование";
             this.sructTab.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.employeeGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.departmentGroupBox.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.departmentGroupBox.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.employeeGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -613,7 +620,6 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             this.ResumeLayout(false);
 
         }
