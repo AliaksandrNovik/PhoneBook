@@ -7,7 +7,7 @@ using Services.Facade;
 
 namespace Services.Implementation
 {
-    class EmployeeUser : IEmployeeUser
+    public class EmployeeUser : IEmployeeUser
     {
         internal EmployeeUser(string login, string password, string employeeId, string userId)
         {

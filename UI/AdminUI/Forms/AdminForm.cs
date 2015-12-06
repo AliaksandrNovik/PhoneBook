@@ -374,10 +374,36 @@ namespace UI.AdminUI
 
         private void addAdmin_Click(object sender, EventArgs e)
         {
-            //var adminUser = _adminService.CreateAdminUser("admin", "admin");
-            //ListViewItem item = new ListViewItem(adminUser.Login);
-            //item.Tag = adminUser;
-            //adminList.Items.Add(item);
+            var adminEditForm = new UserEditDialog();
+            adminEditForm.Confirmed += (s, a) => AddUserConfirmed(s, a);
+            adminEditForm.ShowDialog();
+        }
+
+        private void AddUserConfirmed(object sender, EventArgs e)
+        {
+            var userEditForm = (UserEditDialog)sender;
+
+            if (string.IsNullOrWhiteSpace(userEditForm.Login))
+            {
+                userEditForm.ShowError("Введите логин!");
+            }
+            else if (string.IsNullOrWhiteSpace(userEditForm.Password))
+            {
+                userEditForm.ShowError("Введите пароль!");
+            }
+            else
+            {
+                if (_adminService.ContainsUser(userEditForm.Login))
+                {
+                    userEditForm.ShowError("Пользователь с таким именем уже есть в системе!");
+                }
+                else
+                {
+                    var newUser = _adminService.CreateAdminUser(userEditForm.Login, userEditForm.Password);
+                    adminList.Nodes.Add(newUser.Login);
+                    userEditForm.DialogResult = DialogResult.OK;
+                }
+            }
         }
 
         private void removeButton_Click(object sender, EventArgs e)

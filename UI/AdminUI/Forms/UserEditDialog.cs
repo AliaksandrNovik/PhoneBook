@@ -10,24 +10,27 @@ using System.Windows.Forms;
 
 namespace UI.AdminUI
 {
-    public partial class AdminUserEditDialog : Form
+    public partial class UserEditDialog : Form
     {
-        public AdminUserEditDialog()
+        public UserEditDialog()
         {
             InitializeComponent();
         }
 
-        public EventHandler SubmitCalled;
+        public void ShowError(string msg)
+        {
+            MessageBox.Show(this, msg, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         public string Login
         {
             get
             {
-                return loginLine.Text;
+                return loginBox.Text;
             }
             set
             {
-                loginLine.Text = value;
+                loginBox.Text = value;
             }
         }
 
@@ -35,25 +38,20 @@ namespace UI.AdminUI
         {
             get
             {
-                return passwordLine.Text;
+                return passwordBox.Text; 
             }
             set
             {
-                passwordLine.Text = value;
+                passwordBox.Text = value;
             }
         }
 
-        public void ShowError(string msg)
-        {
-            MessageBox.Show(this, msg, "Войти", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
+        public EventHandler Confirmed;
         private void submitButton_Click(object sender, EventArgs e)
         {
-           // this.DialogResult = DialogResult.OK;
-            if (SubmitCalled != null)
+            if (Confirmed != null)
             {
-                SubmitCalled(this, e);
+                Confirmed(this, e);
             }
         }
 

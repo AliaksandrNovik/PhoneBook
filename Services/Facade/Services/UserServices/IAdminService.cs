@@ -24,7 +24,7 @@ namespace Services.Facade
         IEmployeeUser CreateEmployeeUser(string login, string password, string employeeId);
         bool UdpateEmployeeUser(IEmployeeUser employeeUser);
         bool DeleteEmployeeUser(string userId);
-        IReadOnlyCollection<IManagerUser> GetAllEmployeeUsers();
+        IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers();
         //event PassEmployeeUser EmployeeUserCreated;
         //event PassEmployeeUser EmployeeUserUpdated;
         //event PassEmployeeUserId EmployeeUserDeleted;

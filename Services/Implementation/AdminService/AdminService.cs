@@ -81,6 +81,17 @@ namespace Services.Implementation
             employeeRepUser.EmployeeId = employeeUser.EmployeeId;
             return _userRepository.UpdateEmployee(employeeRepUser);
         }
+
+        public IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers()
+        {
+            var employeeUserList = new List<IEmployeeUser>();
+            foreach (var repEmployeeUser in _userRepository.GetEmployeeAll())
+            {
+                employeeUserList.Add(new EmployeeUser(repEmployeeUser.Login, repEmployeeUser.Password, repEmployeeUser.EmployeeId, repEmployeeUser.Id));
+            }
+            return employeeUserList;
+        }
+
         #endregion
 
         #region Manager
@@ -95,12 +106,6 @@ namespace Services.Implementation
             return _userRepository.RemoveManager(userId);
         }
 
-        public IReadOnlyCollection<IManagerUser> GetAllEmployeeUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-
         public bool UpdateManagerUser(IManagerUser managerUser)
         {
             var managerRepUser = _userRepository.GetManagerById(managerUser.UserId);
@@ -113,7 +118,14 @@ namespace Services.Implementation
 
         public IReadOnlyCollection<IManagerUser> GetAllManagerUsers()
         {
-            throw new NotImplementedException();
+            var employeeUserList = new List<IManagerUser>();
+            foreach (var repEmployeeUser in _userRepository.GetManagerAll())
+            {
+                employeeUserList.Add(new ManagerUser(
+                    repEmployeeUser.Login, repEmployeeUser.Password, repEmployeeUser.EmployeeId, 
+                    repEmployeeUser.DepartmentId, repEmployeeUser.Id));
+            }
+            return employeeUserList;
         }
         #endregion
     }

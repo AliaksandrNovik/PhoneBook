@@ -51,12 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminUI\Entities\EmployeeWrapperItem.cs" />
-    <Compile Include="AdminUI\Forms\AdminUserEditDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminUI\Forms\AdminUserEditDialog.Designer.cs">
-      <DependentUpon>AdminUserEditDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminUI\Forms\EditDepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +62,12 @@
     </Compile>
     <Compile Include="AdminUI\Forms\EditEmployeeForm.Designer.cs">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\Forms\UserEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Forms\UserEditDialog.Designer.cs">
+      <DependentUpon>UserEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="AppController\ApplicationController.cs" />
     <Compile Include="AppController\BasePresenter.cs" />
@@ -95,14 +95,14 @@
     <EmbeddedResource Include="AdminUI\Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUI\Forms\AdminUserEditDialog.resx">
-      <DependentUpon>AdminUserEditDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminUI\Forms\EditDepartmentForm.resx">
       <DependentUpon>EditDepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUI\Forms\EditEmployeeForm.resx">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Forms\UserEditDialog.resx">
+      <DependentUpon>UserEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUI\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
