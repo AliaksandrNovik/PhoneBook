@@ -552,6 +552,7 @@
             this.changeAdmin.TabIndex = 4;
             this.changeAdmin.Text = "Изменить";
             this.changeAdmin.UseVisualStyleBackColor = true;
+            this.changeAdmin.Click += new System.EventHandler(this.changeAdmin_Click);
             // 
             // removeButton
             // 

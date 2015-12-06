@@ -375,11 +375,11 @@ namespace UI.AdminUI
         private void addAdmin_Click(object sender, EventArgs e)
         {
             var adminEditForm = new UserEditDialog();
-            adminEditForm.Confirmed += (s, a) => AddUserConfirmed(s, a);
+            adminEditForm.Confirmed += (s, a) => AddAdminUserConfirmed(s, a);
             adminEditForm.ShowDialog();
         }
 
-        private void AddUserConfirmed(object sender, EventArgs e)
+        private void AddAdminUserConfirmed(object sender, EventArgs e)
         {
             var userEditForm = (UserEditDialog)sender;
 
@@ -403,6 +403,49 @@ namespace UI.AdminUI
                     adminList.Nodes.Add(newUser.Login);
                     userEditForm.DialogResult = DialogResult.OK;
                 }
+            }
+        }
+
+        private void changeAdmin_Click(object sender, EventArgs e)
+        {
+            var currentAdminUser = (IAdminUser)adminList.SelectedNode.Tag;
+            var currentName = currentAdminUser.Login;
+            var userEditForm = new UserEditDialog();
+            userEditForm.Login = currentName;
+            userEditForm.Password = currentAdminUser.Password;
+            userEditForm.Confirmed += (s, a) => UpdateAdminUserConfirmed(s, a, currentName);
+            userEditForm.ShowDialog();
+        }
+
+        private void UpdateAdminUserConfirmed(object sender, EventArgs e, string initialName)
+        {
+            var userEditForm = (UserEditDialog)sender;
+            if (string.IsNullOrWhiteSpace(userEditForm.Password))
+            {
+                userEditForm.ShowError("Введите пароль!");
+            }
+            else if (string.IsNullOrWhiteSpace(userEditForm.Login))
+            {
+                userEditForm.ShowError("Введите логин!");
+            }
+            else
+            {
+                var login = userEditForm.Login;
+                if (login != initialName && _adminService.ContainsUser(login))
+                {
+                    userEditForm.ShowError("Пользователь с таким именем уже есть в системе!");
+                }
+                else
+                {
+                    var currentAdminUser = (IAdminUser)adminList.SelectedNode.Tag;
+                    currentAdminUser.Login = login;
+                    currentAdminUser.Password = userEditForm.Password;
+                    _adminService.UpdateAdminUser(currentAdminUser);
+
+                    var currentNode = adminList.SelectedNode;
+                    currentNode.Name = login;
+                }
+                userEditForm.DialogResult = DialogResult.OK;
             }
         }
 
