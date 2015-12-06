@@ -321,6 +321,7 @@
             this.birthDateDataGridViewTextBoxColumn});
             this.employeeTable.DataSource = this.employeeSource;
             this.employeeTable.Location = new System.Drawing.Point(6, 21);
+            this.employeeTable.MultiSelect = false;
             this.employeeTable.Name = "employeeTable";
             this.employeeTable.RowTemplate.Height = 24;
             this.employeeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -483,6 +484,7 @@
             this.birthDateDataGridViewTextBoxColumn1});
             this.employeeTableViewForUsers.DataSource = this.employeeSource;
             this.employeeTableViewForUsers.Location = new System.Drawing.Point(6, 21);
+            this.employeeTableViewForUsers.MultiSelect = false;
             this.employeeTableViewForUsers.Name = "employeeTableViewForUsers";
             this.employeeTableViewForUsers.RowTemplate.Height = 24;
             this.employeeTableViewForUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -592,6 +594,7 @@
             // employeeSource
             // 
             this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            this.employeeSource.CurrentChanged += new System.EventHandler(this.employeeSource_CurrentChanged);
             // 
             // nameDataGridViewTextBoxColumn1
             // 

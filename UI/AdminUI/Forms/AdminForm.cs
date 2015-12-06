@@ -22,8 +22,22 @@ namespace UI.AdminUI
         {
             InitializeComponent();
             FillDepartmentView();
+
+            SetStructureButtonsEnabled(false);
+            changeEmployeeButton.Enabled = false;
+            removeEmployeeButton.Enabled = false;
+            assignUserButton.Enabled = false;
         }
 
+
+        void SetStructureButtonsEnabled(bool enabled)
+        {
+            addDeparmentButton.Enabled = enabled;
+            changeDepartmentButton.Enabled = enabled;
+            removeDepartmentButton.Enabled = enabled;
+
+            addEmployeeButton.Enabled = enabled;
+        }
 
         #region Fill department view
         private void FillDepartmentView()
@@ -165,6 +179,7 @@ namespace UI.AdminUI
 
             employeeSource.DataSource = wrappedList;
             employeeSource.ResetBindings(false);
+            SetStructureButtonsEnabled(true);
         }
 
         private void departmentViewForUsers_AfterSelect(object sender, TreeViewEventArgs e)
@@ -337,6 +352,14 @@ namespace UI.AdminUI
                 if (next != null) return next;
             }
             return null;
+        }
+
+        private void employeeSource_CurrentChanged(object sender, EventArgs e)
+        {
+            bool enabled = (employeeSource.Current != null);
+            changeEmployeeButton.Enabled = enabled;
+            removeEmployeeButton.Enabled = enabled;
+            assignUserButton.Enabled = enabled;
         }
     }
 }
