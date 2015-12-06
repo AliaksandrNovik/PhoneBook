@@ -180,7 +180,8 @@ namespace UI.AdminUI
         #region EmployeeEdit
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var currentDepartment = (IDepartment)e.Node.Tag;
+            var node = e.Node;
+            var currentDepartment = (IDepartment)node.Tag;
             var wrappedList = new List<EmployeeWrapperItem>();
             foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
             {
@@ -190,6 +191,7 @@ namespace UI.AdminUI
             employeeSource.DataSource = wrappedList;
             employeeSource.ResetBindings(false);
             SetStructureButtonsEnabled(true);
+            addDeparmentButton.Enabled = (node.Level <= 1);
         }
 
         private void departmentViewForUsers_AfterSelect(object sender, TreeViewEventArgs e)
@@ -198,7 +200,8 @@ namespace UI.AdminUI
             var wrappedList = new List<EmployeeWrapperItem>();
             foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
             {
-                wrappedList.Add(new EmployeeWrapperItem(employee));
+                var userInfo = _adminService.GetUserInfoByEmployeeId(employee.Id);
+                wrappedList.Add(new EmployeeWrapperItem(employee, userInfo));
             }
 
             employeeSource.DataSource = wrappedList;
@@ -378,14 +381,14 @@ namespace UI.AdminUI
 
         private void addAdmin_Click(object sender, EventArgs e)
         {
-            var adminEditForm = new UserEditDialog();
+            var adminEditForm = new EditAdminUserForm();
             adminEditForm.Confirmed += (s, a) => AddAdminUserConfirmed(s, a);
             adminEditForm.ShowDialog();
         }
 
         private void AddAdminUserConfirmed(object sender, EventArgs e)
         {
-            var userEditForm = (UserEditDialog)sender;
+            var userEditForm = (EditAdminUserForm)sender;
 
             if (string.IsNullOrWhiteSpace(userEditForm.Login))
             {
@@ -417,7 +420,7 @@ namespace UI.AdminUI
         {
             var currentAdminUser = (IAdminUser)adminList.SelectedNode.Tag;
             var currentName = currentAdminUser.Login;
-            var userEditForm = new UserEditDialog();
+            var userEditForm = new EditAdminUserForm();
             userEditForm.Login = currentName;
             userEditForm.Password = currentAdminUser.Password;
             userEditForm.Confirmed += (s, a) => UpdateAdminUserConfirmed(s, a, currentName);
@@ -426,7 +429,7 @@ namespace UI.AdminUI
 
         private void UpdateAdminUserConfirmed(object sender, EventArgs e, string initialName)
         {
-            var userEditForm = (UserEditDialog)sender;
+            var userEditForm = (EditAdminUserForm)sender;
             if (string.IsNullOrWhiteSpace(userEditForm.Password))
             {
                 userEditForm.ShowError("Введите пароль!");
@@ -461,7 +464,7 @@ namespace UI.AdminUI
         {
             var currentItem = adminList.SelectedNode;
             var adminUser = (IAdminUser)currentItem.Tag;
-            _adminService.DeleteAdminUser(adminUser.UserId);
+            _adminService.DeleteUser(adminUser.UserId);
             adminList.Nodes.Remove(currentItem);
         }
     }

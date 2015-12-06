@@ -20,18 +20,18 @@ namespace Services.Facade
     public interface IAdminService
     {
         bool ContainsUser(string login);
+        bool DeleteUser(string userId);
+        IUserInfo GetUserInfoByEmployeeId(string employeeId);
 
         IEmployeeUser CreateEmployeeUser(string login, string password, string employeeId);
         bool UdpateEmployeeUser(IEmployeeUser employeeUser);
-        bool DeleteEmployeeUser(string userId);
-        IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers();
+        IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers();        
         //event PassEmployeeUser EmployeeUserCreated;
         //event PassEmployeeUser EmployeeUserUpdated;
         //event PassEmployeeUserId EmployeeUserDeleted;
 
         IManagerUser CreateManagerUser(string login, string password, string employeeId, string departmentId);
         bool UpdateManagerUser(IManagerUser managerUser);
-        bool DeleteManagerUser(string userId);
         IReadOnlyCollection<IManagerUser> GetAllManagerUsers();
         //event PassManagerUser ManagerUserCreated;
         //event PassManagerUser ManagerUserUpdated;
@@ -39,7 +39,6 @@ namespace Services.Facade
 
         IAdminUser CreateAdminUser(string login, string password);
         bool UpdateAdminUser(IAdminUser user);
-        bool DeleteAdminUser(string userId);
         IReadOnlyCollection<IAdminUser> GetAllAdminUsers();
         //event PassAdminUser AdminUserCreated;
         //event PassAdminUser AdminUserUpdated;

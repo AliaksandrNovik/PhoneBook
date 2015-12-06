@@ -10,6 +10,7 @@ namespace Services.Implementation
 {
     public class AdminService : IAdminService
     {
+        private IUserRepository _userRepository = new UserRepository();
         public bool ContainsUser(string login)
         {
             bool containsAdmin = GetAllAdminUsers().Any(x => x.Login == login);
@@ -28,18 +29,36 @@ namespace Services.Implementation
             return false;
         }
 
-        private IUserRepository _userRepository = new UserRepository();
+        public bool DeleteUser(string userId)
+        {
+            if (_userRepository.RemoveAdmin(userId))
+                return true;
+            if (_userRepository.RemoveEmployee(userId))
+                return true;
+            if (_userRepository.RemoveManager(userId))
+                return true;
+
+            return false;
+        }
+
+        public IUserInfo GetUserInfoByEmployeeId(string employeeId)
+        {
+            var employee = GetAllEmployeeUsers().FirstOrDefault(x => x.EmployeeId == employeeId);
+            if (employee != null)            
+                return new UserInfo(UserType.Employee, employee.UserId);
+
+            var manager = GetAllManagerUsers().FirstOrDefault(x => x.EmployeeId == employeeId);
+            if (manager != null)
+                return new UserInfo(UserType.Manager, manager.UserId);
+
+            return null;
+        }
 
         #region Admin
         public IAdminUser CreateAdminUser(string login, string password)
         {
             var adminRepUser = _userRepository.CreateAdmin(login, password);
             return new AdminUser(login, password, adminRepUser.Id);
-        }
-
-        public bool DeleteAdminUser(string userId)
-        {
-            return _userRepository.RemoveAdmin(userId);
         }
 
         public bool UpdateAdminUser(IAdminUser user)

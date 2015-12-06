@@ -49,8 +49,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.assignManagerUser = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.departmentViewForUsers = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,6 +70,7 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabWidget.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -85,7 +84,6 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -363,36 +361,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel3, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 347F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(388, 347);
             this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel3.Controls.Add(this.assignManagerUser);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 300);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(382, 44);
-            this.flowLayoutPanel3.TabIndex = 4;
-            // 
-            // assignManagerUser
-            // 
-            this.assignManagerUser.AutoSize = true;
-            this.assignManagerUser.Location = new System.Drawing.Point(3, 3);
-            this.assignManagerUser.Name = "assignManagerUser";
-            this.assignManagerUser.Size = new System.Drawing.Size(167, 27);
-            this.assignManagerUser.TabIndex = 0;
-            this.assignManagerUser.Text = "Назначить менеджера";
-            this.assignManagerUser.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -402,7 +378,7 @@
             this.groupBox1.Controls.Add(this.departmentViewForUsers);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 291);
+            this.groupBox1.Size = new System.Drawing.Size(382, 341);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Структура подразделений";
@@ -415,7 +391,7 @@
             this.departmentViewForUsers.HideSelection = false;
             this.departmentViewForUsers.Location = new System.Drawing.Point(0, 21);
             this.departmentViewForUsers.Name = "departmentViewForUsers";
-            this.departmentViewForUsers.Size = new System.Drawing.Size(382, 270);
+            this.departmentViewForUsers.Size = new System.Drawing.Size(382, 320);
             this.departmentViewForUsers.TabIndex = 0;
             this.departmentViewForUsers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.departmentViewForUsers_AfterSelect);
             // 
@@ -481,7 +457,8 @@
             this.employeeTableViewForUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn1,
             this.placeDataGridViewTextBoxColumn1,
-            this.birthDateDataGridViewTextBoxColumn1});
+            this.birthDateDataGridViewTextBoxColumn1,
+            this.UserTypeName});
             this.employeeTableViewForUsers.DataSource = this.employeeSource;
             this.employeeTableViewForUsers.Location = new System.Drawing.Point(6, 21);
             this.employeeTableViewForUsers.MultiSelect = false;
@@ -623,6 +600,13 @@
             this.birthDateDataGridViewTextBoxColumn1.Name = "birthDateDataGridViewTextBoxColumn1";
             this.birthDateDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // UserTypeName
+            // 
+            this.UserTypeName.DataPropertyName = "UserTypeName";
+            this.UserTypeName.HeaderText = "Полномочия";
+            this.UserTypeName.Name = "UserTypeName";
+            this.UserTypeName.ReadOnly = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -648,8 +632,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -687,8 +669,6 @@
         private System.Windows.Forms.DataGridView employeeTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button assignManagerUser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView departmentViewForUsers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -706,9 +686,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource employeeSource;
+        private System.Windows.Forms.TreeView adminList;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.TreeView adminList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserTypeName;
     }
 }

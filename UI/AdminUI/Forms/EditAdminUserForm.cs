@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI.AdminUI
 {
-    public partial class UserEditDialog : Form
+    public partial class EditAdminUserForm : Form
     {
-        public UserEditDialog()
+        public EditAdminUserForm()
         {
             InitializeComponent();
         }

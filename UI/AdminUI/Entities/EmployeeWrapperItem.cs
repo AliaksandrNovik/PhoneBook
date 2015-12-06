@@ -9,19 +9,21 @@ namespace UI.AdminUI
 {
     public class EmployeeWrapperItem
     {
-        public EmployeeWrapperItem(IEmployee item)
+        public EmployeeWrapperItem(IEmployee item, IUserInfo userInfo = null)
         {
-            this.Item = item;
             if (item == null)
             {
                 throw new ArgumentException("Item is null");
             }
+            this.Item = item;
+            this.UserInfo = userInfo;
         }
 
         public IEmployee Item
         {
             get; set;
         }
+
 
         public string Name
         {
@@ -44,6 +46,34 @@ namespace UI.AdminUI
             get
             {
                 return this.Item.BirthDate.ToString();
+            }
+        }
+
+        public IUserInfo UserInfo
+        { get; set; }            
+        
+
+        public string UserTypeName
+        {
+            get
+            {
+                if (this.UserInfo == null)
+                {
+                    return "Не назначены";
+                }
+                else
+                {
+                    var userType = this.UserInfo.Type;
+                    switch (userType)
+                    {
+                        case UserType.Employee:
+                            return "Сотрудник";
+                        case UserType.Manager:
+                            return "Менеджер";
+                        default:
+                            return "Колиззия";
+                    }
+                }
             }
         }
     }

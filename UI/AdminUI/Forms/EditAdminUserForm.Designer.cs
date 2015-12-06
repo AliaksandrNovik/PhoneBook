@@ -1,6 +1,6 @@
 ﻿namespace UI.AdminUI
 {
-    partial class UserEditDialog
+    partial class EditAdminUserForm
     {
         /// <summary>
         /// Required designer variable.
