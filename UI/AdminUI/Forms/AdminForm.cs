@@ -275,5 +275,24 @@ namespace UI.AdminUI
         }
         #endregion
 
+        //change tab
+        private void sructTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int currentTab = tabWidget.SelectedIndex;
+            departmentViewForUsers.Nodes.Clear();
+            if (currentTab == 1)
+            {
+                foreach (TreeNode node in departmentView.Nodes)
+                {
+                    var cloneNode = (TreeNode)node.Clone();
+                    departmentViewForUsers.Nodes.Add(cloneNode);
+                    if (node == departmentView.SelectedNode)
+                    {
+                        departmentViewForUsers.SelectedNode = cloneNode;
+                    }                   
+                }
+                departmentViewForUsers.ExpandAll();
+            }
+        }
     }
 }

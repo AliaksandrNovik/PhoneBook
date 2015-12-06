@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.sructTab = new System.Windows.Forms.TabControl();
+            this.tabWidget = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,7 +69,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.adminList = new System.Windows.Forms.ListView();
-            this.sructTab.SuspendLayout();
+            this.tabWidget.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -94,19 +94,20 @@
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sructTab
+            // tabWidget
             // 
-            this.sructTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabWidget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sructTab.Controls.Add(this.tabPage1);
-            this.sructTab.Controls.Add(this.tabPage2);
-            this.sructTab.Controls.Add(this.tabPage3);
-            this.sructTab.Location = new System.Drawing.Point(12, 12);
-            this.sructTab.Name = "sructTab";
-            this.sructTab.SelectedIndex = 0;
-            this.sructTab.Size = new System.Drawing.Size(962, 394);
-            this.sructTab.TabIndex = 0;
+            this.tabWidget.Controls.Add(this.tabPage1);
+            this.tabWidget.Controls.Add(this.tabPage2);
+            this.tabWidget.Controls.Add(this.tabPage3);
+            this.tabWidget.Location = new System.Drawing.Point(12, 12);
+            this.tabWidget.Name = "tabWidget";
+            this.tabWidget.SelectedIndex = 0;
+            this.tabWidget.Size = new System.Drawing.Size(962, 394);
+            this.tabWidget.TabIndex = 0;
+            this.tabWidget.SelectedIndexChanged += new System.EventHandler(this.sructTab_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -587,12 +588,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 418);
-            this.Controls.Add(this.sructTab);
+            this.Controls.Add(this.tabWidget);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Администрирование";
-            this.sructTab.ResumeLayout(false);
+            this.tabWidget.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -626,7 +627,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl sructTab;
+        private System.Windows.Forms.TabControl tabWidget;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
