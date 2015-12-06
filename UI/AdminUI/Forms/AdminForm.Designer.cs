@@ -63,6 +63,7 @@
             this.changeAdmin = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.adminList = new System.Windows.Forms.TreeView();
+            this.UserTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +71,6 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabWidget.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -432,6 +432,7 @@
             this.assignUserButton.TabIndex = 3;
             this.assignUserButton.Text = "Назначить пользователя";
             this.assignUserButton.UseVisualStyleBackColor = true;
+            this.assignUserButton.Click += new System.EventHandler(this.assignUserButton_Click);
             // 
             // groupBox2
             // 
@@ -553,6 +554,13 @@
             this.adminList.Size = new System.Drawing.Size(936, 297);
             this.adminList.TabIndex = 5;
             // 
+            // UserTypeName
+            // 
+            this.UserTypeName.DataPropertyName = "UserTypeName";
+            this.UserTypeName.HeaderText = "Полномочия";
+            this.UserTypeName.Name = "UserTypeName";
+            this.UserTypeName.ReadOnly = true;
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -599,13 +607,6 @@
             this.birthDateDataGridViewTextBoxColumn1.HeaderText = "Дата рождения";
             this.birthDateDataGridViewTextBoxColumn1.Name = "birthDateDataGridViewTextBoxColumn1";
             this.birthDateDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // UserTypeName
-            // 
-            this.UserTypeName.DataPropertyName = "UserTypeName";
-            this.UserTypeName.HeaderText = "Полномочия";
-            this.UserTypeName.Name = "UserTypeName";
-            this.UserTypeName.ReadOnly = true;
             // 
             // AdminForm
             // 

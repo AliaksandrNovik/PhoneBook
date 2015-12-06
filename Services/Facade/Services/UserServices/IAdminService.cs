@@ -24,8 +24,9 @@ namespace Services.Facade
         IUserInfo GetUserInfoByEmployeeId(string employeeId);
 
         IEmployeeUser CreateEmployeeUser(string login, string password, string employeeId);
-        bool UdpateEmployeeUser(IEmployeeUser employeeUser);
-        IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers();        
+        bool UpdateEmployeeUser(IEmployeeUser employeeUser);
+        IReadOnlyCollection<IEmployeeUser> GetAllEmployeeUsers();
+        IEmployeeUser GetEmployeeUserById(string userId);
         //event PassEmployeeUser EmployeeUserCreated;
         //event PassEmployeeUser EmployeeUserUpdated;
         //event PassEmployeeUserId EmployeeUserDeleted;
@@ -33,6 +34,7 @@ namespace Services.Facade
         IManagerUser CreateManagerUser(string login, string password, string employeeId, string departmentId);
         bool UpdateManagerUser(IManagerUser managerUser);
         IReadOnlyCollection<IManagerUser> GetAllManagerUsers();
+        IManagerUser GetManagerUserById(string userId);
         //event PassManagerUser ManagerUserCreated;
         //event PassManagerUser ManagerUserUpdated;
         //event PassManagerUserId ManagerUserDeleted;
@@ -40,6 +42,7 @@ namespace Services.Facade
         IAdminUser CreateAdminUser(string login, string password);
         bool UpdateAdminUser(IAdminUser user);
         IReadOnlyCollection<IAdminUser> GetAllAdminUsers();
+        IAdminUser GetAdminUserById(string userId);
         //event PassAdminUser AdminUserCreated;
         //event PassAdminUser AdminUserUpdated;
         //event PassAdminUserId AdminUserDeleted;

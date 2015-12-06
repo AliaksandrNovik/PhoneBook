@@ -1,4 +1,4 @@
-﻿namespace UI.AdminUI.Forms
+﻿namespace UI.AdminUI
 {
     partial class EditUserForm
     {
@@ -36,8 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.employeeCheck = new System.Windows.Forms.RadioButton();
+            this.managerCheck = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +52,7 @@
             this.submitButton.TabIndex = 16;
             this.submitButton.Text = "ОК";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // cancelButton
             // 
@@ -64,6 +65,7 @@
             this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // passwordBox
             // 
@@ -125,8 +127,8 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.radioButton1);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton2);
+            this.flowLayoutPanel1.Controls.Add(this.employeeCheck);
+            this.flowLayoutPanel1.Controls.Add(this.managerCheck);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 22);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -134,35 +136,37 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(397, 56);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // radioButton1
+            // employeeCheck
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton1.Size = new System.Drawing.Size(99, 21);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Сотрудник";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.employeeCheck.AutoSize = true;
+            this.employeeCheck.Location = new System.Drawing.Point(3, 3);
+            this.employeeCheck.Name = "employeeCheck";
+            this.employeeCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.employeeCheck.Size = new System.Drawing.Size(99, 21);
+            this.employeeCheck.TabIndex = 0;
+            this.employeeCheck.TabStop = true;
+            this.employeeCheck.Text = "Сотрудник";
+            this.employeeCheck.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.employeeCheck.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // managerCheck
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(108, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton2.Size = new System.Drawing.Size(97, 21);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Менеджер";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.managerCheck.AutoSize = true;
+            this.managerCheck.Location = new System.Drawing.Point(108, 3);
+            this.managerCheck.Name = "managerCheck";
+            this.managerCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.managerCheck.Size = new System.Drawing.Size(97, 21);
+            this.managerCheck.TabIndex = 1;
+            this.managerCheck.TabStop = true;
+            this.managerCheck.Text = "Менеджер";
+            this.managerCheck.UseVisualStyleBackColor = true;
             // 
             // EditUserForm
             // 
+            this.AcceptButton = this.submitButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(430, 242);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.submitButton);
@@ -191,7 +195,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton employeeCheck;
+        private System.Windows.Forms.RadioButton managerCheck;
     }
 }

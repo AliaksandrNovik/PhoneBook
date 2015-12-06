@@ -92,7 +92,7 @@ namespace Services.Implementation
             return _userRepository.RemoveEmployee(userId);
         }
 
-        public bool UdpateEmployeeUser(IEmployeeUser employeeUser)
+        public bool UpdateEmployeeUser(IEmployeeUser employeeUser)
         {
             var employeeRepUser = _userRepository.GetEmployeeById(employeeUser.UserId);
             employeeRepUser.Login = employeeUser.Login;
@@ -145,6 +145,24 @@ namespace Services.Implementation
                     repEmployeeUser.DepartmentId, repEmployeeUser.Id));
             }
             return employeeUserList;
+        }
+
+        public IEmployeeUser GetEmployeeUserById(string userId)
+        {
+            var repUser = _userRepository.GetEmployeeById(userId);
+            return new EmployeeUser(repUser.Login, repUser.Password, repUser.EmployeeId, repUser.Id);
+        }
+
+        public IManagerUser GetManagerUserById(string userId)
+        {
+            var repUser = _userRepository.GetManagerById(userId);
+            return new ManagerUser(repUser.Login, repUser.Password, repUser.EmployeeId, repUser.DepartmentId, repUser.Id);
+        }
+
+        public IAdminUser GetAdminUserById(string userId)
+        {
+            var repUser = _userRepository.GetAdminById(userId);
+            return new AdminUser(repUser.Login, repUser.Password, repUser.Id);
         }
         #endregion
     }

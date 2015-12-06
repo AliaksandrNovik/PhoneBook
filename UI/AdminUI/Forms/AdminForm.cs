@@ -467,5 +467,100 @@ namespace UI.AdminUI
             _adminService.DeleteUser(adminUser.UserId);
             adminList.Nodes.Remove(currentItem);
         }
+
+        private void assignUserButton_Click(object sender, EventArgs e)
+        {
+            var currentEmployee = (EmployeeWrapperItem)employeeSource.Current;
+            var userInfo = currentEmployee.UserInfo;
+            IUser user = null;
+            if (userInfo != null)
+            {
+                switch (userInfo.Type)
+                {
+                    case UserType.Employee:
+                        user = _adminService.GetEmployeeUserById(userInfo.UserId);
+                        break;
+
+                    case UserType.Manager:
+                        user = _adminService.GetManagerUserById(userInfo.UserId);
+                        break;
+                    default:
+                        throw new ConstraintException("userInfo contains only Employee or Manager type");
+                }
+            }
+
+            var editUserForm = new EditUserForm();
+            if (userInfo != null)
+            {
+                editUserForm.IsManager = (userInfo.Type == UserType.Manager);
+                editUserForm.Login = user.Login;
+                editUserForm.Password = user.Password;
+            }
+            editUserForm.Confirmed += (s, a) => ProcessUserForm((EditUserForm)s, user, userInfo);
+            editUserForm.ShowDialog();
+        }
+
+        private void ProcessUserForm(EditUserForm userForm, IUser user, IUserInfo userInfo)
+        {
+            var login = userForm.Login;
+            var password = userForm.Password;
+            var isManager = userForm.IsManager;
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                userForm.ShowError("Введите пароль!");
+            }
+            else if (string.IsNullOrWhiteSpace(login))
+            {
+                userForm.ShowError("Введите логин!");
+            }
+            else
+            {
+                if (user != null)
+                {
+                    if (login == user.Login || !_adminService.ContainsUser(login))
+                    {
+                        _adminService.DeleteUser(userInfo.UserId);
+                        CreateUser(login, password, isManager);
+                    }
+                    else
+                    {
+                        userForm.ShowError("Такой пользователь уже есть в системе");
+                    }
+                }
+                else
+                {
+                    if (_adminService.ContainsUser(login))
+                    {
+                        userForm.ShowError("Такой пользователь уже есть в системе");
+                    }
+                    else
+                    {
+                        CreateUser(login, password, isManager);
+                    }
+                }
+                userForm.DialogResult = DialogResult.OK;
+                employeeSource.ResetBindings(false);
+                employeeSource.ResetCurrentItem();
+            }
+        }
+
+        private void CreateUser(string login, string password, bool isManager)
+        {
+            if (isManager)
+            {
+                var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
+                var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
+                var currentEmployee = currentEmployeeWrap.Item;
+                var newUser = _adminService.CreateManagerUser(login, password, currentEmployee.Id, currentDepartment.Id);
+                currentEmployeeWrap.UserInfo = _adminService.GetUserInfoByEmployeeId(currentEmployee.Id);
+            }
+            else
+            {
+                var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
+                var currentEmployee = currentEmployeeWrap.Item;
+                var newUser = _adminService.CreateEmployeeUser(login, password, currentEmployee.Id);
+                currentEmployeeWrap.UserInfo = _adminService.GetUserInfoByEmployeeId(currentEmployee.Id);
+            }
+        }
     }
 }
