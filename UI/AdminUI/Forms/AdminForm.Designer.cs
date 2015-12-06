@@ -570,6 +570,7 @@
             this.adminList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminList.HideSelection = false;
             this.adminList.Location = new System.Drawing.Point(3, 3);
             this.adminList.Name = "adminList";
             this.adminList.Size = new System.Drawing.Size(936, 297);

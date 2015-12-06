@@ -317,10 +317,17 @@ namespace UI.AdminUI
         private void sructTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             int currentTab = tabWidget.SelectedIndex;
-            if (currentTab == 1)
+            if (currentTab == 0)//companyStructure
+            {
+                var currentNode = departmentView.SelectedNode;
+                departmentView.SelectedNode = null;
+                departmentView.SelectedNode = currentNode;
+                departmentView.Focus();
+            }
+            else if (currentTab == 1)//users
             {
                 var currentDepartment = (IDepartment)departmentViewForUsers.SelectedNode?.Tag;
-                
+
                 departmentViewForUsers.Nodes.Clear();
                 foreach (TreeNode node in departmentView.Nodes)
                 {
@@ -338,18 +345,15 @@ namespace UI.AdminUI
                             departmentViewForUsers.SelectedNode = toSelect;
                             break;
                         }
-                    }       
+                    }
                 }
 
                 departmentViewForUsers.ExpandAll();
                 departmentViewForUsers.Focus();
             }
-            else if (currentTab == 0)
+            else//adminUsers
             {
-                var currentNode = departmentView.SelectedNode;
-                departmentView.SelectedNode = null;
-                departmentView.SelectedNode = currentNode;
-                departmentView.Focus();
+                adminList.Focus();
             }
         }
 
@@ -400,8 +404,11 @@ namespace UI.AdminUI
                 else
                 {
                     var newUser = _adminService.CreateAdminUser(userEditForm.Login, userEditForm.Password);
-                    adminList.Nodes.Add(newUser.Login);
+                    TreeNode node = new TreeNode(newUser.Login);
+                    node.Tag = newUser;
+                    adminList.Nodes.Add(node);
                     userEditForm.DialogResult = DialogResult.OK;
+                    adminList.Focus();
                 }
             }
         }
@@ -446,6 +453,7 @@ namespace UI.AdminUI
                     currentNode.Name = login;
                 }
                 userEditForm.DialogResult = DialogResult.OK;
+                adminList.Focus();
             }
         }
 
