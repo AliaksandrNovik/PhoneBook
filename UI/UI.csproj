@@ -102,6 +102,12 @@
     </Compile>
     <Compile Include="LoginUI\Views\ILoginView.cs" />
     <Compile Include="ManagerUI\Entities\PhoneWrapItem.cs" />
+    <Compile Include="ManagerUI\Forms\EditEmployeeUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\EditEmployeeUserForm.Designer.cs">
+      <DependentUpon>EditEmployeeUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerUI\Forms\ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUI\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\EditEmployeeUserForm.resx">
+      <DependentUpon>EditEmployeeUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerUI\Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>

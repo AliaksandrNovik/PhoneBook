@@ -32,8 +32,8 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.phoneBox = new System.Windows.Forms.MaskedTextBox();
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
+            this.phoneBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // submitButton
@@ -79,15 +79,6 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Сотрудник";
             // 
-            // phoneBox
-            // 
-            this.phoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.phoneBox.Location = new System.Drawing.Point(101, 10);
-            this.phoneBox.Name = "phoneBox";
-            this.phoneBox.Size = new System.Drawing.Size(297, 22);
-            this.phoneBox.TabIndex = 11;
-            // 
             // employeeComboBox
             // 
             this.employeeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -98,13 +89,22 @@
             this.employeeComboBox.Size = new System.Drawing.Size(297, 24);
             this.employeeComboBox.TabIndex = 12;
             // 
+            // phoneBox
+            // 
+            this.phoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneBox.Location = new System.Drawing.Point(101, 10);
+            this.phoneBox.Name = "phoneBox";
+            this.phoneBox.Size = new System.Drawing.Size(297, 22);
+            this.phoneBox.TabIndex = 13;
+            // 
             // PhoneEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 160);
-            this.Controls.Add(this.employeeComboBox);
             this.Controls.Add(this.phoneBox);
+            this.Controls.Add(this.employeeComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.submitButton);
@@ -122,7 +122,7 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox phoneBox;
         private System.Windows.Forms.ComboBox employeeComboBox;
+        private System.Windows.Forms.TextBox phoneBox;
     }
 }

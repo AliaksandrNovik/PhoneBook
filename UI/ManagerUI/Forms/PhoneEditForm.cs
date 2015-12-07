@@ -69,7 +69,7 @@ namespace UI.ManagerUI
             }
             set
             {
-                this.phoneBox.Text = Phone;
+                this.phoneBox.Text = value;
             }
         }
 
@@ -89,6 +89,12 @@ namespace UI.ManagerUI
             }
             set
             {
+                if (value.Id == null)
+                {
+                    employeeComboBox.SelectedIndex = 0;
+                    return;
+                }
+
                 int currentIndex = 0;
                 int index = 0;
                 foreach (object wrap in employeeComboBox.Items)
@@ -100,7 +106,7 @@ namespace UI.ManagerUI
                     }
 
                     var comboBoxWrap = (ComboBoxWrap)wrap;
-                    if (comboBoxWrap.Item == value)
+                    if (comboBoxWrap.Item.Id == value.Id)
                     {
                         currentIndex = index;
                         break;

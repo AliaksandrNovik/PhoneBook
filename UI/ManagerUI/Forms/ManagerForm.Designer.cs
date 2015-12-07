@@ -204,6 +204,7 @@
             this.addEmployeeButton.TabIndex = 3;
             this.addEmployeeButton.Text = "Добавить";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // changeEmployeeButton
             // 
@@ -214,6 +215,7 @@
             this.changeEmployeeButton.TabIndex = 4;
             this.changeEmployeeButton.Text = "Изменить";
             this.changeEmployeeButton.UseVisualStyleBackColor = true;
+            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
             // 
             // removeEmployeeButton
             // 
@@ -224,6 +226,7 @@
             this.removeEmployeeButton.TabIndex = 5;
             this.removeEmployeeButton.Text = "Удалить";
             this.removeEmployeeButton.UseVisualStyleBackColor = true;
+            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
             // 
             // employeeGroupBox
             // 
@@ -488,6 +491,7 @@
             // phoneSource
             // 
             this.phoneSource.DataSource = typeof(UI.ManagerUI.PhoneWrapItem);
+            this.phoneSource.CurrentChanged += new System.EventHandler(this.phoneSource_CurrentChanged);
             // 
             // ManagerForm
             // 
