@@ -3,18 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Facade;
 
 namespace UI.ManagerUI
 {
     public class PhoneWrapItem
     {
+        public PhoneWrapItem(IPhone phone, IEmployee employee = null)
+        {
+            if (phone == null)
+                throw new ArgumentException("Phone is null!");
+            this.PhoneItem = phone;
+            this.EmployeeItem = employee;
+        }
+
+        public IPhone PhoneItem
+        { get; set; }
+
+        public IEmployee EmployeeItem
+        { get; set; }
+
         public string Phone
-        { get;}
+        {
+            get
+            {
+                return this.PhoneItem.Number;
+            }
+        }
 
         public string Name
-        { get; }
+        {
+            get
+            {
+                if (this.EmployeeItem == null)
+                {
+                    return "Не задан";
+                }
+                else
+                {
+                    return this.EmployeeItem.FirstName
+                        + " " + this.EmployeeItem.LastName
+                        + " " + this.EmployeeItem.Patronym;
+                }
+            }
+        }
 
         public string Place
-        { get; }
+        {
+            get
+            {
+                if (this.EmployeeItem == null)
+                {
+                    return "-";
+                }
+                else
+                {
+                    return this.EmployeeItem.Place;
+                }
+            }
+        }
     }
 }

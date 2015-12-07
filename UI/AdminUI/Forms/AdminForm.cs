@@ -210,7 +210,6 @@ namespace UI.AdminUI
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = departmentView.SelectedNode;
             var employeeEditForm = new EditEmployeeForm();
             employeeEditForm.Confirmed += (s, a) => CreateEmployeeConfirmed(s, a);
             employeeEditForm.ShowDialog();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Services.Facade;
 using BLL.Repository;
 
-namespace Services.Implementation.PhoneService
+namespace Services.Implementation
 {
     public class PhoneService : IPhoneService
     {

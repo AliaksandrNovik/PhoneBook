@@ -46,6 +46,11 @@ namespace Services.Implementation
 
         public IEmployee GetEmployeeById(string id)
         {
+            if (id == null)
+            {
+                return null;
+            }
+
             var repEmployee = _employeeRepository.GetEmployeeById(id);
             if (repEmployee != null)
             {
