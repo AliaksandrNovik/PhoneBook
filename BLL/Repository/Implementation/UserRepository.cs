@@ -8,9 +8,9 @@ namespace BLL.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private FileRepository<AdminUser> _adminRepository = new FileRepository<AdminUser>("AdminUser.txt");
-        private FileRepository<EmployeeUser> _employeeRepository = new FileRepository<EmployeeUser>("EmployeeUser.txt");
-        private FileRepository<ManagerUser> _managerRepository = new FileRepository<ManagerUser>("ManagerUser.txt");
+        private FileRepository<AdminUser> _adminRepository = FileRepository<AdminUser>.GetInstance("AdminUser.txt");
+        private FileRepository<EmployeeUser> _employeeRepository = FileRepository<EmployeeUser>.GetInstance("EmployeeUser.txt");
+        private FileRepository<ManagerUser> _managerRepository = FileRepository<ManagerUser>.GetInstance("ManagerUser.txt");
 
         #region Admin
         public AdminUser CreateAdmin(string login, string password)

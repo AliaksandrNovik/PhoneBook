@@ -8,7 +8,7 @@ namespace BLL.Repository
         private FileRepository<Department> _fileRepository;
         public DepartmentRepository()
         {
-            _fileRepository = new FileRepository<Department>("Departmet.txt");
+            _fileRepository = FileRepository<Department>.GetInstance("Departmet.txt");
         }
 
         public Department CreateDepartment(string name, string parentId)

@@ -8,10 +8,27 @@ using BLL.Serialization;
 
 namespace BLL.Repository
 {
-    public class FileRepository<T> where T : Identified
+    public sealed class FileRepository<T> where T : Identified
     {
         private Dictionary<string, T> _valuesDict;
-        public FileRepository(string fileName)
+
+        private static FileRepository<T> _instance;
+        private static object syncRoot = new Object();
+        public static FileRepository<T> GetInstance(string fileName)
+        {
+            if (_instance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (_instance == null)
+                        _instance = new FileRepository<T>(fileName);
+                }
+            }
+
+            return _instance;
+        }
+
+        private FileRepository(string fileName)
         {
             this.FileName = fileName;
             if (!File.Exists(FileName))
@@ -26,7 +43,7 @@ namespace BLL.Repository
 
             if (_valuesDict == null)
                 _valuesDict = new Dictionary<string, T>();
-    }
+        }
 
         public string FileName
         { get; set; }

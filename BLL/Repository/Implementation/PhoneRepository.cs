@@ -8,7 +8,7 @@ namespace BLL.Repository
 { 
     public class PhoneRepository : IPhoneRepository
     {
-        private FileRepository<Phone> _fileRepository = new FileRepository<Phone>("Phone.txt");
+        private FileRepository<Phone> _fileRepository = FileRepository<Phone>.GetInstance("Phone.txt");
         public IReadOnlyCollection<Phone> GetAllPhones()
         {
             return _fileRepository.GetAll();

@@ -163,6 +163,7 @@
     <None Include="Properties\DataSources\UI.Forms.PhoneStatItemWrap.datasource" />
     <None Include="Properties\DataSources\UI.ManagerUI.EmployeeWrap.datasource" />
     <None Include="Properties\DataSources\UI.ManagerUI.PhoneWrap.datasource" />
+    <None Include="Properties\DataSources\UI.ManagerUI.PhoneWrapItem.datasource" />
     <None Include="Properties\DataSources\UI.Views.StatisticItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
