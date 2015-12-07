@@ -521,6 +521,9 @@ namespace UI.AdminUI
                     {
                         _adminService.DeleteUser(userInfo.UserId);
                         CreateUser(login, password, isManager);
+                        userForm.DialogResult = DialogResult.OK;
+                        employeeSource.ResetBindings(false);
+                        employeeSource.ResetCurrentItem();
                     }
                     else
                     {
@@ -536,11 +539,11 @@ namespace UI.AdminUI
                     else
                     {
                         CreateUser(login, password, isManager);
+                        userForm.DialogResult = DialogResult.OK;
+                        employeeSource.ResetBindings(false);
+                        employeeSource.ResetCurrentItem();
                     }
                 }
-                userForm.DialogResult = DialogResult.OK;
-                employeeSource.ResetBindings(false);
-                employeeSource.ResetCurrentItem();
             }
         }
 

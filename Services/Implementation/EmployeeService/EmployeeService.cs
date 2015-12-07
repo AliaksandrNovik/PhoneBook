@@ -11,6 +11,7 @@ namespace Services.Implementation
     public class EmployeeService : IEmployeeService
     {
         private IEmployeeRepository _employeeRepository = new EmployeeRepository();
+        private IAdminService _adminService = new AdminService();
 
         public IEmployee CreateEmployee(string firstName, string lastName, string patronym, BLL.Date birthDate, string place, string departmentId)
         {
@@ -21,6 +22,10 @@ namespace Services.Implementation
 
         public bool DeleteEmployee(string employeeId)
         {
+            var userInfo = _adminService.GetUserInfoByEmployeeId(employeeId);
+            if (userInfo != null)
+                _adminService.DeleteUser(userInfo.UserId);
+
             return _employeeRepository.DeleteEmployee(employeeId);
         }
 

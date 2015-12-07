@@ -11,6 +11,7 @@ namespace Services.Implementation
     public class DepartmentService : IDepartmentService
     {
         private DepartmentRepository _departmentRepository = new DepartmentRepository();
+        private IEmployeeService _employeeService = new EmployeeService();//for delete employee
 
         public IDepartment Create(string name, string parentDepartmentId)
         {
@@ -21,7 +22,11 @@ namespace Services.Implementation
 
         public bool Delete(IDepartment department)
         {
-            return _departmentRepository.DeleteDepartment(department.Id);
+            var departmentId = department.Id;
+            foreach (var employee in _employeeService.GetByDepartmentId(departmentId))
+                _employeeService.DeleteEmployee(employee.Id);
+
+            return _departmentRepository.DeleteDepartment(departmentId);
         }
 
         public IReadOnlyCollection<IDepartment> GetAll()
