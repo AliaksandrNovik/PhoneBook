@@ -12,6 +12,7 @@ namespace Services.Implementation
     {
         private IEmployeeRepository _employeeRepository = new EmployeeRepository();
         private IAdminService _adminService = new AdminService();
+        private IPhoneService _phoneService = new PhoneService();
 
         public IEmployee CreateEmployee(string firstName, string lastName, string patronym, BLL.Date birthDate, string place, string departmentId)
         {
@@ -25,6 +26,9 @@ namespace Services.Implementation
             var userInfo = _adminService.GetUserInfoByEmployeeId(employeeId);
             if (userInfo != null)
                 _adminService.DeleteUser(userInfo.UserId);
+
+            foreach (var phone in _phoneService.GetByEmployeeId(employeeId))
+                _phoneService.DeletePhone(phone.Id);
 
             return _employeeRepository.DeleteEmployee(employeeId);
         }
