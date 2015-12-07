@@ -81,6 +81,7 @@ namespace UI.LoginUI
                             
                             break;
                         case UserType.Manager:
+                            form = new ManagerUI.ManagerForm(userInfo.UserId);
                             break;
                     }
                     if (form != null)
