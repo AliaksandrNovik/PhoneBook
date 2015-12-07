@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface Phone
+    public interface IPhone
     {
         string Id
         { get; }
@@ -14,10 +14,10 @@ namespace Services.Facade
         string Number
         { get; set; }
 
-        String Department
+        string DepartmentId
         { get; set; }
 
-        String Employee
+        string EmployeeId
         { get; set; }
     }
 }

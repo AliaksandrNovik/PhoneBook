@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Repository
 { 
-    class PhoneRepository : IPhoneRepository
+    public class PhoneRepository : IPhoneRepository
     {
         private FileRepository<Phone> _fileRepository = new FileRepository<Phone>("Phone.txt");
         public IReadOnlyCollection<Phone> GetAllPhones()

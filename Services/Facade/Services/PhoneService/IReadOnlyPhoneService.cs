@@ -12,10 +12,10 @@ namespace Services.Facade
     public interface IReadOnlyPhoneService
     {
         //queries
-        Phone GetById(String phoneId);
-        IReadOnlyCollection<Phone> GetAll();
-        IReadOnlyCollection<Phone> GetByDepartmentId(String departmentId);
-        IReadOnlyCollection<Phone> GetByEmployeeId(String employeeId);
+        IPhone GetById(String phoneId);
+        IReadOnlyCollection<IPhone> GetAll();
+        IReadOnlyCollection<IPhone> GetByDepartmentId(String departmentId);
+        IReadOnlyCollection<IPhone> GetByEmployeeId(String employeeId);
 
         //notifications
 
