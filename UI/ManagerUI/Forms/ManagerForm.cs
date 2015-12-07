@@ -26,8 +26,11 @@ namespace UI.ManagerUI
             InitializeComponent();
             InitializeContents(userId);
 
+            addEmployeeButton.Enabled = false;
             changeEmployeeButton.Enabled = false;
             removeEmployeeButton.Enabled = false;
+
+            addPhoneButton.Enabled = false;
             changePhoneButton.Enabled = false;
             removePhoneButton.Enabled = false;
 
@@ -66,6 +69,8 @@ namespace UI.ManagerUI
 
         private void departmentView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            addEmployeeButton.Enabled = true;
+
             var currentDepartment = (IDepartment)e.Node.Tag;
             var wrappedList = new List<EmployeeWrapperItem>();
             foreach (var employee in _employeeService.GetByDepartmentId(currentDepartment.Id))
@@ -80,6 +85,8 @@ namespace UI.ManagerUI
 
         private void departmentViewForPhones_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            addPhoneButton.Enabled = true;
+
             var currentDepartment = (IDepartment)e.Node.Tag;
             var wrappedList = new List<PhoneWrapItem>();
             foreach (var phone in _phoneService.GetByDepartmentId(currentDepartment.Id))

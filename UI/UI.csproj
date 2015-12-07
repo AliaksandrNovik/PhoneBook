@@ -82,6 +82,7 @@
     <Compile Include="AppController\IPresenter.cs" />
     <Compile Include="AppController\IView.cs" />
     <Compile Include="AppController\LightInjectAdapter.cs" />
+    <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
     <Compile Include="EmployeeUI\Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,7 +101,6 @@
     <Compile Include="LoginUI\Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginUI\Views\ILoginView.cs" />
     <Compile Include="ManagerUI\Entities\PhoneWrapItem.cs" />
     <Compile Include="ManagerUI\Forms\EditEmployeeUserForm.cs">
       <SubType>Form</SubType>
@@ -205,9 +205,7 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LoginUI\Presenters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

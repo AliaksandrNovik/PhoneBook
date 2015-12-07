@@ -42,7 +42,11 @@
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.employeeGroupBox = new System.Windows.Forms.GroupBox();
             this.employeeTable = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,10 +60,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.phoneTable = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,6 +72,7 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.employeeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -80,7 +81,6 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -266,12 +266,38 @@
             this.employeeTable.Size = new System.Drawing.Size(480, 267);
             this.employeeTable.TabIndex = 0;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placeDataGridViewTextBoxColumn
+            // 
+            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
+            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
+            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // birthDateDataGridViewTextBoxColumn
+            // 
+            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
+            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // UserTypeName
             // 
             this.UserTypeName.DataPropertyName = "UserTypeName";
             this.UserTypeName.HeaderText = "Полномочия";
             this.UserTypeName.Name = "UserTypeName";
             this.UserTypeName.ReadOnly = true;
+            // 
+            // employeeSource
+            // 
+            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
+            this.employeeSource.CurrentChanged += new System.EventHandler(this.employeeSource_CurrentChanged);
             // 
             // tabPage2
             // 
@@ -448,32 +474,6 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // placeDataGridViewTextBoxColumn
-            // 
-            this.placeDataGridViewTextBoxColumn.DataPropertyName = "Place";
-            this.placeDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
-            this.placeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // birthDateDataGridViewTextBoxColumn
-            // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
-            this.birthDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeeSource
-            // 
-            this.employeeSource.DataSource = typeof(UI.AdminUI.EmployeeWrapperItem);
-            this.employeeSource.CurrentChanged += new System.EventHandler(this.employeeSource_CurrentChanged);
-            // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
@@ -500,7 +500,7 @@
             this.ClientSize = new System.Drawing.Size(910, 415);
             this.Controls.Add(this.tabWidget);
             this.Name = "ManagerForm";
-            this.Text = "ManagerForm";
+            this.Text = "Управление подразделением";
             this.tabWidget.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -511,6 +511,7 @@
             this.flowLayoutPanel2.PerformLayout();
             this.employeeGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeeTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -520,7 +521,6 @@
             this.flowLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.phoneTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneSource)).EndInit();
             this.ResumeLayout(false);
 
