@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Faker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.1.2\lib\Faker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +55,7 @@
     <Compile Include="Facade\Services\PhoneService\IPhoneService.cs" />
     <Compile Include="Facade\Services\PhoneService\IReadOnlyPhoneService.cs" />
     <Compile Include="Facade\Services\UserServices\IAdminService.cs" />
-    <Compile Include="Facade\Statistics\CallSession.cs" />
+    <Compile Include="Facade\Statistics\ICallSession.cs" />
     <Compile Include="Facade\Statistics\IStatisticService.cs" />
     <Compile Include="Facade\Users\IAdminUser.cs" />
     <Compile Include="Facade\Users\IEmployeeUser.cs" />
@@ -71,6 +75,8 @@
     <Compile Include="Implementation\LoginService\UserInfo.cs" />
     <Compile Include="Implementation\PhoneService\Phone.cs" />
     <Compile Include="Implementation\PhoneService\PhoneService.cs" />
+    <Compile Include="Implementation\StatisticServices\CallSession.cs" />
+    <Compile Include="Implementation\StatisticServices\StatisticService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +84,9 @@
       <Project>{546c3b67-b789-4ecb-83af-15751f0a2af7}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

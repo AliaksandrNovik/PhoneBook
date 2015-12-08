@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Services.Facade
 {
-    public interface CallSession
+    public interface ICallSession
     {
-        String CallerPhone
+        string Id
+        { get; }
+
+        string PhoneId
         { get; }
 
         DateTime DateAndTime
