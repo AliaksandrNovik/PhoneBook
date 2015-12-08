@@ -47,6 +47,7 @@
             this.pricePerMinuteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toWord = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatTable)).BeginInit();
@@ -178,7 +179,7 @@
             this.phoneStatTable.Location = new System.Drawing.Point(5, 74);
             this.phoneStatTable.Name = "phoneStatTable";
             this.phoneStatTable.RowTemplate.Height = 24;
-            this.phoneStatTable.Size = new System.Drawing.Size(755, 288);
+            this.phoneStatTable.Size = new System.Drawing.Size(755, 249);
             this.phoneStatTable.TabIndex = 6;
             // 
             // dateAndTimeDataGridViewTextBoxColumn
@@ -220,11 +221,22 @@
             // 
             this.statSource.DataSource = typeof(Services.Facade.ICallSession);
             // 
+            // toWord
+            // 
+            this.toWord.Location = new System.Drawing.Point(685, 329);
+            this.toWord.Name = "toWord";
+            this.toWord.Size = new System.Drawing.Size(75, 23);
+            this.toWord.TabIndex = 7;
+            this.toWord.Text = "Word";
+            this.toWord.UseVisualStyleBackColor = true;
+            this.toWord.Click += new System.EventHandler(this.toWord_Click);
+            // 
             // PersonalStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 398);
+            this.Controls.Add(this.toWord);
             this.Controls.Add(this.phoneStatTable);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pricePerMinuteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource statSource;
+        private System.Windows.Forms.Button toWord;
     }
 }
