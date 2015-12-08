@@ -33,7 +33,7 @@ namespace UI.ManagerUI
             addPhoneButton.Enabled = false;
             changePhoneButton.Enabled = false;
             removePhoneButton.Enabled = false;
-
+            statButton.Enabled = false;
         }
 
         private void InitializeContents(string userId)
@@ -203,6 +203,7 @@ namespace UI.ManagerUI
             bool enabled = (phoneSource.Current != null);
             changePhoneButton.Enabled = enabled;
             removePhoneButton.Enabled = enabled;
+            statButton.Enabled = enabled;
         }
 
         private bool ValidateEmployee(EditEmployeeUserForm form)
@@ -402,6 +403,11 @@ namespace UI.ManagerUI
             var employee = employeeWrap.Item;
             _employeeService.DeleteEmployee(employee.Id);
             employeeSource.RemoveCurrent();
+        }
+
+        private void statButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

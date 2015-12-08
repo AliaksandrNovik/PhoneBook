@@ -63,6 +63,7 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statButton = new System.Windows.Forms.Button();
             this.tabWidget.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -392,6 +393,7 @@
             this.flowLayoutPanel1.Controls.Add(this.addPhoneButton);
             this.flowLayoutPanel1.Controls.Add(this.changePhoneButton);
             this.flowLayoutPanel1.Controls.Add(this.removePhoneButton);
+            this.flowLayoutPanel1.Controls.Add(this.statButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 297);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(492, 44);
@@ -493,6 +495,17 @@
             this.phoneSource.DataSource = typeof(UI.ManagerUI.PhoneWrapItem);
             this.phoneSource.CurrentChanged += new System.EventHandler(this.phoneSource_CurrentChanged);
             // 
+            // statButton
+            // 
+            this.statButton.AutoSize = true;
+            this.statButton.Location = new System.Drawing.Point(260, 3);
+            this.statButton.Name = "statButton";
+            this.statButton.Size = new System.Drawing.Size(94, 27);
+            this.statButton.TabIndex = 6;
+            this.statButton.Text = "Статистика";
+            this.statButton.UseVisualStyleBackColor = true;
+            this.statButton.Click += new System.EventHandler(this.statButton_Click);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -562,5 +575,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserTypeName;
+        private System.Windows.Forms.Button statButton;
     }
 }
