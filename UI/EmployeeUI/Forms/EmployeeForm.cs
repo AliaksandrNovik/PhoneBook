@@ -17,13 +17,21 @@ namespace UI.EmployeeUI
         private IReadOnlyDepartmentService _departmentService = new DepartmentService();
         private IReadOnlyEmployeeService _employeeService = new EmployeeService();
         private IReadOnlyPhoneService _phoneService = new PhoneService();
+        private IAdminService _adminService = new AdminService();
 
         public EmployeeForm(string userId)
         {
             InitializeComponent();
+
+            //all phones
             var phoneWraps = ReadData();
             phoneSource.DataSource = phoneWraps;
             phoneSource.ResetBindings(false);
+
+            //personal
+            var employeeUser = _adminService.GetEmployeeUserById(userId);
+            FillPersonalPhones(employeeUser.EmployeeId);
+            statisticButton.Enabled = false;
         }
 
         private List<PhoneWrapItem> ReadData()
@@ -66,6 +74,34 @@ namespace UI.EmployeeUI
             {
                 phoneSource.DataSource = Filter(textToSearch);
                 phoneSource.ResetBindings(false);
+            }
+        }
+
+
+        private void FillPersonalPhones(string employeeId)
+        {
+            foreach (var phone in _phoneService.GetByEmployeeId(employeeId))
+            {
+                var treeNode = new TreeNode(phone.Number);
+                treeNode.Tag = phone;
+                phonesList.Nodes.Add(treeNode);
+            }
+        }
+
+        private void phonesList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            statisticButton.Enabled = true;
+        }
+
+        private void allPhonesTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (allPhonesTab.SelectedIndex == 0)
+            {
+                phoneTable.Focus();
+            }
+            else
+            {
+                phonesList.Focus();
             }
         }
     }
