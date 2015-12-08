@@ -34,7 +34,6 @@ namespace UI.AdminUI
 
         void SetStructureButtonsEnabled(bool enabled)
         {
-            addDeparmentButton.Enabled = enabled;
             changeDepartmentButton.Enabled = enabled;
             removeDepartmentButton.Enabled = enabled;
 
