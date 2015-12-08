@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,9 +41,16 @@
             this.summaryPrice = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.phoneStatTable = new System.Windows.Forms.DataGridView();
+            this.statSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.durationInSecondsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricePerMinuteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -141,7 +149,7 @@
             // 
             this.summaryPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.summaryPrice.Name = "summaryPrice";
-            this.summaryPrice.Size = new System.Drawing.Size(726, 28);
+            this.summaryPrice.Size = new System.Drawing.Size(521, 28);
             this.summaryPrice.Spring = true;
             this.summaryPrice.Text = "0";
             this.summaryPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,12 +165,60 @@
             this.phoneStatTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneStatTable.AutoGenerateColumns = false;
+            this.phoneStatTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.phoneStatTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.phoneStatTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateAndTimeDataGridViewTextBoxColumn,
+            this.targetPhoneDataGridViewTextBoxColumn,
+            this.durationInSecondsDataGridViewTextBoxColumn,
+            this.pricePerMinuteDataGridViewTextBoxColumn,
+            this.totalPriceDataGridViewTextBoxColumn});
+            this.phoneStatTable.DataSource = this.statSource;
             this.phoneStatTable.Location = new System.Drawing.Point(5, 74);
             this.phoneStatTable.Name = "phoneStatTable";
             this.phoneStatTable.RowTemplate.Height = 24;
             this.phoneStatTable.Size = new System.Drawing.Size(591, 215);
             this.phoneStatTable.TabIndex = 6;
+            // 
+            // statSource
+            // 
+            this.statSource.DataSource = typeof(Services.Facade.ICallSession);
+            // 
+            // dateAndTimeDataGridViewTextBoxColumn
+            // 
+            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime";
+            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "Дата и время";
+            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
+            this.dateAndTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // targetPhoneDataGridViewTextBoxColumn
+            // 
+            this.targetPhoneDataGridViewTextBoxColumn.DataPropertyName = "TargetPhone";
+            this.targetPhoneDataGridViewTextBoxColumn.HeaderText = "Абонент";
+            this.targetPhoneDataGridViewTextBoxColumn.Name = "targetPhoneDataGridViewTextBoxColumn";
+            this.targetPhoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // durationInSecondsDataGridViewTextBoxColumn
+            // 
+            this.durationInSecondsDataGridViewTextBoxColumn.DataPropertyName = "DurationInSeconds";
+            this.durationInSecondsDataGridViewTextBoxColumn.HeaderText = "Длительность, сек";
+            this.durationInSecondsDataGridViewTextBoxColumn.Name = "durationInSecondsDataGridViewTextBoxColumn";
+            this.durationInSecondsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pricePerMinuteDataGridViewTextBoxColumn
+            // 
+            this.pricePerMinuteDataGridViewTextBoxColumn.DataPropertyName = "PricePerMinute";
+            this.pricePerMinuteDataGridViewTextBoxColumn.HeaderText = "Тариф, руб./мин.";
+            this.pricePerMinuteDataGridViewTextBoxColumn.Name = "pricePerMinuteDataGridViewTextBoxColumn";
+            this.pricePerMinuteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "Сумма, руб.";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // PersonalStatistic
             // 
@@ -179,6 +235,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +254,11 @@
         private System.Windows.Forms.ToolStripStatusLabel summaryPrice;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.DataGridView phoneStatTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn targetPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn durationInSecondsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricePerMinuteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource statSource;
     }
 }
