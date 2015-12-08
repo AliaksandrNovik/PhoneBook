@@ -21,10 +21,12 @@ namespace UI.EmployeeUI
         public EmployeeForm(string userId)
         {
             InitializeComponent();
-            ReadData();
+            var phoneWraps = ReadData();
+            phoneSource.DataSource = phoneWraps;
+            phoneSource.ResetBindings(false);
         }
 
-        private void ReadData()
+        private List<PhoneWrapItem> ReadData()
         {
             List<PhoneWrapItem> phoneWraps = new List<PhoneWrapItem>();
             foreach (var phone in _phoneService.GetAll())
@@ -44,8 +46,27 @@ namespace UI.EmployeeUI
                 phoneWraps.Add(phoneWrap);
             }
 
-            phoneSource.DataSource = phoneWraps;
-            phoneSource.ResetBindings(false);
+            return phoneWraps;
+        }
+
+        private List<PhoneWrapItem> Filter(string text)
+        {
+            return ReadData().Where(x => x.Contains(text)).ToList();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            var textToSearch = searchLine.Text;
+            if (string.IsNullOrWhiteSpace(textToSearch))
+            {
+                phoneSource.DataSource = ReadData();
+                phoneSource.ResetBindings(false);
+            }
+            else
+            {
+                phoneSource.DataSource = Filter(textToSearch);
+                phoneSource.ResetBindings(false);
+            }
         }
     }
 }

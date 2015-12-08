@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.searchButton = new System.Windows.Forms.Button();
             this.phoneTable = new System.Windows.Forms.DataGridView();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selfStatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchLine = new System.Windows.Forms.TextBox();
             this.statisticStrip = new System.Windows.Forms.MenuStrip();
-            this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.phoneTable)).BeginInit();
             this.statisticStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneSource)).BeginInit();
@@ -54,6 +54,7 @@
             this.searchButton.TabIndex = 8;
             this.searchButton.Text = "Найти";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // phoneTable
             // 
@@ -77,6 +78,27 @@
             this.phoneTable.RowTemplate.Height = 24;
             this.phoneTable.Size = new System.Drawing.Size(756, 256);
             this.phoneTable.TabIndex = 7;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "ФИО";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.DataPropertyName = "BirthDate";
+            this.BirthDate.HeaderText = "Дата рождения";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "Department";
+            this.Department.HeaderText = "Подразделение";
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
             // 
             // selfStatToolStripMenuItem
             // 
@@ -105,30 +127,12 @@
             this.statisticStrip.TabIndex = 5;
             this.statisticStrip.Text = "menuStrip1";
             // 
-            // phoneSource
-            // 
-            this.phoneSource.DataSource = typeof(UI.EmployeeUI.PhoneWrapItem);
-            // 
             // phoneDataGridViewTextBoxColumn
             // 
             this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
             this.phoneDataGridViewTextBoxColumn.HeaderText = "Тел. номер";
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "ФИО";
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.DataPropertyName = "BirthDate";
-            this.BirthDate.HeaderText = "Дата рождения";
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
             // 
             // placeDataGridViewTextBoxColumn
             // 
@@ -137,15 +141,13 @@
             this.placeDataGridViewTextBoxColumn.Name = "placeDataGridViewTextBoxColumn";
             this.placeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Department
+            // phoneSource
             // 
-            this.Department.DataPropertyName = "Department";
-            this.Department.HeaderText = "Подразделение";
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
+            this.phoneSource.DataSource = typeof(UI.EmployeeUI.PhoneWrapItem);
             // 
             // EmployeeForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 332);

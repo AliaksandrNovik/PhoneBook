@@ -64,5 +64,32 @@ namespace UI.EmployeeUI
                 return _department?.Name;
             }
         }
+
+        public bool Contains(string text)
+        {
+            if (this.Phone.Contains(text))
+            {
+                return true;
+            }
+            else
+            {
+                if (_employee != null &&
+                        (this.FullName.Contains(text)
+                        || this.BirthDate.Contains(text)
+                        || this.Place.Contains(text)
+                        ))
+                {
+                    return true;
+                }
+                else if (_department != null && this.Department.Contains(text))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
