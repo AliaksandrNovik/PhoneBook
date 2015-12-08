@@ -18,7 +18,10 @@ namespace UI.EmployeeUI
         private IReadOnlyEmployeeService _employeeService = new EmployeeService();
         private IReadOnlyPhoneService _phoneService = new PhoneService();
         private IAdminService _adminService = new AdminService();
+        private IStatisticService _statService = new StatisticService();
 
+        private string _employeeName;
+        private string _departmentName;
         public EmployeeForm(string userId)
         {
             InitializeComponent();
@@ -30,8 +33,15 @@ namespace UI.EmployeeUI
 
             //personal
             var employeeUser = _adminService.GetEmployeeUserById(userId);
+            var employeeId = employeeUser.EmployeeId;
             FillPersonalPhones(employeeUser.EmployeeId);
             statisticButton.Enabled = false;
+
+            var employee = _employeeService.GetEmployeeById(employeeId);
+            _employeeName = employee.LastName + " " + employee.FirstName + " " + employee.Patronym;
+
+            var department = _departmentService.GetById(employee.DepartmentId);
+            _departmentName = department.Name;
         }
 
         private List<PhoneWrapItem> ReadData()
@@ -103,6 +113,17 @@ namespace UI.EmployeeUI
             {
                 phonesList.Focus();
             }
+        }
+
+        private void statisticButton_Click(object sender, EventArgs e)
+        {
+            var statForm = new UI.StatisticUI.Forms.PersonalStatistic();
+            var currentPhone = (IPhone)phonesList.SelectedNode.Tag;
+            statForm.Phone = currentPhone.Number;
+            statForm.Employee = _employeeName;
+            statForm.Department = _departmentName;
+            statForm.Items = _statService.GetByPhoneId(currentPhone.Id);
+            statForm.Show();
         }
     }
 }

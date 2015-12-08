@@ -193,6 +193,7 @@
             this.statisticButton.TabIndex = 3;
             this.statisticButton.Text = "Статистика";
             this.statisticButton.UseVisualStyleBackColor = true;
+            this.statisticButton.Click += new System.EventHandler(this.statisticButton_Click);
             // 
             // phonesList
             // 

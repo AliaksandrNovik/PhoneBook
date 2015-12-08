@@ -38,7 +38,7 @@ namespace UI.StatisticUI.Forms
             }
             set
             {
-                employeeLine.Text = value;
+                departmentLine.Text = value;
             }
         }
 
