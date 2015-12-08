@@ -97,7 +97,7 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // UserEditDialog
+            // EditAdminUserForm
             // 
             this.AcceptButton = this.submitButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -109,8 +109,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.label1);
-            this.Name = "UserEditDialog";
-            this.Text = "UserEditDialog";
+            this.Name = "EditAdminUserForm";
+            this.Text = "Пользователь";
             this.ResumeLayout(false);
             this.PerformLayout();
 

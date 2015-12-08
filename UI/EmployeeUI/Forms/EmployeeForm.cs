@@ -125,5 +125,20 @@ namespace UI.EmployeeUI
             statForm.Items = _statService.GetByPhoneId(currentPhone.Id);
             statForm.Show();
         }
+
+        private void searchButton_Click_1(object sender, EventArgs e)
+        {
+            var textToSearch = searchLine.Text;
+            if (string.IsNullOrWhiteSpace(textToSearch))
+            {
+                phoneSource.DataSource = ReadData();
+                phoneSource.ResetBindings(false);
+            }
+            else
+            {
+                phoneSource.DataSource = Filter(textToSearch);
+                phoneSource.ResetBindings(false);
+            }
+        }
     }
 }

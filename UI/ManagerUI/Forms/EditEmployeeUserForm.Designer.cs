@@ -375,7 +375,7 @@
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.cancelButton);
             this.Name = "EditEmployeeUserForm";
-            this.Text = "EditUserForm";
+            this.Text = "Сотрудник";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

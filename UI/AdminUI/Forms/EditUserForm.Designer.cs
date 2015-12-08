@@ -176,7 +176,7 @@
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.label1);
             this.Name = "EditUserForm";
-            this.Text = "UserCreateDialog";
+            this.Text = "Пользоваьтель";
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
