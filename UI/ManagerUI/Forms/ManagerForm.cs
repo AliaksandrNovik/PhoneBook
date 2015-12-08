@@ -20,6 +20,7 @@ namespace UI.ManagerUI
         private IReadOnlyDepartmentService _departmentService = new DepartmentService();
         private IEmployeeService _employeeService = new EmployeeService();
         private IPhoneService _phoneService = new PhoneService();
+        private IStatisticService _statService = new StatisticService();
 
         public ManagerForm(string userId)
         {
@@ -407,7 +408,14 @@ namespace UI.ManagerUI
 
         private void statButton_Click(object sender, EventArgs e)
         {
+            var phone = (PhoneWrapItem)phoneSource.Current;
+            var statForm = new UI.StatisticUI.Forms.PersonalStatistic();
+            statForm.Employee = phone.Name;
+            statForm.Department = departmentViewForPhones.SelectedNode.Text;
+            statForm.Phone = phone.Phone;
 
+            statForm.Items = _statService.GetByPhoneId(phone.PhoneItem.Id);
+            statForm.ShowDialog();
         }
     }
 }

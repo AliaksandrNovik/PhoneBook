@@ -41,12 +41,12 @@
             this.summaryPrice = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.phoneStatTable = new System.Windows.Forms.DataGridView();
-            this.statSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationInSecondsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pricePerMinuteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phoneStatTable)).BeginInit();
@@ -132,9 +132,9 @@
             this.toolStripStatusLabel1,
             this.summaryPrice,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 292);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 365);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(608, 33);
+            this.statusStrip1.Size = new System.Drawing.Size(772, 33);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -149,7 +149,7 @@
             // 
             this.summaryPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.summaryPrice.Name = "summaryPrice";
-            this.summaryPrice.Size = new System.Drawing.Size(521, 28);
+            this.summaryPrice.Size = new System.Drawing.Size(685, 28);
             this.summaryPrice.Spring = true;
             this.summaryPrice.Text = "0";
             this.summaryPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,12 +178,8 @@
             this.phoneStatTable.Location = new System.Drawing.Point(5, 74);
             this.phoneStatTable.Name = "phoneStatTable";
             this.phoneStatTable.RowTemplate.Height = 24;
-            this.phoneStatTable.Size = new System.Drawing.Size(591, 215);
+            this.phoneStatTable.Size = new System.Drawing.Size(755, 288);
             this.phoneStatTable.TabIndex = 6;
-            // 
-            // statSource
-            // 
-            this.statSource.DataSource = typeof(Services.Facade.ICallSession);
             // 
             // dateAndTimeDataGridViewTextBoxColumn
             // 
@@ -220,16 +216,20 @@
             this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
             this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // statSource
+            // 
+            this.statSource.DataSource = typeof(Services.Facade.ICallSession);
+            // 
             // PersonalStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 325);
+            this.ClientSize = new System.Drawing.Size(772, 398);
             this.Controls.Add(this.phoneStatTable);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Name = "PersonalStatistic";
-            this.Text = "PersonalStatistic";
+            this.Text = "Статистика";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
