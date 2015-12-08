@@ -29,7 +29,7 @@ namespace UI.AdminUI
         {
             get
             {
-                return this.Item.FirstName + " " + this.Item.LastName + " " + this.Item.Patronym;
+                return this.Item.LastName + " " + this.Item.FirstName+ " " + this.Item.Patronym;
             }
         }
 

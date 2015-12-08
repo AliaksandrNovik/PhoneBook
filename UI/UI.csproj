@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.19, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.19\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView, Version=1.2.2446.31718, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unofficial.BindingListView.1.2.0.0\lib\net20\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LightInject, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LightInject.4.0.0\lib\net45\LightInject.dll</HintPath>
       <Private>True</Private>
@@ -82,7 +90,13 @@
     <Compile Include="AppController\IPresenter.cs" />
     <Compile Include="AppController\IView.cs" />
     <Compile Include="AppController\LightInjectAdapter.cs" />
-    <Compile Include="LoginUI\Presenters\LoginPresenter.cs" />
+    <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
+    <Compile Include="EmployeeUI\Forms\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeUI\Forms\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUI\Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +109,33 @@
     <Compile Include="LoginUI\Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginUI\Views\ILoginView.cs" />
+    <Compile Include="ManagerUI\Entities\PhoneWrapItem.cs" />
+    <Compile Include="ManagerUI\Forms\EditEmployeeUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\EditEmployeeUserForm.Designer.cs">
+      <DependentUpon>EditEmployeeUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\ManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\ManagerForm.Designer.cs">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\PhoneEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI\Forms\PhoneEditForm.Designer.cs">
+      <DependentUpon>PhoneEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticUI\Forms\PersonalStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatisticUI\Forms\PersonalStatistic.Designer.cs">
+      <DependentUpon>PersonalStatistic.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminUI\Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,8 +151,20 @@
     <EmbeddedResource Include="AdminUI\Forms\EditAdminUserForm.resx">
       <DependentUpon>EditAdminUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUI\Forms\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginUI\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\EditEmployeeUserForm.resx">
+      <DependentUpon>EditEmployeeUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\ManagerForm.resx">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI\Forms\PhoneEditForm.resx">
+      <DependentUpon>PhoneEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -125,9 +175,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StatisticUI\Forms\PersonalStatistic.resx">
+      <DependentUpon>PersonalStatistic.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BLL.AdminUser.datasource" />
     <None Include="Properties\DataSources\Services.Facade.IAdminUser.datasource" />
+    <None Include="Properties\DataSources\Services.Facade.ICallSession.datasource" />
     <None Include="Properties\DataSources\UI.AdminUI.EmployeeWrapperItem.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Department.datasource" />
     <None Include="Properties\DataSources\UI.Basics.Employee.datasource" />
@@ -135,6 +189,7 @@
     <None Include="Properties\DataSources\UI.Forms.PhoneStatItemWrap.datasource" />
     <None Include="Properties\DataSources\UI.ManagerUI.EmployeeWrap.datasource" />
     <None Include="Properties\DataSources\UI.ManagerUI.PhoneWrap.datasource" />
+    <None Include="Properties\DataSources\UI.ManagerUI.PhoneWrapItem.datasource" />
     <None Include="Properties\DataSources\UI.Views.StatisticItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -159,10 +214,7 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EmployeeUI\" />
-    <Folder Include="ManagerUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -236,7 +236,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "EditEmployeeForm";
-            this.Text = "EditEmployeeForm";
+            this.Text = "Сотрудник";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

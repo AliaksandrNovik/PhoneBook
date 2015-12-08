@@ -31,7 +31,7 @@ namespace BLL
 
         public override string ToString()
         {
-            return Day.ToString() + " " + Month.ToString() + " " + Year.ToString();
+            return Day.ToString("D2") + "-" + Month.ToString("D2") + "-" + Year.ToString("D4");
         }
     }
 }

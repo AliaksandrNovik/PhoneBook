@@ -12,7 +12,7 @@ namespace BLL.Repository
         private FileRepository<Employee> _fileRepository;
         public EmployeeRepository()
         {
-            _fileRepository = new FileRepository<Employee>("Employee.txt");
+            _fileRepository = FileRepository<Employee>.GetInstance("Employee.txt");
         }
 
         public Employee CreateEmployee(string firstName, string lastName, string patronym, Date birthDate, string place, string departmentId)

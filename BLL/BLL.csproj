@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Date.cs" />
+    <Compile Include="Entities\Statistics\PhoneStatistic.cs" />
     <Compile Include="Entities\Users\AdminUser.cs" />
     <Compile Include="Entities\Company\Employee.cs" />
     <Compile Include="Entities\Users\EmployeeUser.cs" />
@@ -76,8 +77,11 @@
     <Compile Include="Repository\Implementation\DepartmentRepository.cs" />
     <Compile Include="Repository\Implementation\EmployeeRepository.cs" />
     <Compile Include="Repository\Implementation\FileRepository.cs" />
+    <Compile Include="Repository\Implementation\PhoneRepository.cs" />
+    <Compile Include="Repository\Implementation\PhoneStatisticsRepository.cs" />
     <Compile Include="Repository\Implementation\UserRepository.cs" />
     <Compile Include="Repository\IPhoneRepository.cs" />
+    <Compile Include="Repository\IPhoneStatisticRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Serialization\Serializer.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -34,7 +34,6 @@ namespace UI.AdminUI
 
         void SetStructureButtonsEnabled(bool enabled)
         {
-            addDeparmentButton.Enabled = enabled;
             changeDepartmentButton.Enabled = enabled;
             removeDepartmentButton.Enabled = enabled;
 
@@ -52,17 +51,6 @@ namespace UI.AdminUI
             departmentView.ExpandAll();
         }
 
-        private void FillAdminUser()
-        {
-            var users = _adminService.GetAllAdminUsers();
-            foreach (var user in users)
-            {
-                var item = new TreeNode(user.Login);
-                item.Tag = user;
-                adminList.Nodes.Add(item);
-            }
-        }
-
         private TreeNode CreateNode(IDepartment department)
         {
             var treeNode = new TreeNode(department.Name);
@@ -72,6 +60,17 @@ namespace UI.AdminUI
                 treeNode.Nodes.Add(CreateNode(subDepartment));
             }
             return treeNode;
+        }
+
+        private void FillAdminUser()
+        {
+            var users = _adminService.GetAllAdminUsers();
+            foreach (var user in users)
+            {
+                var item = new TreeNode(user.Login);
+                item.Tag = user;
+                adminList.Nodes.Add(item);
+            }
         }
         #endregion
 
@@ -210,7 +209,6 @@ namespace UI.AdminUI
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-            var currentDepartment = departmentView.SelectedNode;
             var employeeEditForm = new EditEmployeeForm();
             employeeEditForm.Confirmed += (s, a) => CreateEmployeeConfirmed(s, a);
             employeeEditForm.ShowDialog();
@@ -521,6 +519,9 @@ namespace UI.AdminUI
                     {
                         _adminService.DeleteUser(userInfo.UserId);
                         CreateUser(login, password, isManager);
+                        userForm.DialogResult = DialogResult.OK;
+                        employeeSource.ResetBindings(false);
+                        employeeSource.ResetCurrentItem();
                     }
                     else
                     {
@@ -536,11 +537,11 @@ namespace UI.AdminUI
                     else
                     {
                         CreateUser(login, password, isManager);
+                        userForm.DialogResult = DialogResult.OK;
+                        employeeSource.ResetBindings(false);
+                        employeeSource.ResetCurrentItem();
                     }
                 }
-                userForm.DialogResult = DialogResult.OK;
-                employeeSource.ResetBindings(false);
-                employeeSource.ResetCurrentItem();
             }
         }
 
@@ -548,7 +549,7 @@ namespace UI.AdminUI
         {
             if (isManager)
             {
-                var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
+                var currentDepartment = (IDepartment)departmentViewForUsers.SelectedNode.Tag;
                 var currentEmployeeWrap = (EmployeeWrapperItem)employeeSource.Current;
                 var currentEmployee = currentEmployeeWrap.Item;
                 var newUser = _adminService.CreateManagerUser(login, password, currentEmployee.Id, currentDepartment.Id);

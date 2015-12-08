@@ -11,6 +11,8 @@ namespace Services.Implementation
     public class EmployeeService : IEmployeeService
     {
         private IEmployeeRepository _employeeRepository = new EmployeeRepository();
+        private IAdminService _adminService = new AdminService();
+        private IPhoneService _phoneService = new PhoneService();
 
         public IEmployee CreateEmployee(string firstName, string lastName, string patronym, BLL.Date birthDate, string place, string departmentId)
         {
@@ -21,6 +23,13 @@ namespace Services.Implementation
 
         public bool DeleteEmployee(string employeeId)
         {
+            var userInfo = _adminService.GetUserInfoByEmployeeId(employeeId);
+            if (userInfo != null)
+                _adminService.DeleteUser(userInfo.UserId);
+
+            foreach (var phone in _phoneService.GetByEmployeeId(employeeId))
+                _phoneService.DeletePhone(phone.Id);
+
             return _employeeRepository.DeleteEmployee(employeeId);
         }
 
@@ -41,6 +50,11 @@ namespace Services.Implementation
 
         public IEmployee GetEmployeeById(string id)
         {
+            if (id == null)
+            {
+                return null;
+            }
+
             var repEmployee = _employeeRepository.GetEmployeeById(id);
             if (repEmployee != null)
             {

@@ -78,9 +78,10 @@ namespace UI.LoginUI
                             form = new AdminUI.AdminForm();
                             break;
                         case UserType.Employee:
-                            
+                            form = new EmployeeUI.EmployeeForm(userInfo.UserId);
                             break;
                         case UserType.Manager:
+                            form = new ManagerUI.ManagerForm(userInfo.UserId);
                             break;
                     }
                     if (form != null)

@@ -150,7 +150,10 @@ namespace Services.Implementation
         public IEmployeeUser GetEmployeeUserById(string userId)
         {
             var repUser = _userRepository.GetEmployeeById(userId);
-            return new EmployeeUser(repUser.Login, repUser.Password, repUser.EmployeeId, repUser.Id);
+            if (repUser != null)
+                return new EmployeeUser(repUser.Login, repUser.Password, repUser.EmployeeId, repUser.Id);
+
+            return null;
         }
 
         public IManagerUser GetManagerUserById(string userId)

@@ -8,8 +8,8 @@ namespace Services.Facade
 {
     public interface IPhoneService : IReadOnlyPhoneService
     {
-        void CreatePhone(string number, String department = null, String employee = null);
-        void UpdatePhone(Phone phone);
-        void DeletePhone(String phoneId);
+        IPhone CreatePhone(string number, string department = null, string employee = null);
+        bool UpdatePhone(IPhone phone);
+        bool DeletePhone(string phoneId);
     }
 }
