@@ -36,7 +36,7 @@ namespace UI.EmployeeUI
                 if (_employee == null)
                     return null;
                 else
-                    return _employee.FirstName + " " + _employee.LastName + " " + _employee.Patronym;
+                    return _employee.LastName + " " + _employee.FirstName + " " + _employee.Patronym;
             }
         }
 

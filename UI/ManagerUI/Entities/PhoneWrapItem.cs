@@ -41,8 +41,8 @@ namespace UI.ManagerUI
                 }
                 else
                 {
-                    return this.EmployeeItem.FirstName
-                        + " " + this.EmployeeItem.LastName
+                    return this.EmployeeItem.LastName
+                        + " " + this.EmployeeItem.FirstName
                         + " " + this.EmployeeItem.Patronym;
                 }
             }
