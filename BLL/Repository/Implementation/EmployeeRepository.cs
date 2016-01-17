@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Repository
+namespace Repositories.Repository
 {
     public class EmployeeRepository : IEmployeeRepository
     {

@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using UI.AppController;
 using Services.Facade;
 using Services.Implementation;
 
@@ -227,7 +220,7 @@ namespace UI.AdminUI
                 var birthday = employeeEditForm.Birthday;
                 var place = employeeEditForm.Place;
                 var sysDate = DateTime.Parse(employeeEditForm.Birthday);
-                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+                var date = new Repositories.Date(sysDate.Day, sysDate.Month, sysDate.Year);
 
                 //departmentId
                 var currentDepartment = (IDepartment)departmentView.SelectedNode.Tag;
@@ -298,7 +291,7 @@ namespace UI.AdminUI
                 currentEmployee.Place = employeeEditForm.Place;
                 var birthday = employeeEditForm.Birthday;
                 var sysDate = DateTime.Parse(employeeEditForm.Birthday);
-                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+                var date = new Repositories.Date(sysDate.Day, sysDate.Month, sysDate.Year);
                 currentEmployee.BirthDate = date;
                 _employeeService.UpdateEmployee(currentEmployee);
                 employeeSource.ResetBindings(false);

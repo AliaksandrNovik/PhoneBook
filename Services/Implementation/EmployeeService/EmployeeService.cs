@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL.Repository;
+using Repositories.Repository;
 using Services.Facade;
 
 namespace Services.Implementation
@@ -14,7 +14,7 @@ namespace Services.Implementation
         private IAdminService _adminService = new AdminService();
         private IPhoneService _phoneService = new PhoneService();
 
-        public IEmployee CreateEmployee(string firstName, string lastName, string patronym, BLL.Date birthDate, string place, string departmentId)
+        public IEmployee CreateEmployee(string firstName, string lastName, string patronym, Repositories.Date birthDate, string place, string departmentId)
         {
             var repEmployee = _employeeRepository.CreateEmployee(firstName, lastName, patronym, birthDate, place, departmentId);
             var bllDepartment = new Employee(repEmployee);

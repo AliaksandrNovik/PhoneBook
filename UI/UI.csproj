@@ -83,13 +83,6 @@
     <Compile Include="AdminUI\Forms\EditAdminUserForm.Designer.cs">
       <DependentUpon>EditAdminUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppController\ApplicationController.cs" />
-    <Compile Include="AppController\BasePresenter.cs" />
-    <Compile Include="AppController\IApplicationController.cs" />
-    <Compile Include="AppController\IContainer.cs" />
-    <Compile Include="AppController\IPresenter.cs" />
-    <Compile Include="AppController\IView.cs" />
-    <Compile Include="AppController\LightInjectAdapter.cs" />
     <Compile Include="EmployeeUI\Entities\PhoneWrapItem.cs" />
     <Compile Include="EmployeeUI\Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
@@ -205,13 +198,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
+    <ProjectReference Include="..\BLL\Repositories.csproj">
       <Project>{546c3b67-b789-4ecb-83af-15751f0a2af7}</Project>
-      <Name>BLL</Name>
+      <Name>Repositories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\BLL.csproj">
       <Project>{8e8a5d0f-e10a-47ec-8443-2929ee463f39}</Project>
-      <Name>Services</Name>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

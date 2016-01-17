@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL.Serialization;
+using Repositories.Serialization;
 
-namespace BLL.Repository
+namespace Repositories.Repository
 {
     public sealed class FileRepository<T> where T : Identified
     {

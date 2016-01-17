@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BLL.Repository
+namespace Repositories.Repository
 {
     public class DepartmentRepository : IDepartmentRepository
     {

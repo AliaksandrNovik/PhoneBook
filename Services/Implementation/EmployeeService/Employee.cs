@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL;
+using Repositories;
 using Services.Facade;
 
 namespace Services.Implementation
@@ -25,7 +25,7 @@ namespace Services.Implementation
             this.DepartmentId = departmentId;
         }
 
-        public Employee(BLL.Employee repEmployee)
+        public Employee(Repositories.Employee repEmployee)
         {
             this.Id = repEmployee.Id;
             this.FirstName = repEmployee.FirstName;
