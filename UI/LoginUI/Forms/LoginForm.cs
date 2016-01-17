@@ -38,7 +38,7 @@ namespace UI.LoginUI
             }
         }
         
-        public new void Show()
+        public void Run()
         {
             _context.MainForm = this;
             Application.Run(_context);
@@ -86,9 +86,10 @@ namespace UI.LoginUI
                     }
                     if (form != null)
                     {
-                        _context.MainForm = form;
-                        this.Close();
+                        this.Hide();
                         form.Show();
+                        form.FormClosing += (closeSender, closeArgs) =>
+                         { this.Show(); };
                     }
                 }
             }
