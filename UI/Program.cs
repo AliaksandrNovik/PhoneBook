@@ -24,7 +24,7 @@ namespace UI
 
             var context = new ApplicationContext();
             var loginForm = new LoginForm(new Services.Implementation.LoginService(), new ApplicationContext());
-            loginForm.Show();
+            loginForm.Run();
         }
     }
 }
