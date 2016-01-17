@@ -9,7 +9,7 @@ namespace Services.Implementation
 {
     public class CallSession : ICallSession
     {
-        public CallSession(BLL.Entities.PhoneStatistic phoneStat):
+        public CallSession(Repositories.Entities.PhoneStatistic phoneStat):
             this(phoneStat.Id, phoneStat.PhoneId, phoneStat.TargetPhone, phoneStat.DateAndTime,
                 phoneStat.DurationSecs, phoneStat.PriceForMinute)
         { }

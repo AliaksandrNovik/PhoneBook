@@ -293,7 +293,7 @@ namespace UI.ManagerUI
                 var birthday = editForm.Birthday;
                 var place = editForm.Place;
                 var sysDate = DateTime.Parse(editForm.Birthday);
-                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+                var date = new Repositories.Date(sysDate.Day, sysDate.Month, sysDate.Year);
                 var newEmployee = _employeeService.CreateEmployee
                     (
                     firstName, lastName, patronym,
@@ -355,7 +355,7 @@ namespace UI.ManagerUI
                 var birthday = editForm.Birthday;
                 var place = editForm.Place;
                 var sysDate = DateTime.Parse(editForm.Birthday);
-                var date = new BLL.Date(sysDate.Day, sysDate.Month, sysDate.Year);
+                var date = new Repositories.Date(sysDate.Day, sysDate.Month, sysDate.Year);
 
                 var currentEmployee = currentEmployeeWrap.Item;
                 currentEmployee.FirstName = firstName;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BLL.Properties
+namespace Repositories.Properties
 {
 
 

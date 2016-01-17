@@ -7,7 +7,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BLL.Serialization
+namespace Repositories.Serialization
 {
     class Serializer
     {

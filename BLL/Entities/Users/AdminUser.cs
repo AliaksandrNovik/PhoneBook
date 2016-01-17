@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BLL
+namespace Repositories
 {
     public class AdminUser : Identified
     {

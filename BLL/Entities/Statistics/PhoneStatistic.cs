@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BLL.Entities
+namespace Repositories.Entities
 {
     public class PhoneStatistic : Identified
     {

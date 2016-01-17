@@ -16,7 +16,7 @@
         string Patronym
         { get; set; }
 
-        BLL.Date BirthDate
+        Repositories.Date BirthDate
         { get; set; }
 
         string Place
